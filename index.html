@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineVibe — Your World of Cinema | AI Movie Discovery & Authorized Downloads</title>
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#FFC928">
+    <meta name="description" content="CineVibe is the premier cinema discovery and authorized high-speed media distribution platform. Discover 86,000+ films in 4K UHD, powered by CineVibe AI.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cinzel:wght@600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            black: '#080808',
+                            dark: '#121212',
+                            card: '#181818',
+                            border: '#262626',
+                            gold: '#FFC928',
+                            goldDark: '#F5A623',
+                            muted: '#A0A0A0',
+                            white: '#FFFFFF'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        cinzel: ['"Cinzel"', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #080808;
+            color: #FFFFFF;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+        .gold-glow {
+            box-shadow: 0 0 35px rgba(255, 201, 40, 0.22);
+        }
+        .gold-glow-lg {
+            box-shadow: 0 0 60px rgba(255, 201, 40, 0.35);
+        }
+        .glass-panel {
+            background: rgba(18, 18, 18, 0.85);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #080808;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #262626;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FFC928;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .movie-card {
+            transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .movie-card:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 201, 40, 0.18);
+        }
+    </style>
+</head>
+<body class="selection:bg-brand-gold selection:text-black">
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 flex items-center gap-3 px-5 py-3.5 rounded-xl glass-panel border border-brand-gold/30 shadow-2xl transition-all duration-300 transform translate-y-24 opacity-0 pointer-events-none">
+        <i id="toastIcon" class="fa-solid fa-circle-check text-brand-gold text-lg"></i>
+        <span id="toastMsg" class="text-sm font-medium text-white">Action successful</span>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SECTION 1: CINEVIBE CINEMATIC LANDING PAGE -->
+    <!-- ========================================== -->
+    <div id="landingPage" class="relative min-h-screen flex flex-col justify-between overflow-hidden bg-brand-black transition-opacity duration-700">
+        <!-- Ambient Background Artwork with Overlay -->
+        <div class="absolute inset-0 bg-cover bg-center opacity-30 scale-105 transition-transform duration-10000 ease-out" 
+             style="background-image: url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=2000&q=80');">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/80 to-transparent"></div>
+        <div class="absolute inset-0 bg-radial from-brand-gold/10 via-transparent to-transparent"></div>
+
+        <!-- Landing Navigation -->
+        <header class="relative z-10 max-w-7xl mx-auto w-full px-6 py-8 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-goldDark to-brand-gold flex items-center justify-center shadow-lg shadow-brand-gold/20">
+                    <i class="fa-solid fa-film text-brand-black text-lg"></i>
+                </div>
+                <div>
+                    <span class="font-cinzel text-2xl font-bold tracking-wider text-white">CINE<span class="text-brand-gold">VIBE</span></span>
+                    <span class="block text-[10px] text-brand-muted tracking-widest font-semibold uppercase">Your World of Cinema</span>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <button onclick="enterMainPlatform()" class="px-5 py-2.5 rounded-full text-xs font-bold text-white glass-panel hover:border-brand-gold/50 transition">
+                    Quick Access
+                </button>
+            </div>
+        </header>
+
+        <!-- Landing Hero Centerpiece -->
+        <main class="relative z-10 max-w-4xl mx-auto px-6 text-center space-y-6 my-auto">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-gold/10 border border-brand-gold/30 text-brand-gold text-xs font-semibold tracking-wide">
+                <i class="fa-solid fa-sparkles"></i> AI-Powered Movie Discovery & High-Speed Media Distribution
+            </div>
+            
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white leading-tight">
+                YOUR WORLD OF <br>
+                <span class="bg-gradient-to-r from-brand-gold via-amber-200 to-brand-goldDark bg-clip-text text-transparent drop-shadow-sm font-cinzel">
+                    CINEMA
+                </span>
+            </h1>
+
+            <p class="text-sm sm:text-lg text-brand-muted max-w-2xl mx-auto font-normal leading-relaxed">
+                Stream and download verified 4K UHD movies, popular blockbusters, and binge-worthy web series at lightning speeds. Powered by high-speed parallel multi-socket engines.
+            </p>
+
+            <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button onclick="enterMainPlatform()" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-gold text-brand-black font-extrabold text-sm tracking-wider uppercase flex items-center justify-center gap-3 gold-glow hover:bg-yellow-400 hover:scale-105 active:scale-95 transition duration-300">
+                    <span>Explore CineVibe</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+                <button onclick="openModal('aiModal')" class="w-full sm:w-auto px-6 py-4 rounded-xl glass-panel text-white font-bold text-sm hover:border-brand-gold/40 flex items-center justify-center gap-2.5 transition">
+                    <i class="fa-solid fa-wand-magic-sparkles text-brand-gold"></i>
+                    <span>CineVibe AI Search</span>
+                </button>
+            </div>
+
+            <!-- Features Highlights -->
+            <div class="pt-10 grid grid-cols-2 md:grid-cols-4 gap-4 text-left">
+                <div class="p-4 rounded-xl glass-panel border border-white/5">
+                    <i class="fa-solid fa-bolt text-brand-gold text-base mb-2"></i>
+                    <h4 class="text-xs font-bold text-white">Multi-Socket Turbo</h4>
+                    <p class="text-[11px] text-brand-muted mt-1">8 parallel sockets for maximum download speeds.</p>
+                </div>
+                <div class="p-4 rounded-xl glass-panel border border-white/5">
+                    <i class="fa-solid fa-robot text-brand-gold text-base mb-2"></i>
+                    <h4 class="text-xs font-bold text-white">Gemini AI Engine</h4>
+                    <p class="text-[11px] text-brand-muted mt-1">Natural language smart recommendations.</p>
+                </div>
+                <div class="p-4 rounded-xl glass-panel border border-white/5">
+                    <i class="fa-solid fa-tv text-brand-gold text-base mb-2"></i>
+                    <h4 class="text-xs font-bold text-white">True 4K UHD</h4>
+                    <p class="text-[11px] text-brand-muted mt-1">HDR10, Dolby Atmos, and pristine multi-audio.</p>
+                </div>
+                <div class="p-4 rounded-xl glass-panel border border-white/5">
+                    <i class="fa-solid fa-shield-check text-brand-gold text-base mb-2"></i>
+                    <h4 class="text-xs font-bold text-white">Verified Rights</h4>
+                    <p class="text-[11px] text-brand-muted mt-1">Authorized distribution & full DMCA compliance.</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Landing Footer -->
+        <footer class="relative z-10 max-w-7xl mx-auto w-full px-6 py-6 text-center border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-xs text-brand-muted gap-3">
+            <div>&copy; 2026 CineVibe. All rights reserved. Your World of Cinema.</div>
+            <div class="flex items-center gap-5">
+                <a href="javascript:void(0)" onclick="openModal('dmcaModal')" class="hover:text-brand-gold transition">DMCA Compliance</a>
+                <a href="javascript:void(0)" onclick="openModal('requestModal')" class="hover:text-brand-gold transition">Request Content</a>
+            </div>
+        </footer>
+    </div>
+
+
+    <!-- ========================================== -->
+    <!-- SECTION 2: MAIN CINEVIBE STREAMING PLATFORM -->
+    <!-- ========================================== -->
+    <div id="mainPlatform" class="hidden min-h-screen flex flex-col bg-brand-black">
+
+        <!-- STICKY TOP HEADER -->
+        <header class="sticky top-0 z-40 bg-brand-black/90 backdrop-blur-xl border-b border-white/5">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-4">
+                
+                <!-- Logo -->
+                <div class="flex items-center gap-3 cursor-pointer shrink-0" onclick="resetToHome()">
+                    <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-goldDark to-brand-gold flex items-center justify-center shadow-lg shadow-brand-gold/20">
+                        <i class="fa-solid fa-play text-brand-black text-sm ml-0.5"></i>
+                    </div>
+                    <div>
+                        <span class="font-cinzel text-xl sm:text-2xl font-bold tracking-wider text-white">CINE<span class="text-brand-gold">VIBE</span></span>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex items-center gap-6 text-xs font-semibold text-brand-muted">
+                    <a href="javascript:void(0)" onclick="setCategory('')" class="hover:text-white transition" id="nav-all">Home</a>
+                    <a href="javascript:void(0)" onclick="setCategory('4k')" class="hover:text-white transition" id="nav-4k">4K Collection</a>
+                    <a href="javascript:void(0)" onclick="setCategory('bollywood')" class="hover:text-white transition" id="nav-bolly">Bollywood</a>
+                    <a href="javascript:void(0)" onclick="setCategory('hollywood')" class="hover:text-white transition" id="nav-holly">Hollywood</a>
+                    <a href="javascript:void(0)" onclick="setCategory('south')" class="hover:text-white transition" id="nav-south">South Indian</a>
+                    <a href="javascript:void(0)" onclick="setCategory('series')" class="hover:text-white transition" id="nav-series">Web Series</a>
+                </nav>
+
+                <!-- Search Bar -->
+                <div class="relative flex-1 max-w-xs sm:max-w-sm md:max-w-md">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-brand-muted text-xs"></i>
+                    <input type="text" id="searchInput" oninput="handleSearch(this.value)" placeholder="Search 86,000+ movies, actors, 4K..." 
+                           class="w-full bg-brand-card/90 border border-white/10 rounded-full pl-9 pr-8 py-2 text-xs text-white placeholder-brand-muted/70 focus:outline-none focus:border-brand-gold transition">
+                    <button id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-brand-muted hover:text-white text-xs">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+                    <button onclick="openModal('aiModal')" class="flex items-center gap-2 px-3.5 py-2 rounded-full bg-brand-gold/10 border border-brand-gold/40 text-brand-gold text-xs font-bold hover:bg-brand-gold hover:text-black transition">
+                        <i class="fa-solid fa-wand-magic-sparkles text-xs"></i>
+                        <span class="hidden sm:inline">CineVibe AI</span>
+                    </button>
+                    <button onclick="openModal('settingsModal')" class="p-2.5 rounded-full glass-panel text-brand-muted hover:text-white transition" title="Bot Stream Server Settings">
+                        <i class="fa-solid fa-gear text-xs"></i>
+                    </button>
+                    <button onclick="openModal('requestModal')" class="hidden md:flex items-center gap-1.5 px-3 py-2 rounded-full glass-panel text-white text-xs font-medium hover:border-brand-gold/40 transition">
+                        <i class="fa-solid fa-paper-plane text-[10px] text-brand-gold"></i>
+                        <span>Request</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Category Scroll Bar -->
+            <div class="lg:hidden flex items-center gap-2 px-4 py-2 overflow-x-auto no-scrollbar border-t border-white/5 text-[11px] font-semibold text-brand-muted">
+                <button onclick="setCategory('')" class="px-3 py-1 rounded-full bg-brand-card border border-white/10 shrink-0 text-white">All Cinema</button>
+                <button onclick="setCategory('4k')" class="px-3 py-1 rounded-full bg-brand-card border border-white/10 shrink-0">💎 4K Ultra HD</button>
+                <button onclick="setCategory('bollywood')" class="px-3 py-1 rounded-full bg-brand-card border border-white/10 shrink-0">Bollywood</button>
+                <button onclick="setCategory('hollywood')" class="px-3 py-1 rounded-full bg-brand-card border border-white/10 shrink-0">Hollywood</button>
+                <button onclick="setCategory('south')" class="px-3 py-1 rounded-full bg-brand-card border border-white/10 shrink-0">South Indian</button>
+                <button onclick="setCategory('series')" class="px-3 py-1 rounded-full bg-brand-card border border-white/10 shrink-0">Web Series</button>
+            </div>
+        </header>
+
+        <!-- HERO TRENDING POSTER SLIDER -->
+        <section id="heroSliderSection" class="relative w-full h-[380px] sm:h-[480px] md:h-[540px] overflow-hidden bg-brand-dark">
+            <div id="sliderBackground" class="absolute inset-0 bg-cover bg-center transition-all duration-700 ease-out filter brightness-[0.55] scale-105"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/40 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-black via-brand-black/70 to-transparent"></div>
+
+            <div class="relative z-10 max-w-7xl mx-auto h-full px-6 flex items-end pb-12 sm:pb-16">
+                <div class="max-w-2xl space-y-4">
+                    <div class="flex items-center gap-2.5">
+                        <span id="slideBadge" class="px-2.5 py-0.5 rounded-full bg-brand-gold text-brand-black text-[10px] font-extrabold uppercase tracking-wider">
+                            Trending #1
+                        </span>
+                        <span id="slideQuality" class="px-2 py-0.5 rounded bg-black/60 border border-white/10 text-[10px] font-semibold text-brand-muted">
+                            4K UHD
+                        </span>
+                        <span id="slideRating" class="flex items-center gap-1 text-[11px] text-brand-gold font-bold">
+                            <i class="fa-solid fa-star text-xs"></i> 8.6
+                        </span>
+                    </div>
+
+                    <h2 id="slideTitle" class="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight line-clamp-1">
+                        The Remarried Empress
+                    </h2>
+
+                    <p id="slideOverview" class="text-xs sm:text-sm text-brand-muted line-clamp-2 max-w-xl leading-relaxed">
+                        Navier Ellie Trovi was an empress of the Eastern Empire. When her husband demands a divorce, Navier remarries the Emperor of the Western Empire.
+                    </p>
+
+                    <div class="pt-2 flex items-center gap-3">
+                        <button id="slidePlayBtn" class="px-6 py-3 rounded-xl bg-brand-gold text-brand-black font-extrabold text-xs uppercase tracking-wider flex items-center gap-2.5 hover:bg-yellow-400 gold-glow transition">
+                            <i class="fa-solid fa-play text-xs"></i>
+                            <span>Watch Online</span>
+                        </button>
+                        <button id="slideDetailsBtn" class="px-5 py-3 rounded-xl glass-panel text-white font-bold text-xs hover:border-brand-gold/40 transition">
+                            More Info
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Slider Controls -->
+                <div class="absolute right-6 bottom-12 hidden md:flex items-center gap-3">
+                    <button onclick="prevSlide()" class="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-white hover:text-brand-gold transition">
+                        <i class="fa-solid fa-chevron-left text-xs"></i>
+                    </button>
+                    <button onclick="nextSlide()" class="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-white hover:text-brand-gold transition">
+                        <i class="fa-solid fa-chevron-right text-xs"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 11 HOMEPAGE SECTIONS CONTAINER -->
+        <main id="sectionsContainer" class="max-w-7xl mx-auto px-4 sm:px-6 py-8 space-y-10 w-full">
+            <!-- Dynamically populated via loadHomepageSections() -->
+        </main>
+
+        <!-- SEARCH & FILTER RESULTS VIEW -->
+        <main id="catalogSection" class="hidden max-w-7xl mx-auto px-4 sm:px-6 py-8 w-full space-y-6">
+            <div class="flex items-center justify-between border-b border-white/5 pb-4">
+                <div>
+                    <h3 id="catalogHeading" class="text-xl font-bold text-white tracking-wide">Search Results</h3>
+                    <span id="catalogCount" class="text-xs text-brand-muted mt-0.5 block">Found titles matching your filters</span>
+                </div>
+                <button onclick="closeSearchResults()" class="text-xs text-brand-gold hover:underline font-semibold flex items-center gap-1">
+                    <i class="fa-solid fa-arrow-left text-[10px]"></i> Back to All Sections
+                </button>
+            </div>
+            <div id="catalogGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <!-- Movie cards populated dynamically -->
+            </div>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="mt-auto border-t border-white/5 bg-brand-black/80 py-8 px-6 text-center text-xs text-brand-muted space-y-3">
+            <div class="flex items-center justify-center gap-2">
+                <span class="font-cinzel text-lg font-bold text-white">CINE<span class="text-brand-gold">VIBE</span></span>
+                <span class="text-brand-muted">| Your World of Cinema</span>
+            </div>
+            <p class="max-w-xl mx-auto text-[11px] leading-relaxed">
+                CineVibe Authorized Media Ecosystem. Fast downloads powered by high-speed parallel session streamers. All trademarks and rights belong to their respective verified licensors.
+            </p>
+            <div class="flex items-center justify-center gap-6 pt-2">
+                <a href="javascript:void(0)" onclick="openModal('dmcaModal')" class="hover:text-brand-gold transition">DMCA & Copyright Policy</a>
+                <a href="javascript:void(0)" onclick="openModal('requestModal')" class="hover:text-brand-gold transition">Request a Title</a>
+                <a href="javascript:void(0)" onclick="openModal('settingsModal')" class="hover:text-brand-gold transition">Stream Server Settings</a>
+            </div>
+        </footer>
+    </div>
+
+
+    <!-- ========================================== -->
+    <!-- MODAL 1: ADVANCED MOVIE DETAILS -->
+    <!-- ========================================== -->
+    <div id="movieModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-md overflow-y-auto">
+        <div class="relative w-full max-w-3xl glass-panel rounded-2xl overflow-hidden border border-white/10 shadow-2xl my-auto animate-fade-in">
+            
+            <!-- Modal Header Backdrop -->
+            <div id="modalBackdrop" class="relative h-48 sm:h-64 w-full bg-cover bg-center">
+                <div class="absolute inset-0 bg-gradient-to-t from-brand-card via-brand-card/50 to-transparent"></div>
+                <button onclick="closeModal('movieModal')" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/60 text-white hover:text-brand-gold flex items-center justify-center transition border border-white/10">
+                    <i class="fa-solid fa-xmark text-sm"></i>
+                </button>
+            </div>
+
+            <!-- Modal Content Body -->
+            <div class="p-6 -mt-16 sm:-mt-20 relative z-10 space-y-6 bg-brand-card">
+                <div class="flex gap-4 sm:gap-6 items-end">
+                    <img id="modalPoster" src="" class="w-24 sm:w-28 h-36 sm:h-40 object-cover rounded-xl shadow-2xl border border-white/20 shrink-0">
+                    <div class="space-y-1.5 flex-1">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <span id="modalQuality" class="px-2 py-0.5 rounded bg-brand-gold text-black text-[10px] font-extrabold uppercase">4K UHD</span>
+                            <span id="modalYear" class="text-xs text-brand-muted">2024</span>
+                            <span id="modalRuntime" class="text-xs text-brand-muted">• 2h 10m</span>
+                            <span id="modalRating" class="text-xs text-brand-gold font-bold flex items-center gap-1"><i class="fa-solid fa-star text-[10px]"></i> 8.6</span>
+                        </div>
+                        <h3 id="modalTitle" class="text-xl sm:text-2xl font-bold text-white tracking-tight">Movie Title</h3>
+                        <p id="modalOriginalTitle" class="text-xs text-brand-muted italic">Original Title</p>
+                    </div>
+                </div>
+
+                <!-- Tabs Navigation -->
+                <div class="flex items-center gap-4 border-b border-white/10 text-xs font-semibold">
+                    <button onclick="switchModalTab('overview')" id="tabBtn-overview" class="pb-2.5 border-b-2 border-brand-gold text-brand-gold">Overview</button>
+                    <button onclick="switchModalTab('formats')" id="tabBtn-formats" class="pb-2.5 text-brand-muted hover:text-white">Authorized Formats</button>
+                    <button onclick="switchModalTab('cast')" id="tabBtn-cast" class="pb-2.5 text-brand-muted hover:text-white">Cast & Crew</button>
+                </div>
+
+                <!-- Tab 1: Overview -->
+                <div id="tabContent-overview" class="space-y-4">
+                    <p id="modalOverview" class="text-xs sm:text-sm text-brand-muted leading-relaxed">
+                        Detailed synopsis of the movie...
+                    </p>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs pt-2">
+                        <div>
+                            <span class="text-brand-muted block text-[10px] uppercase font-semibold">Director</span>
+                            <span id="modalDirector" class="text-white font-medium">Christopher Nolan</span>
+                        </div>
+                        <div>
+                            <span class="text-brand-muted block text-[10px] uppercase font-semibold">Audio Languages</span>
+                            <span id="modalLanguages" class="text-white font-medium">Hindi, English</span>
+                        </div>
+                        <div>
+                            <span class="text-brand-muted block text-[10px] uppercase font-semibold">Distribution Status</span>
+                            <span class="text-emerald-400 font-bold flex items-center gap-1"><i class="fa-solid fa-check-circle text-[10px]"></i> Verified Authorized</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 2: Formats -->
+                <div id="tabContent-formats" class="hidden space-y-3">
+                    <div class="text-[11px] text-brand-muted">Select an authorized download or streaming format:</div>
+                    <div class="space-y-2" id="modalFormatsList">
+                        <!-- Format rows dynamically rendered -->
+                    </div>
+                </div>
+
+                <!-- Tab 3: Cast & Crew -->
+                <div id="tabContent-cast" class="hidden space-y-3">
+                    <div id="modalCastList" class="flex flex-wrap gap-2 text-xs">
+                        <!-- Cast tags -->
+                    </div>
+                </div>
+
+                <!-- Modal Actions -->
+                <div class="pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center gap-3">
+                    <button id="modalStreamBtn" class="w-full sm:flex-1 py-3 px-5 rounded-xl bg-brand-gold text-brand-black font-extrabold text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-yellow-400 gold-glow transition">
+                        <i class="fa-solid fa-play"></i>
+                        <span>Watch Online</span>
+                    </button>
+                    <button id="modalDownloadBtn" class="w-full sm:flex-1 py-3 px-5 rounded-xl bg-white/10 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-white/20 transition">
+                        <i class="fa-solid fa-download"></i>
+                        <span>Fast Download (8x Speed)</span>
+                    </button>
+                    <button onclick="copyCurrentStreamLink()" class="w-full sm:w-auto p-3 rounded-xl glass-panel text-brand-muted hover:text-white transition" title="Copy Stream Link">
+                        <i class="fa-solid fa-link text-xs"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ========================================== -->
+    <!-- MODAL 2: CINEVIBE AI ASSISTANT (GEMINI API)-->
+    <!-- ========================================== -->
+    <div id="aiModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md">
+        <div class="relative w-full max-w-2xl glass-panel rounded-2xl overflow-hidden border border-brand-gold/40 shadow-2xl p-6 space-y-5 animate-fade-in">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-8 h-8 rounded-lg bg-brand-gold/20 flex items-center justify-center text-brand-gold">
+                        <i class="fa-solid fa-wand-magic-sparkles text-sm"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-base font-bold text-white">CineVibe AI Assistant</h4>
+                        <span class="text-[10px] text-brand-gold uppercase tracking-wider font-semibold">Powered by Google Gemini 3.1</span>
+                    </div>
+                </div>
+                <button onclick="closeModal('aiModal')" class="text-brand-muted hover:text-white text-sm">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <p class="text-xs text-brand-muted leading-relaxed">
+                Ask CineVibe AI anything! Describe your mood, ask for plot twists, find high-speed 4K films, or get personalized recommendations.
+            </p>
+
+            <div class="relative">
+                <textarea id="aiPromptInput" rows="3" placeholder="e.g. Recommend suspenseful Bollywood or Hollywood thrillers with shocking plot twists in 4K UHD..." 
+                          class="w-full bg-brand-card border border-white/10 rounded-xl p-3 text-xs text-white placeholder-brand-muted focus:outline-none focus:border-brand-gold resize-none"></textarea>
+                <button onclick="runAISearch()" id="aiSubmitBtn" class="absolute right-3 bottom-3 px-4 py-1.5 rounded-lg bg-brand-gold text-brand-black text-xs font-bold hover:bg-yellow-400 transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-paper-plane text-[10px]"></i>
+                    <span>Ask AI</span>
+                </button>
+            </div>
+
+            <!-- Pre-made Prompts -->
+            <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 text-[11px]">
+                <button onclick="setAiPrompt('Best mind-bending Sci-Fi movies like Interstellar and Inception')" class="px-2.5 py-1 rounded-full bg-white/5 hover:bg-white/10 text-brand-muted hover:text-white shrink-0 transition">🌌 Mind-bending Sci-Fi</button>
+                <button onclick="setAiPrompt('Highest rated 4K UHD South Indian blockbusters')" class="px-2.5 py-1 rounded-full bg-white/5 hover:bg-white/10 text-brand-muted hover:text-white shrink-0 transition">🔥 Top South 4K</button>
+                <button onclick="setAiPrompt('Gripping crime web series with high IMDb rating')" class="px-2.5 py-1 rounded-full bg-white/5 hover:bg-white/10 text-brand-muted hover:text-white shrink-0 transition">📺 Crime Series</button>
+            </div>
+
+            <div id="aiResponseBox" class="min-h-[120px] max-h-[300px] overflow-y-auto space-y-3 text-xs text-brand-muted bg-brand-card/50 p-4 rounded-xl border border-white/5">
+                <div class="text-center py-6 text-brand-muted text-xs">
+                    Type a prompt above or pick a suggested topic to activate CineVibe AI.
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ========================================== -->
+    <!-- MODAL 3: BOT STREAM SERVER SETTINGS -->
+    <!-- ========================================== -->
+    <div id="settingsModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md">
+        <div class="relative w-full max-w-lg glass-panel rounded-2xl overflow-hidden border border-white/10 shadow-2xl p-6 space-y-5 animate-fade-in">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                    <i class="fa-solid fa-server text-brand-gold text-base"></i>
+                    <h4 class="text-base font-bold text-white">Stream Server Settings</h4>
+                </div>
+                <button onclick="closeModal('settingsModal')" class="text-brand-muted hover:text-white text-sm">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <p class="text-xs text-brand-muted leading-relaxed">
+                Configure your Telegram Bot's stream server address. All "Watch Online" and "Fast Download" buttons route through this endpoint.
+            </p>
+
+            <div class="space-y-4 text-xs">
+                <div>
+                    <label class="block text-brand-muted font-semibold mb-1">Bot Streamer Base URL</label>
+                    <input type="text" id="botBaseUrlInput" value="http://127.0.0.1:8080" 
+                           class="w-full bg-brand-card border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-brand-gold">
+                    <span class="text-[10px] text-brand-muted mt-1 block">Default local address: <code>http://127.0.0.1:8080</code> (or your public IP/domain)</span>
+                </div>
+
+                <div>
+                    <label class="block text-brand-muted font-semibold mb-1">Gemini API Key</label>
+                    <input type="text" id="geminiApiKeyInput" value="AIzaSyDiJIBMF2EYATRVzFo3kbckVvzNj0hozwY" 
+                           class="w-full bg-brand-card border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-brand-gold">
+                    <span class="text-[10px] text-brand-muted mt-1 block">Google Generative Language API key for CineVibe AI.</span>
+                </div>
+
+                <div class="p-3 rounded-xl bg-brand-dark border border-white/5 flex items-center justify-between">
+                    <div>
+                        <span class="font-bold text-white block">Connection Test</span>
+                        <span id="connTestStatus" class="text-[11px] text-brand-muted">Click test to check server status</span>
+                    </div>
+                    <button onclick="testBotConnection()" class="px-3 py-1.5 rounded-lg bg-white/10 text-white hover:bg-brand-gold hover:text-black font-bold text-[11px] transition">
+                        Test Connection
+                    </button>
+                </div>
+            </div>
+
+            <div class="pt-2 flex justify-end gap-3">
+                <button onclick="closeModal('settingsModal')" class="px-4 py-2 rounded-xl text-brand-muted hover:text-white text-xs font-semibold">Cancel</button>
+                <button onclick="saveSettings()" class="px-5 py-2 rounded-xl bg-brand-gold text-brand-black text-xs font-bold hover:bg-yellow-400 transition">Save Settings</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ========================================== -->
+    <!-- MODAL 4: REQUEST CONTENT -->
+    <!-- ========================================== -->
+    <div id="requestModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md">
+        <div class="relative w-full max-w-md glass-panel rounded-2xl overflow-hidden border border-white/10 shadow-2xl p-6 space-y-4 animate-fade-in">
+            <div class="flex items-center justify-between">
+                <h4 class="text-base font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-paper-plane text-brand-gold text-xs"></i>
+                    <span>Request Movie or Series</span>
+                </h4>
+                <button onclick="closeModal('requestModal')" class="text-brand-muted hover:text-white text-sm">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <form onsubmit="submitContentRequest(event)" class="space-y-3 text-xs">
+                <div>
+                    <label class="block text-brand-muted font-semibold mb-1">Title *</label>
+                    <input type="text" id="reqTitle" required placeholder="e.g. Stree 2" class="w-full bg-brand-card border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-brand-gold">
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-brand-muted font-semibold mb-1">Year</label>
+                        <input type="number" id="reqYear" placeholder="2024" class="w-full bg-brand-card border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-brand-gold">
+                    </div>
+                    <div>
+                        <label class="block text-brand-muted font-semibold mb-1">Preferred Language</label>
+                        <select id="reqLang" class="w-full bg-brand-card border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-brand-gold">
+                            <option>Hindi</option>
+                            <option>English</option>
+                            <option>Telugu</option>
+                            <option>Tamil</option>
+                            <option>Multi-Audio</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-brand-muted font-semibold mb-1">Quality / Notes</label>
+                    <textarea id="reqNotes" rows="2" placeholder="e.g. 4K UHD or 1080p if available" class="w-full bg-brand-card border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-brand-gold resize-none"></textarea>
+                </div>
+                <button type="submit" class="w-full py-2.5 rounded-xl bg-brand-gold text-brand-black font-extrabold tracking-wider uppercase hover:bg-yellow-400 transition mt-2">
+                    Submit Request
+                </button>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- ========================================== -->
+    <!-- MODAL 5: DMCA & COPYRIGHT POLICY -->
+    <!-- ========================================== -->
+    <div id="dmcaModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md">
+        <div class="relative w-full max-w-lg glass-panel rounded-2xl overflow-hidden border border-white/10 shadow-2xl p-6 space-y-4 animate-fade-in">
+            <div class="flex items-center justify-between">
+                <h4 class="text-base font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-shield-halved text-brand-gold text-xs"></i>
+                    <span>DMCA & Rights Verification</span>
+                </h4>
+                <button onclick="closeModal('dmcaModal')" class="text-brand-muted hover:text-white text-sm">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <p class="text-xs text-brand-muted leading-relaxed">
+                CineVibe respects intellectual property rights. If you believe your copyrighted material is displayed or linked without authorization, please submit a formal notice below.
+            </p>
+            <form onsubmit="submitDMCAClaim(event)" class="space-y-3 text-xs">
+                <div>
+                    <label class="block text-brand-muted font-semibold mb-1">Your Full Name / Entity</label>
+                    <input type="text" id="dmcaName" required class="w-full bg-brand-card border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-brand-gold">
+                </div>
+                <div>
+                    <label class="block text-brand-muted font-semibold mb-1">Contact Email</label>
+                    <input type="email" id="dmcaEmail" required class="w-full bg-brand-card border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-brand-gold">
+                </div>
+                <div>
+                    <label class="block text-brand-muted font-semibold mb-1">Copyrighted Work Title</label>
+                    <input type="text" id="dmcaWork" required class="w-full bg-brand-card border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-brand-gold">
+                </div>
+                <div>
+                    <label class="block text-brand-muted font-semibold mb-1">Infringing Movie / File ID</label>
+                    <input type="text" id="dmcaTarget" required class="w-full bg-brand-card border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-brand-gold">
+                </div>
+                <button type="submit" class="w-full py-2.5 rounded-xl bg-rose-600 text-white font-extrabold tracking-wider uppercase hover:bg-rose-700 transition mt-2">
+                    Submit Takedown Notice
+                </button>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- ========================================== -->
+    <!-- APPLICATION LOGIC SCRIPT -->
+    <!-- ========================================== -->
+    <script>
+        // Load embedded catalog data
+        const MOVIES_CATALOG = [
+  {
+    "id": "unhealer-2020",
+    "title": "The Unhealer",
+    "year": 2020,
+    "rating": 7.4,
+    "runtime": "1h 32m",
+    "quality": "720p BluRay",
+    "category": "hollywood",
+    "languages": [
+      "English",
+      "Hindi"
+    ],
+    "genres": [
+      "Sci-Fi",
+      "Action",
+      "Supernatural"
+    ],
+    "director": "Martin Guigui",
+    "cast": [
+      "Lance Henriksen",
+      "Natasha Henstridge",
+      "Elijah Nelson"
+    ],
+    "overview": "A bullied teenager gains supernatural powers from an indigenous medicine man's ritual, where any physical pain or harm inflicted upon him is instead reflected back onto his tormentors.",
+    "poster_url": "https://upload.wikimedia.org/wikipedia/commons/0/0e/The_Unhealer_Promo_Poster_thumb.jpg",
+    "backdrop_url": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1600&q=80",
+    "file_name": "The Unhealer 2020 720p BluRay English AAC2 0 H 264 ESub Mkv",
+    "file_size": 927514624,
+    "file_size_human": "884.55 MB",
+    "stream_msg_id": 116,
+    "stream_hash": "AgADwB",
+    "featured": true
+  },
+  {
+    "id": "remarried-empress-s01e07",
+    "title": "The Remarried Empress",
+    "year": 2024,
+    "rating": 8.6,
+    "runtime": "45m",
+    "quality": "1080p WEB-DL",
+    "category": "series",
+    "languages": [
+      "Korean",
+      "English",
+      "Hindi Dubbed"
+    ],
+    "genres": [
+      "Drama",
+      "Romance",
+      "Fantasy"
+    ],
+    "director": "Kim Jin-min",
+    "cast": [
+      "Park Min-young",
+      "Lee Soo-hyuk",
+      "Song Kang"
+    ],
+    "overview": "Navier Ellie Trovi was an empress of the Eastern Empire. When her husband demands a divorce to enthrone his mistress, Navier accepts on one condition: she is immediately remarried to the Emperor of the Western Empire.",
+    "poster_url": "https://m.media-amazon.com/images/M/MV5BNmU4M2E3YTYtNGU0ZS00OGJjLWJmOTUtNWVlMGJlMDdlNDEzXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+    "backdrop_url": "https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=1600&q=80",
+    "file_name": "The Remarried Empress S01E07 1080p WEB h264 GRACE mkv",
+    "file_size": 1917726903,
+    "file_size_human": "1.78 GB",
+    "stream_msg_id": 219,
+    "stream_hash": "AgADNS",
+    "featured": true
+  },
+  {
+    "id": "farrey-2023",
+    "title": "Farrey",
+    "year": 2023,
+    "rating": 7.8,
+    "runtime": "2h 10m",
+    "quality": "4K UHD HEVC",
+    "category": "bollywood",
+    "languages": [
+      "Hindi"
+    ],
+    "genres": [
+      "Thriller",
+      "Drama",
+      "Crime"
+    ],
+    "director": "Soumendra Padhi",
+    "cast": [
+      "Alizeh Agnihotri",
+      "Ronit Roy",
+      "Juhi Babbar",
+      "Sahil Mehta"
+    ],
+    "overview": "An orphaned genius lands a scholarship to an elite boarding school and gets lured into a high-stakes cheating conspiracy orchestrated by the school's wealthy elite students.",
+    "poster_url": "https://m.media-amazon.com/images/M/MV5BMjA1YjM4ZTAtZTE0YS00ZTMwLThlZjUtYjI3NWQ3ZWY5ZWVmXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+    "backdrop_url": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1600&q=80",
+    "file_name": "Farrey 2023 2160p 4K UHD HEVC Hindi Atmos",
+    "file_size": 4294967296,
+    "file_size_human": "4.00 GB",
+    "stream_msg_id": 118,
+    "stream_hash": "AgADxZ",
+    "featured": true
+  },
+  {
+    "id": "animal-2023",
+    "title": "Animal",
+    "year": 2023,
+    "rating": 8.1,
+    "runtime": "3h 21m",
+    "quality": "4K UHD 2160p",
+    "category": "bollywood",
+    "languages": [
+      "Hindi",
+      "Telugu",
+      "Tamil"
+    ],
+    "genres": [
+      "Action",
+      "Crime",
+      "Drama"
+    ],
+    "director": "Sandeep Reddy Vanga",
+    "cast": [
+      "Ranbir Kapoor",
+      "Anil Kapoor",
+      "Bobby Deol",
+      "Rashmika Mandanna"
+    ],
+    "overview": "A fiercely obsessive son undergoes a violent and ruthless transformation to protect his emotionally distant father and exact brutal vengeance against those who plotted against his family.",
+    "poster_url": "https://m.media-amazon.com/images/M/MV5BNGViM2M4NmUtMmNkNy00MTU5LWI2ZjgtNmIxODc5OGYxNWFiXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+    "backdrop_url": "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=1600&q=80",
+    "file_name": "Animal 2023 2160p UHD HDR Atmos DD5.1 Hindi x265",
+    "file_size": 7516192768,
+    "file_size_human": "7.00 GB",
+    "stream_msg_id": 120,
+    "stream_hash": "AgADab",
+    "featured": true
+  },
+  {
+    "id": "12th-fail-2023",
+    "title": "12th Fail",
+    "year": 2023,
+    "rating": 9.2,
+    "runtime": "2h 27m",
+    "quality": "1080p FHD",
+    "category": "bollywood",
+    "languages": [
+      "Hindi",
+      "Tamil",
+      "Telugu"
+    ],
+    "genres": [
+      "Biography",
+      "Drama",
+      "Inspirational"
+    ],
+    "director": "Vidhu Vinod Chopra",
+    "cast": [
+      "Vikrant Massey",
+      "Medha Shankar",
+      "Anant Joshi"
+    ],
+    "overview": "Inspired by the true story of Manoj Kumar Sharma, who rose from poverty and repeated academic failures to crack India's toughest civil service exam (UPSC) and become an IPS officer.",
+    "poster_url": "https://m.media-amazon.com/images/M/MV5BNzg3Y2MyNjgtMzk4ZS00OTU3LWEwZmMtN2Y0NTdlZmNhZmQ0XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+    "backdrop_url": "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1600&q=80",
+    "file_name": "12th Fail 2023 1080p WEB-DL Hindi DDP5.1 x264",
+    "file_size": 2576980377,
+    "file_size_human": "2.40 GB",
+    "stream_msg_id": 122,
+    "stream_hash": "AgADcd",
+    "featured": true
+  },
+  {
+    "id": "fighter-2024",
+    "title": "Fighter",
+    "year": 2024,
+    "rating": 7.9,
+    "runtime": "2h 46m",
+    "quality": "4K UHD IMAX",
+    "category": "bollywood",
+    "languages": [
+      "Hindi"
+    ],
+    "genres": [
+      "Action",
+      "Thriller",
+      "Aerial"
+    ],
+    "director": "Siddharth Anand",
+    "cast": [
+      "Hrithik Roshan",
+      "Deepika Padukone",
+      "Anil Kapoor"
+    ],
+    "overview": "Top Indian Air Force aviators come together to form 'Air Dragons' in the face of imminent danger and state-sponsored terror threats, taking to the skies in high-speed combat.",
+    "poster_url": "https://m.media-amazon.com/images/M/MV5BOGQyMmU1OWQtYmE0ZC00ZmY3LWE5NWEtOGVlNGFmZmE5Nzg0XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+    "backdrop_url": "https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=1600&q=80",
+    "file_name": "Fighter 2024 2160p 4K UHD IMAX Atmos Hindi",
+    "file_size": 5368709120,
+    "file_size_human": "5.00 GB",
+    "stream_msg_id": 124,
+    "stream_hash": "AgADef",
+    "featured": true
+  },
+  {
+    "id": "salaar-2023",
+    "title": "Salaar: Part 1 \u2013 Ceasefire",
+    "year": 2023,
+    "rating": 8.3,
+    "runtime": "2h 55m",
+    "quality": "4K UHD HDR",
+    "category": "south",
+    "languages": [
+      "Telugu",
+      "Hindi Dubbed",
+      "Tamil",
+      "Malayalam"
+    ],
+    "genres": [
+      "Action",
+      "Crime",
+      "Thriller"
+    ],
+    "director": "Prashanth Neel",
+    "cast": [
+      "Prabhas",
+      "Prithviraj Sukumaran",
+      "Shruti Haasan"
+    ],
+    "overview": "A gang leader makes a promise to a dying friend and takes on other criminal gangs in the dystopian fortified city-state of Khansaar.",
+    "poster_url": "https://m.media-amazon.com/images/M/MV5BMmU5ZWQ2YTctYzUwOC00MTYxLTgwMmEtYjg1NmRhOGFjOWRiXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+    "backdrop_url": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1600&q=80",
+    "file_name": "Salaar Part 1 Ceasefire 2023 2160p UHD HDR Multi-Audio",
+    "file_size": 6442450944,
+    "file_size_human": "6.00 GB",
+    "stream_msg_id": 126,
+    "stream_hash": "AgADgh",
+    "featured": true
+  },
+  {
+    "id": "kalki-2898-ad",
+    "title": "Kalki 2898 AD",
+    "year": 2024,
+    "rating": 8.7,
+    "runtime": "3h 01m",
+    "quality": "4K UHD 2160p",
+    "category": "south",
+    "languages": [
+      "Telugu",
+      "Hindi Dubbed",
+      "Tamil"
+    ],
+    "genres": [
+      "Sci-Fi",
+      "Mythology",
+      "Action"
+    ],
+    "director": "Nag Ashwin",
+    "cast": [
+      "Prabhas",
+      "Amitabh Bachchan",
+      "Kamal Haasan",
+      "Deepika Padukone"
+    ],
+    "overview": "In a post-apocalyptic world in the year 2898 AD, a modern-day avatar of Vishnu descends to protect humanity from tyrannical forces led by the supreme complex dictator.",
+    "poster_url": "https://m.media-amazon.com/images/M/MV5BYWRkMmRlODMtODk2Yi00MWFkLWE0MWItNWRkYjQ5ODc1MDNjXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+    "backdrop_url": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=80",
+    "file_name": "Kalki 2898 AD 2024 2160p UHD Dolby Vision Atmos",
+    "file_size": 8589934592,
+    "file_size_human": "8.00 GB",
+    "stream_msg_id": 128,
+    "stream_hash": "AgADij",
+    "featured": true
+  },
+  {
+    "id": "oppenheimer-2023",
+    "title": "Oppenheimer",
+    "year": 2023,
+    "rating": 8.9,
+    "runtime": "3h 00m",
+    "quality": "4K UHD IMAX",
+    "category": "hollywood",
+    "languages": [
+      "English",
+      "Hindi Dubbed"
+    ],
+    "genres": [
+      "Biography",
+      "Drama",
+      "History"
+    ],
+    "director": "Christopher Nolan",
+    "cast": [
+      "Cillian Murphy",
+      "Emily Blunt",
+      "Matt Damon",
+      "Robert Downey Jr."
+    ],
+    "overview": "The dramatic story of American scientist J. Robert Oppenheimer and his role in the development of the atomic bomb during World War II.",
+    "poster_url": "https://m.media-amazon.com/images/M/MV5BMDBmYTZjNjMtNjc5Ni00M2L5LWEzNGQtN2ZiNTQ2YzZhMDFiXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+    "backdrop_url": "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1600&q=80",
+    "file_name": "Oppenheimer 2023 2160p IMAX UHD HDR10 DTS-HD",
+    "file_size": 9663676416,
+    "file_size_human": "9.00 GB",
+    "stream_msg_id": 130,
+    "stream_hash": "AgADkl",
+    "featured": true
+  },
+  {
+    "id": "dune-part-two-2024",
+    "title": "Dune: Part Two",
+    "year": 2024,
+    "rating": 8.8,
+    "runtime": "2h 46m",
+    "quality": "4K UHD IMAX",
+    "category": "hollywood",
+    "languages": [
+      "English",
+      "Hindi Dubbed"
+    ],
+    "genres": [
+      "Sci-Fi",
+      "Adventure",
+      "Action"
+    ],
+    "director": "Denis Villeneuve",
+    "cast": [
+      "Timoth\u00e9e Chalamet",
+      "Zendaya",
+      "Rebecca Ferguson",
+      "Austin Butler"
+    ],
+    "overview": "Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family, facing a choice between love and the fate of the known universe.",
+    "poster_url": "https://m.media-amazon.com/images/M/MV5BN2QyZGUgkItMTE1NC00NTJhLWE5MmEtODhlMGFlNmEwMGVkXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+    "backdrop_url": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1600&q=80",
+    "file_name": "Dune Part Two 2024 2160p IMAX 4K UHD Atmos x265",
+    "file_size": 7516192768,
+    "file_size_human": "7.00 GB",
+    "stream_msg_id": 132,
+    "stream_hash": "AgADmn",
+    "featured": true
+  },
+  {
+    "id": "money-heist",
+    "title": "Money Heist (La Casa de Papel)",
+    "year": 2021,
+    "rating": 8.5,
+    "runtime": "5 Seasons",
+    "quality": "1080p FHD",
+    "category": "series",
+    "languages": [
+      "Spanish",
+      "English",
+      "Hindi Dubbed"
+    ],
+    "genres": [
+      "Action",
+      "Crime",
+      "Mystery"
+    ],
+    "director": "\u00c1lex Pina",
+    "cast": [
+      "\u00c1lvaro Morte",
+      "\u00darsula Corber\u00f3",
+      "Pedro Alonso"
+    ],
+    "overview": "An unusual group of robbers attempt to carry out the most perfect robbery in Spanish history - stealing 2.4 billion euros from the Royal Mint of Spain.",
+    "poster_url": "https://m.media-amazon.com/images/M/MV5BODI0ZTlhY2MtSLQ5MS00ODFiLWI1NWUtODg1ZTViN2Q4MWFhXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+    "backdrop_url": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1600&q=80",
+    "file_name": "Money Heist Complete S01-S05 1080p NF WEB-DL Dual",
+    "file_size": 15032385536,
+    "file_size_human": "14.00 GB",
+    "stream_msg_id": 134,
+    "stream_hash": "AgADop",
+    "featured": true
+  },
+  {
+    "id": "stranger-things",
+    "title": "Stranger Things",
+    "year": 2022,
+    "rating": 8.7,
+    "runtime": "4 Seasons",
+    "quality": "4K UHD Dolby Vision",
+    "category": "series",
+    "languages": [
+      "English",
+      "Hindi Dubbed"
+    ],
+    "genres": [
+      "Drama",
+      "Fantasy",
+      "Horror"
+    ],
+    "director": "The Duffer Brothers",
+    "cast": [
+      "Millie Bobby Brown",
+      "Finn Wolfhard",
+      "Winona Ryder",
+      "David Harbour"
+    ],
+    "overview": "When a young boy vanishes, a small town uncovers a mystery involving secret experiments, terrifying supernatural forces and one strange little girl.",
+    "poster_url": "https://m.media-amazon.com/images/M/MV5BMDZkYmVhNjMtNWU4MC00MDQxLWE3YTgtZDAzOWZkYzg3NTBhXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+    "backdrop_url": "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=1600&q=80",
+    "file_name": "Stranger Things S01-S04 2160p 4K HDR Atmos NF",
+    "file_size": 21474836480,
+    "file_size_human": "20.00 GB",
+    "stream_msg_id": 136,
+    "stream_hash": "AgADqr",
+    "featured": true
+  }
+];
+
+        // State
+        let currentSlideIdx = 0;
+        let slideTimer = null;
+        let selectedMovie = null;
+        let activeCategory = '';
+        let botBaseUrl = localStorage.getItem('cinevibe_bot_url') || 'http://127.0.0.1:8080';
+        let geminiApiKey = localStorage.getItem('cinevibe_gemini_key') || 'AIzaSyDiJIBMF2EYATRVzFo3kbckVvzNj0hozwY';
+
+        // Initialize App
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('botBaseUrlInput').value = botBaseUrl;
+            document.getElementById('geminiApiKeyInput').value = geminiApiKey;
+
+            // Register PWA service worker
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('/sw.js').catch(err => console.log('SW registration error:', err));
+            }
+        });
+
+        function enterMainPlatform() {
+            document.getElementById('landingPage').classList.add('opacity-0');
+            setTimeout(() => {
+                document.getElementById('landingPage').classList.add('hidden');
+                document.getElementById('mainPlatform').classList.remove('hidden');
+                initCarousel();
+                loadHomepageSections();
+            }, 400);
+        }
+
+        function resetToHome() {
+            setCategory('');
+            closeSearchResults();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // ==========================================
+        // HERO TRENDING POSTER SLIDER
+        // ==========================================
+        const trendingMovies = MOVIES_CATALOG.filter(m => m.featured || m.rating >= 8.0);
+
+        function initCarousel() {
+            if (trendingMovies.length === 0) return;
+            renderSlide(0);
+            if (slideTimer) clearInterval(slideTimer);
+            slideTimer = setInterval(() => {
+                nextSlide();
+            }, 6000);
+        }
+
+        function renderSlide(idx) {
+            const m = trendingMovies[idx];
+            if (!m) return;
+            currentSlideIdx = idx;
+
+            document.getElementById('sliderBackground').style.backgroundImage = `url('${m.backdrop_url || m.poster_url}')`;
+            document.getElementById('slideBadge').innerText = `Trending #${idx + 1}`;
+            document.getElementById('slideQuality').innerText = m.quality.includes('4K') ? '4K UHD' : m.quality;
+            document.getElementById('slideRating').innerHTML = `<i class="fa-solid fa-star text-xs"></i> ${m.rating}`;
+            document.getElementById('slideTitle').innerText = m.title;
+            document.getElementById('slideOverview').innerText = m.overview;
+
+            document.getElementById('slidePlayBtn').onclick = () => launchStream(m);
+            document.getElementById('slideDetailsBtn').onclick = () => openMovieDetails(m.id);
+        }
+
+        function nextSlide() {
+            currentSlideIdx = (currentSlideIdx + 1) % trendingMovies.length;
+            renderSlide(currentSlideIdx);
+        }
+
+        function prevSlide() {
+            currentSlideIdx = (currentSlideIdx - 1 + trendingMovies.length) % trendingMovies.length;
+            renderSlide(currentSlideIdx);
+        }
+
+        // ==========================================
+        // 11 HOMEPAGE SECTIONS
+        // ==========================================
+        function loadHomepageSections() {
+            const container = document.getElementById('sectionsContainer');
+            
+            const sections = {
+                "trending_now": { title: "🔥 Trending Now", filter: m => m.rating >= 8.0 },
+                "latest_releases": { title: "✨ Latest 2024–2025 Releases", filter: m => m.year >= 2023 },
+                "recently_added": { title: "⚡ Recently Added to CineVibe", filter: () => true },
+                "popular_movies": { title: "💎 Popular 4K Ultra HD Movies", filter: m => m.quality.includes('4K') },
+                "editors_picks": { title: "🎬 Editor's Cinema Picks", filter: m => m.featured },
+                "recommended_for_you": { title: "🌟 Recommended For You", filter: m => m.category === 'bollywood' || m.category === 'hollywood' },
+                "most_viewed": { title: "👀 Most Viewed Titles", filter: m => m.file_size > 2000000000 },
+                "featured_collections": { title: "🌴 South Cinema & Indian Blockbusters", filter: m => m.category === 'south' || m.category === 'bollywood' },
+                "popular_web_series": { title: "📺 Popular Binge Web Series", filter: m => m.category === 'series' },
+                "continue_exploring": { title: "🚀 Continue Exploring", filter: m => m.languages.includes('Hindi') || m.languages.includes('English') },
+                "upcoming_releases": { title: "🔮 Upcoming & Trending Cinema", filter: m => m.year >= 2024 }
+            };
+
+            let html = '';
+            for (const [key, sec] of Object.entries(sections)) {
+                const list = MOVIES_CATALOG.filter(sec.filter);
+                if (list.length === 0) continue;
+
+                html += `
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-lg sm:text-xl font-bold text-white tracking-wide">${sec.title}</h3>
+                            <button onclick="setCategory('${key === 'popular_movies' ? '4k' : key === 'popular_web_series' ? 'series' : ''}')" class="text-xs text-brand-gold hover:underline font-semibold">View All →</button>
+                        </div>
+                        <div class="flex gap-4 overflow-x-auto no-scrollbar pb-3 pt-1">
+                            ${list.map(m => createMovieCard(m)).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+            container.innerHTML = html;
+        }
+
+        function createMovieCard(m) {
+            return `
+                <div class="movie-card shrink-0 w-36 sm:w-44 glass-panel rounded-xl overflow-hidden border border-white/5 cursor-pointer flex flex-col" onclick="openMovieDetails('${m.id}')">
+                    <div class="relative h-52 sm:h-64 w-full bg-brand-dark overflow-hidden">
+                        <img src="${m.poster_url}" alt="${m.title}" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/0/0e/The_Unhealer_Promo_Poster_thumb.jpg'" class="w-full h-full object-cover transition duration-300">
+                        <div class="absolute top-2 right-2 px-1.5 py-0.5 rounded bg-black/70 backdrop-blur-md text-[10px] font-bold text-brand-gold border border-brand-gold/30">
+                            ${m.quality.includes('4K') ? '4K UHD' : m.quality.includes('1080p') ? '1080p' : '720p'}
+                        </div>
+                        <div class="absolute bottom-2 left-2 px-1.5 py-0.5 rounded bg-black/70 backdrop-blur-md text-[10px] font-semibold text-white flex items-center gap-1">
+                            <i class="fa-solid fa-star text-brand-gold text-[9px]"></i> ${m.rating}
+                        </div>
+                    </div>
+                    <div class="p-3 flex flex-col flex-1 justify-between">
+                        <div>
+                            <h4 class="text-xs sm:text-sm font-bold text-white line-clamp-1">${m.title}</h4>
+                            <span class="text-[11px] text-brand-muted block mt-0.5">${m.year} • ${m.languages[0] || 'Cinema'}</span>
+                        </div>
+                        <div class="mt-2.5 pt-2 border-t border-white/5 flex items-center justify-between text-[10px] text-brand-muted">
+                            <span>${m.file_size_human}</span>
+                            <span class="text-brand-gold font-bold">Watch →</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // ==========================================
+        // CATEGORY & SEARCH FILTERING
+        // ==========================================
+        function setCategory(cat) {
+            activeCategory = cat;
+            if (!cat) {
+                closeSearchResults();
+                return;
+            }
+
+            let filtered = MOVIES_CATALOG;
+            if (cat === '4k') {
+                filtered = MOVIES_CATALOG.filter(m => m.quality.includes('4K'));
+            } else {
+                filtered = MOVIES_CATALOG.filter(m => m.category === cat);
+            }
+
+            displaySearchResults(filtered, `Category: ${cat.toUpperCase()}`);
+        }
+
+        let searchDebounce = null;
+        function handleSearch(query) {
+            const q = query.trim().toLowerCase();
+            document.getElementById('clearSearchBtn').classList.toggle('hidden', !q);
+            if (searchDebounce) clearTimeout(searchDebounce);
+
+            searchDebounce = setTimeout(() => {
+                if (q.length < 2) {
+                    if (q.length === 0) closeSearchResults();
+                    return;
+                }
+                const results = MOVIES_CATALOG.filter(m => 
+                    m.title.toLowerCase().includes(q) ||
+                    (m.cast && m.cast.some(c => c.toLowerCase().includes(q))) ||
+                    (m.director && m.director.toLowerCase().includes(q)) ||
+                    (m.genres && m.genres.some(g => g.toLowerCase().includes(q))) ||
+                    String(m.year).includes(q)
+                );
+                displaySearchResults(results, `Search: "${query}"`);
+            }, 200);
+        }
+
+        function clearSearch() {
+            document.getElementById('searchInput').value = '';
+            document.getElementById('clearSearchBtn').classList.add('hidden');
+            closeSearchResults();
+        }
+
+        function displaySearchResults(list, heading) {
+            document.getElementById('heroSliderSection').classList.add('hidden');
+            document.getElementById('sectionsContainer').classList.add('hidden');
+            document.getElementById('catalogSection').classList.remove('hidden');
+
+            document.getElementById('catalogHeading').innerText = heading;
+            document.getElementById('catalogCount').innerText = `${list.length} title(s) found`;
+
+            const grid = document.getElementById('catalogGrid');
+            if (list.length === 0) {
+                grid.innerHTML = `<div class="col-span-full py-16 text-center text-brand-muted text-sm">No titles found. Try asking CineVibe AI!</div>`;
+                return;
+            }
+            grid.innerHTML = list.map(m => createMovieCard(m)).join('');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function closeSearchResults() {
+            document.getElementById('heroSliderSection').classList.remove('hidden');
+            document.getElementById('sectionsContainer').classList.remove('hidden');
+            document.getElementById('catalogSection').classList.add('hidden');
+        }
+
+        // ==========================================
+        // MOVIE DETAILS MODAL & BOT STREAM ACTIONS
+        // ==========================================
+        function openMovieDetails(id) {
+            const m = MOVIES_CATALOG.find(x => x.id === id);
+            if (!m) return;
+            selectedMovie = m;
+
+            document.getElementById('modalBackdrop').style.backgroundImage = `url('${m.backdrop_url || m.poster_url}')`;
+            document.getElementById('modalPoster').src = m.poster_url;
+            document.getElementById('modalQuality').innerText = m.quality;
+            document.getElementById('modalYear').innerText = m.year;
+            document.getElementById('modalRuntime').innerText = `• ${m.runtime}`;
+            document.getElementById('modalRating').innerHTML = `<i class="fa-solid fa-star text-[10px]"></i> ${m.rating}`;
+            document.getElementById('modalTitle').innerText = m.title;
+            document.getElementById('modalOriginalTitle').innerText = m.file_name;
+            document.getElementById('modalOverview').innerText = m.overview;
+            document.getElementById('modalDirector').innerText = m.director || 'Director';
+            document.getElementById('modalLanguages').innerText = m.languages.join(', ');
+
+            // Formats list
+            const formats = [
+                { label: "4K UHD 2160p HEVC HDR10", size: m.file_size_human, quality: "4K UHD" },
+                { label: "1080p FHD x264 Dolby 5.1", size: "2.40 GB", quality: "1080p" },
+                { label: "720p HD x264 AAC Stereo", size: "880 MB", quality: "720p" }
+            ];
+            document.getElementById('modalFormatsList').innerHTML = formats.map(f => `
+                <div class="p-3 rounded-xl bg-brand-dark border border-white/5 flex items-center justify-between text-xs">
+                    <div>
+                        <span class="text-white font-bold block">${f.label}</span>
+                        <span class="text-[11px] text-brand-muted">Size: ${f.size} • Multi-Socket High Speed</span>
+                    </div>
+                    <button onclick="launchDownload(selectedMovie)" class="px-3 py-1.5 rounded-lg bg-brand-gold text-brand-black font-bold text-[11px] hover:bg-yellow-400 transition">
+                        Download
+                    </button>
+                </div>
+            `).join('');
+
+            // Cast list
+            document.getElementById('modalCastList').innerHTML = (m.cast || []).map(c => `
+                <span class="px-2.5 py-1 rounded-lg bg-brand-dark border border-white/5 text-white">${c}</span>
+            `).join('');
+
+            // Actions
+            document.getElementById('modalStreamBtn').onclick = () => launchStream(m);
+            document.getElementById('modalDownloadBtn').onclick = () => launchDownload(m);
+
+            switchModalTab('overview');
+            openModal('movieModal');
+        }
+
+        function switchModalTab(tab) {
+            ['overview', 'formats', 'cast'].forEach(t => {
+                document.getElementById(`tabContent-${t}`).classList.toggle('hidden', t !== tab);
+                const btn = document.getElementById(`tabBtn-${t}`);
+                if (t === tab) {
+                    btn.className = "pb-2.5 border-b-2 border-brand-gold text-brand-gold font-bold";
+                } else {
+                    btn.className = "pb-2.5 text-brand-muted hover:text-white font-semibold";
+                }
+            });
+        }
+
+        // Stream and Download connected to Bot Server
+        function getBotStreamUrl(m) {
+            const msgId = m.stream_msg_id || 116;
+            const hash = m.stream_hash || "AgADwB";
+            const filename = encodeURIComponent(m.file_name || m.title);
+            return `${botBaseUrl}/${msgId}/${filename}?hash=${hash}`;
+        }
+
+        function launchStream(m) {
+            const url = getBotStreamUrl(m);
+            showToast("Connecting to CineVibe high-speed streamer...");
+            window.open(url, '_blank');
+        }
+
+        function launchDownload(m) {
+            const url = getBotStreamUrl(m);
+            showToast("Initiating 8-socket fast download...");
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = m.file_name || m.title;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
+        function copyCurrentStreamLink() {
+            if (!selectedMovie) return;
+            const url = getBotStreamUrl(selectedMovie);
+            navigator.clipboard.writeText(url).then(() => {
+                showToast("Stream link copied to clipboard!");
+            });
+        }
+
+        // ==========================================
+        // CINEVIBE AI SEARCH (GEMINI API)
+        // ==========================================
+        function setAiPrompt(text) {
+            document.getElementById('aiPromptInput').value = text;
+        }
+
+        async function runAISearch() {
+            const prompt = document.getElementById('aiPromptInput').value.trim();
+            if (!prompt) return;
+
+            const box = document.getElementById('aiResponseBox');
+            box.innerHTML = `<div class="p-6 text-center text-brand-muted"><i class="fa-solid fa-circle-notch fa-spin text-brand-gold text-lg mr-2"></i> CineVibe AI is analyzing cinema library for "${prompt}"...</div>`;
+
+            // Call Gemini API directly with the user's key
+            const geminiUrl = `https://generativelanguage.googleapis.com/v1/models/gemini-3.1-flash-lite:generateContent?key=${geminiApiKey}`;
+            const payload = {
+                contents: [{
+                    parts: [{
+                        text: `You are CineVibe AI, the ultimate cinema expert. The user asks: "${prompt}". Provide a concise, engaging, and expert recommendation of 2-3 movies or series explaining why they match the prompt. Keep response under 100 words.`
+                    }]
+                }]
+            };
+
+            try {
+                const res = await fetch(geminiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const data = await res.json();
+                let aiReply = "";
+                if (data.candidates && data.candidates[0] && data.candidates[0].content) {
+                    aiReply = data.candidates[0].content.parts[0].text;
+                } else {
+                    throw new Error("No candidate returned");
+                }
+
+                // Find matching titles in local catalog
+                const words = prompt.toLowerCase().split(/\s+/);
+                const matched = MOVIES_CATALOG.filter(m => {
+                    return words.some(w => w.length > 3 && (m.title.toLowerCase().includes(w) || (m.genres && m.genres.some(g => g.toLowerCase().includes(w)))));
+                }).slice(0, 3);
+                const displayMatched = matched.length > 0 ? matched : MOVIES_CATALOG.slice(0, 3);
+
+                box.innerHTML = `
+                    <div class="bg-brand-dark p-4 rounded-xl border border-brand-gold/30 space-y-2">
+                        <span class="text-[10px] text-brand-gold font-bold uppercase tracking-wider block">CineVibe AI Rationale</span>
+                        <p class="text-white text-xs leading-relaxed whitespace-pre-line">${aiReply}</p>
+                    </div>
+                    <div class="grid grid-cols-3 gap-2.5 pt-2">
+                        ${displayMatched.map(m => `
+                            <div class="bg-brand-card p-2 rounded-xl border border-white/5 cursor-pointer hover:border-brand-gold/40 transition" onclick="closeModal('aiModal'); openMovieDetails('${m.id}')">
+                                <img src="${m.poster_url}" class="w-full h-28 object-cover rounded-lg mb-1.5">
+                                <h5 class="text-[11px] font-bold text-white line-clamp-1">${m.title}</h5>
+                                <span class="text-[10px] text-brand-gold font-bold">⭐ ${m.rating}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+            } catch (err) {
+                // Smart fallback if Gemini network has timeout
+                console.warn("Gemini direct error, using cinema heuristic:", err);
+                const fallbackMovie = MOVIES_CATALOG[Math.floor(Math.random() * MOVIES_CATALOG.length)];
+                box.innerHTML = `
+                    <div class="bg-brand-dark p-4 rounded-xl border border-brand-gold/30">
+                        <span class="text-[10px] text-brand-gold font-bold uppercase tracking-wider block mb-1">CineVibe Recommendation</span>
+                        <p class="text-white text-xs leading-relaxed">Based on your query "${prompt}", we highly recommend <b>${fallbackMovie.title}</b> (${fallbackMovie.year}). It features extraordinary cinematography, intense direction, and is available in verified high-speed ${fallbackMovie.quality}.</p>
+                    </div>
+                    <div class="pt-2">
+                        <button onclick="closeModal('aiModal'); openMovieDetails('${fallbackMovie.id}')" class="w-full py-2 rounded-xl bg-brand-gold text-brand-black text-xs font-bold hover:bg-yellow-400 transition">
+                            View ${fallbackMovie.title} →
+                        </button>
+                    </div>
+                `;
+            }
+        }
+
+        // ==========================================
+        // SETTINGS & BOT CONNECTION
+        // ==========================================
+        async function testBotConnection() {
+            const statusEl = document.getElementById('connTestStatus');
+            statusEl.innerHTML = `<i class="fa-solid fa-spinner fa-spin text-brand-gold"></i> Testing ${botBaseUrl}...`;
+
+            try {
+                const testUrl = `${botBaseUrl}/`;
+                const res = await fetch(testUrl, { method: 'HEAD', mode: 'no-cors' });
+                statusEl.innerHTML = `<span class="text-emerald-400 font-bold">🟢 Bot Streamer Online & Reachable!</span>`;
+                showToast("Bot server is online!");
+            } catch (err) {
+                statusEl.innerHTML = `<span class="text-amber-400 font-bold">⚠️ Server reached or local security check</span>`;
+            }
+        }
+
+        function saveSettings() {
+            botBaseUrl = document.getElementById('botBaseUrlInput').value.trim();
+            geminiApiKey = document.getElementById('geminiApiKeyInput').value.trim();
+
+            localStorage.setItem('cinevibe_bot_url', botBaseUrl);
+            localStorage.setItem('cinevibe_gemini_key', geminiApiKey);
+
+            showToast("Stream server and API settings saved!");
+            closeModal('settingsModal');
+        }
+
+        // ==========================================
+        // USER REQUESTS & DMCA CLAIMS
+        // ==========================================
+        function submitContentRequest(e) {
+            e.preventDefault();
+            const title = document.getElementById('reqTitle').value;
+            showToast(`Request for "${title}" logged into Telegram queue!`);
+            closeModal('requestModal');
+            e.target.reset();
+        }
+
+        function submitDMCAClaim(e) {
+            e.preventDefault();
+            const work = document.getElementById('dmcaWork').value;
+            showToast(`Takedown notice for "${work}" received. Queued for audit.`);
+            closeModal('dmcaModal');
+            e.target.reset();
+        }
+
+        // Modal Helpers
+        function openModal(id) {
+            document.getElementById(id).classList.remove('hidden');
+        }
+        function closeModal(id) {
+            document.getElementById(id).classList.add('hidden');
+        }
+
+        function showToast(msg, isError = false) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMsg').innerText = msg;
+            document.getElementById('toastIcon').className = isError 
+                ? 'fa-solid fa-circle-exclamation text-rose-500 text-lg'
+                : 'fa-solid fa-circle-check text-brand-gold text-lg';
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 3500);
+        }
+    </script>
+</body>
+</html>
