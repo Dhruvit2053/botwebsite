@@ -580,7 +580,7 @@
     <!-- EMBEDDED CINEVIBE CATALOG DATA & ENGINE    -->
     <!-- ========================================== -->
     <script>
-        const MOVIES_CATALOG = [
+        let MOVIES_CATALOG = [
   {
     "id": "unhealer-2020",
     "title": "The Unhealer",
@@ -1237,6 +1237,27 @@
         let botBaseUrl = localStorage.getItem('cinevibe_bot_url') || 'http://127.0.0.1:8080';
         let geminiApiKey = localStorage.getItem('cinevibe_gemini_key') || '';
 
+        // Auto-Sync Dynamic Catalog from Bot API or updated JSON
+        async function autoSyncLiveCatalog() {
+            try {
+                let res = null;
+                try {
+                    res = await fetch('http://127.0.0.1:8080/api/catalog');
+                } catch (e) {}
+                if (!res || !res.ok) {
+                    res = await fetch('/catalog.json?v=' + Date.now());
+                }
+                if (res && res.ok) {
+                    const data = await res.json();
+                    if (Array.isArray(data) && data.length > 0) {
+                        MOVIES_CATALOG = data;
+                        initSlider();
+                        renderSections();
+                    }
+                }
+            } catch (err) {}
+        }
+
         // Initialize App
         document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('botBaseUrlInput').value = botBaseUrl;
@@ -1255,6 +1276,7 @@
 
             initSlider();
             renderSections();
+            autoSyncLiveCatalog();
         });
 
         // Navigation Switching

@@ -590,7 +590,7 @@ html_content = f'''<!DOCTYPE html>
     <!-- EMBEDDED CINEVIBE CATALOG DATA & ENGINE    -->
     <!-- ========================================== -->
     <script>
-        const MOVIES_CATALOG = {catalog_json};
+        let MOVIES_CATALOG = {catalog_json};
 
         let selectedMovie = null;
         let currentSlide = 0;
@@ -600,6 +600,27 @@ html_content = f'''<!DOCTYPE html>
         let selectedMonth = null;
         let botBaseUrl = localStorage.getItem('cinevibe_bot_url') || 'http://127.0.0.1:8080';
         let geminiApiKey = localStorage.getItem('cinevibe_gemini_key') || '';
+
+        // Auto-Sync Dynamic Catalog from Bot API or updated JSON
+        async function autoSyncLiveCatalog() {{
+            try {{
+                let res = null;
+                try {{
+                    res = await fetch('http://127.0.0.1:8080/api/catalog');
+                }} catch (e) {{}}
+                if (!res || !res.ok) {{
+                    res = await fetch('/catalog.json?v=' + Date.now());
+                }}
+                if (res && res.ok) {{
+                    const data = await res.json();
+                    if (Array.isArray(data) && data.length > 0) {{
+                        MOVIES_CATALOG = data;
+                        initSlider();
+                        renderSections();
+                    }}
+                }}
+            }} catch (err) {{}}
+        }}
 
         // Initialize App
         document.addEventListener('DOMContentLoaded', () => {{
@@ -619,6 +640,7 @@ html_content = f'''<!DOCTYPE html>
 
             initSlider();
             renderSections();
+            autoSyncLiveCatalog();
         }});
 
         // Navigation Switching
@@ -1063,3 +1085,4 @@ with open(os.path.join(OUTPUT_DIR, "index.html"), "w", encoding="utf-8") as f:
 shutil.copyfile(os.path.join(OUTPUT_DIR, "index.html"), os.path.join(OUTPUT_DIR, "200.html"))
 
 print("Clean public website generated successfully in index.html & 200.html!")
+
