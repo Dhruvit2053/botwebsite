@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="referrer" content="no-referrer">
-    <title>CineVibe — Your World of Cinema | AI Movie Discovery & Authorized Downloads</title>
+    <title>CineVibe — Your World of Cinema | AI Discovery, Anime, K-Drama & Admin Command Center</title>
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#FFC928">
-    <meta name="description" content="CineVibe is the premier cinema discovery and authorized high-speed media distribution platform. Discover 86,000+ films in 4K UHD, powered by CineVibe AI.">
+    <meta name="description" content="CineVibe: Premier 4K UHD movie discovery, K-Dramas, Anime, and authorized high-speed streaming engine.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cinzel:wght@600;700;800&display=swap" rel="stylesheet">
@@ -53,7 +53,7 @@
             box-shadow: 0 0 60px rgba(255, 201, 40, 0.35);
         }
         .glass-panel {
-            background: rgba(18, 18, 18, 0.85);
+            background: rgba(18, 18, 18, 0.88);
             backdrop-filter: blur(14px);
             -webkit-backdrop-filter: blur(14px);
             border: 1px solid rgba(255, 255, 255, 0.08);
@@ -99,8 +99,10 @@
     <!-- DOMAIN SHIELD ACTIVE BADGE (HDHUB4U-STYLE DOMAIN PROTECTION) -->
     <div id="shieldNotification" class="bg-gradient-to-r from-amber-950/70 via-black to-amber-950/70 border-b border-brand-gold/20 px-4 py-1.5 text-center text-[11px] text-brand-gold font-medium flex items-center justify-center gap-2">
         <i class="fa-solid fa-shield-halved text-xs"></i>
-        <span><b>Protected by Domain Shield:</b> Active Mirror <code class="text-white px-1.5 py-0.5 rounded bg-white/10 font-mono">new16.cinevibe</code> — Always bookmark our permanent main domain!</span>
-        <button onclick="openModal('settingsModal')" class="underline hover:text-white ml-2 text-[10px] font-bold">Shield Settings</button>
+        <span><b>Protected by Domain Shield:</b> Main Gateway <a href="https://cinevibe.surge.sh" target="_blank" class="underline text-white font-mono">cinevibe.surge.sh</a> ➔ Active Mirror <code class="text-white px-1.5 py-0.5 rounded bg-white/10 font-mono">cinevibe-cinema</code></span>
+        <button onclick="openAdminModal()" class="px-2 py-0.5 rounded bg-brand-gold/20 hover:bg-brand-gold hover:text-black transition ml-2 text-[10px] font-bold text-brand-gold">
+            👑 Admin Command Center
+        </button>
     </div>
 
     <!-- ========================================== -->
@@ -124,9 +126,12 @@
                     <span class="block text-[10px] text-brand-muted tracking-widest font-semibold uppercase">Your World of Cinema</span>
                 </div>
             </div>
-            <div class="flex items-center gap-4">
-                <button onclick="enterMainPlatform()" class="px-5 py-2.5 rounded-full text-xs font-bold text-white glass-panel hover:border-brand-gold/50 transition">
-                    Quick Access
+            <div class="flex items-center gap-3">
+                <button onclick="openAdminModal()" class="px-4 py-2 rounded-full text-xs font-bold text-brand-gold glass-panel hover:bg-brand-gold/10 transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-crown text-[10px]"></i> Admin Center
+                </button>
+                <button onclick="enterMainPlatform()" class="px-5 py-2 rounded-full text-xs font-bold text-white glass-panel hover:border-brand-gold/50 transition">
+                    Explore Platform →
                 </button>
             </div>
         </header>
@@ -134,52 +139,52 @@
         <!-- Landing Hero Centerpiece -->
         <main class="relative z-10 max-w-4xl mx-auto px-6 text-center space-y-6 my-auto">
             <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-gold/10 border border-brand-gold/30 text-brand-gold text-xs font-semibold tracking-wide">
-                <i class="fa-solid fa-sparkles"></i> AI-Powered Movie Discovery & High-Speed Media Distribution
+                <i class="fa-solid fa-sparkles"></i> 4K Cinema • K-Dramas • Anime • High-Speed Downloads
             </div>
             
             <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white leading-tight">
                 YOUR WORLD OF <br>
                 <span class="bg-gradient-to-r from-brand-gold via-amber-200 to-brand-goldDark bg-clip-text text-transparent drop-shadow-sm font-cinzel">
-                    CINEMA
+                    CINEMA & ANIME
                 </span>
             </h1>
 
             <p class="text-sm sm:text-lg text-brand-muted max-w-2xl mx-auto font-normal leading-relaxed">
-                Stream and download verified 4K UHD movies, popular blockbusters, and binge-worthy web series at lightning speeds. Powered by high-speed parallel multi-socket engines.
+                Stream and download verified 4K UHD movies, popular blockbusters, binge-worthy K-Dramas, and hit anime at lightning speeds.
             </p>
 
             <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <button onclick="enterMainPlatform()" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-gold text-brand-black font-extrabold text-sm tracking-wider uppercase flex items-center justify-center gap-3 gold-glow hover:bg-yellow-400 hover:scale-105 active:scale-95 transition duration-300">
-                    <span>Explore CineVibe</span>
+                    <span>Enter CineVibe</span>
                     <i class="fa-solid fa-arrow-right"></i>
                 </button>
                 <button onclick="openModal('aiModal')" class="w-full sm:w-auto px-6 py-4 rounded-xl glass-panel text-white font-bold text-sm hover:border-brand-gold/40 flex items-center justify-center gap-2.5 transition">
                     <i class="fa-solid fa-wand-magic-sparkles text-brand-gold"></i>
-                    <span>CineVibe AI Search</span>
+                    <span>CineVibe AI Assistant</span>
                 </button>
             </div>
 
             <!-- Features Highlights -->
             <div class="pt-8 grid grid-cols-2 md:grid-cols-4 gap-4 text-left">
                 <div class="p-4 rounded-xl glass-panel border border-white/5">
-                    <i class="fa-solid fa-bolt text-brand-gold text-base mb-2"></i>
-                    <h4 class="text-xs font-bold text-white">Multi-Socket Turbo</h4>
-                    <p class="text-[11px] text-brand-muted mt-1">8 parallel sockets for maximum download speeds.</p>
+                    <i class="fa-solid fa-film text-brand-gold text-base mb-2"></i>
+                    <h4 class="text-xs font-bold text-white">Cinema Library</h4>
+                    <p class="text-[11px] text-brand-muted mt-1">Hollywood, Bollywood & South Blockbusters.</p>
                 </div>
                 <div class="p-4 rounded-xl glass-panel border border-white/5">
-                    <i class="fa-solid fa-robot text-brand-gold text-base mb-2"></i>
-                    <h4 class="text-xs font-bold text-white">Gemini AI Engine</h4>
-                    <p class="text-[11px] text-brand-muted mt-1">Natural language smart recommendations.</p>
+                    <i class="fa-solid fa-dragon text-brand-gold text-base mb-2"></i>
+                    <h4 class="text-xs font-bold text-white">Anime & K-Drama</h4>
+                    <p class="text-[11px] text-brand-muted mt-1">Attack on Titan, Solo Leveling, Remarried Empress.</p>
                 </div>
                 <div class="p-4 rounded-xl glass-panel border border-white/5">
                     <i class="fa-solid fa-shield-halved text-brand-gold text-base mb-2"></i>
-                    <h4 class="text-xs font-bold text-white">Domain Shield</h4>
-                    <p class="text-[11px] text-brand-muted mt-1">HDHub4u-style safe gateway & mirror rotation.</p>
+                    <h4 class="text-xs font-bold text-white">Safe Domain Shield</h4>
+                    <p class="text-[11px] text-brand-muted mt-1">HDHub4u-style gateway & mirror protection.</p>
                 </div>
                 <div class="p-4 rounded-xl glass-panel border border-white/5">
-                    <i class="fa-solid fa-tv text-brand-gold text-base mb-2"></i>
-                    <h4 class="text-xs font-bold text-white">True 4K UHD</h4>
-                    <p class="text-[11px] text-brand-muted mt-1">HDR10, Dolby Atmos, and pristine multi-audio.</p>
+                    <i class="fa-solid fa-crown text-brand-gold text-base mb-2"></i>
+                    <h4 class="text-xs font-bold text-white">Admin Command Center</h4>
+                    <p class="text-[11px] text-brand-muted mt-1">Year-wise inventory, missing radar & full CRUD.</p>
                 </div>
             </div>
         </main>
@@ -188,6 +193,7 @@
         <footer class="relative z-10 max-w-7xl mx-auto w-full px-6 py-6 text-center border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-xs text-brand-muted gap-3">
             <div>&copy; 2026 CineVibe. All rights reserved. Your World of Cinema.</div>
             <div class="flex items-center gap-5">
+                <a href="javascript:void(0)" onclick="openAdminModal()" class="text-brand-gold font-bold hover:underline">👑 Admin Center</a>
                 <a href="javascript:void(0)" onclick="openModal('dmcaModal')" class="hover:text-brand-gold transition">DMCA Compliance</a>
                 <a href="javascript:void(0)" onclick="openModal('requestModal')" class="hover:text-brand-gold transition">Request Content</a>
             </div>
@@ -215,19 +221,21 @@
                 </div>
 
                 <!-- Desktop Navigation Links -->
-                <nav class="hidden lg:flex items-center gap-6 text-xs font-semibold text-brand-muted">
-                    <a href="javascript:void(0)" onclick="setCategory('')" class="hover:text-white transition" id="nav-all">Home</a>
-                    <a href="javascript:void(0)" onclick="setCategory('4k')" class="hover:text-white transition" id="nav-4k">4K Collection</a>
-                    <a href="javascript:void(0)" onclick="setCategory('bollywood')" class="hover:text-white transition" id="nav-bolly">Bollywood</a>
-                    <a href="javascript:void(0)" onclick="setCategory('hollywood')" class="hover:text-white transition" id="nav-holly">Hollywood</a>
-                    <a href="javascript:void(0)" onclick="setCategory('south')" class="hover:text-white transition" id="nav-south">South Indian</a>
-                    <a href="javascript:void(0)" onclick="setCategory('series')" class="hover:text-white transition" id="nav-series">Web Series</a>
+                <nav class="hidden lg:flex items-center gap-5 text-xs font-semibold text-brand-muted">
+                    <a href="javascript:void(0)" onclick="setCategory('')" class="hover:text-white transition">Home</a>
+                    <a href="javascript:void(0)" onclick="setCategory('4k')" class="hover:text-white transition">4K Collection</a>
+                    <a href="javascript:void(0)" onclick="setCategory('bollywood')" class="hover:text-white transition">Bollywood</a>
+                    <a href="javascript:void(0)" onclick="setCategory('hollywood')" class="hover:text-white transition">Hollywood</a>
+                    <a href="javascript:void(0)" onclick="setCategory('south')" class="hover:text-white transition">South</a>
+                    <a href="javascript:void(0)" onclick="setCategory('series')" class="hover:text-white transition">Web Series</a>
+                    <a href="javascript:void(0)" onclick="setCategory('kdrama')" class="hover:text-white transition text-pink-400 font-bold">🌸 K-Drama</a>
+                    <a href="javascript:void(0)" onclick="setCategory('anime')" class="hover:text-white transition text-amber-300 font-bold">⚔️ Anime</a>
                 </nav>
 
                 <!-- Search Bar -->
                 <div class="relative flex-1 max-w-xs sm:max-w-sm md:max-w-md">
                     <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-brand-muted text-xs"></i>
-                    <input type="text" id="searchInput" oninput="handleSearch(this.value)" placeholder="Search 86,000+ movies, actors, 4K..." 
+                    <input type="text" id="searchInput" oninput="handleSearch(this.value)" placeholder="Search movies, anime, dramas, 4K..." 
                            class="w-full bg-brand-card/90 border border-white/10 rounded-full pl-9 pr-8 py-2 text-xs text-white placeholder-brand-muted/70 focus:outline-none focus:border-brand-gold transition">
                     <button id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-brand-muted hover:text-white text-xs">
                         <i class="fa-solid fa-xmark"></i>
@@ -236,16 +244,16 @@
 
                 <!-- Action Buttons -->
                 <div class="flex items-center gap-2 sm:gap-3 shrink-0">
-                    <button onclick="openModal('aiModal')" class="flex items-center gap-2 px-3.5 py-2 rounded-full bg-brand-gold/10 border border-brand-gold/40 text-brand-gold text-xs font-bold hover:bg-brand-gold hover:text-black transition">
-                        <i class="fa-solid fa-wand-magic-sparkles text-xs"></i>
-                        <span class="hidden sm:inline">CineVibe AI</span>
+                    <button onclick="openAdminModal()" class="flex items-center gap-1.5 px-3 py-2 rounded-full bg-amber-500/10 border border-amber-500/40 text-brand-gold text-xs font-bold hover:bg-brand-gold hover:text-black transition" title="Open Admin Command Center">
+                        <i class="fa-solid fa-crown text-xs"></i>
+                        <span class="hidden sm:inline">Admin Center</span>
+                    </button>
+                    <button onclick="openModal('aiModal')" class="flex items-center gap-2 px-3 py-2 rounded-full bg-white/5 border border-white/10 text-white text-xs font-bold hover:bg-brand-gold hover:text-black transition">
+                        <i class="fa-solid fa-wand-magic-sparkles text-xs text-brand-gold"></i>
+                        <span class="hidden md:inline">AI Search</span>
                     </button>
                     <button onclick="openModal('settingsModal')" class="p-2.5 rounded-full glass-panel text-brand-muted hover:text-white transition" title="Shield & Stream Settings">
                         <i class="fa-solid fa-gear text-xs"></i>
-                    </button>
-                    <button onclick="openModal('requestModal')" class="hidden md:flex items-center gap-1.5 px-3 py-2 rounded-full glass-panel text-white text-xs font-medium hover:border-brand-gold/40 transition">
-                        <i class="fa-solid fa-paper-plane text-[10px] text-brand-gold"></i>
-                        <span>Request</span>
                     </button>
                 </div>
             </div>
@@ -253,10 +261,12 @@
             <!-- Mobile Category Scroll Bar -->
             <div class="lg:hidden flex items-center gap-2 px-4 py-2 overflow-x-auto no-scrollbar border-t border-white/5 text-[11px] font-semibold text-brand-muted">
                 <button onclick="setCategory('')" class="px-3 py-1 rounded-full bg-brand-card border border-white/10 shrink-0 text-white">All Cinema</button>
-                <button onclick="setCategory('4k')" class="px-3 py-1 rounded-full bg-brand-card border border-white/10 shrink-0">💎 4K Ultra HD</button>
+                <button onclick="setCategory('4k')" class="px-3 py-1 rounded-full bg-brand-card border border-white/10 shrink-0">💎 4K UHD</button>
+                <button onclick="setCategory('kdrama')" class="px-3 py-1 rounded-full bg-brand-card border border-pink-500/30 text-pink-400 shrink-0">🌸 K-Drama</button>
+                <button onclick="setCategory('anime')" class="px-3 py-1 rounded-full bg-brand-card border border-amber-500/30 text-amber-300 shrink-0">⚔️ Anime</button>
                 <button onclick="setCategory('bollywood')" class="px-3 py-1 rounded-full bg-brand-card border border-white/10 shrink-0">Bollywood</button>
                 <button onclick="setCategory('hollywood')" class="px-3 py-1 rounded-full bg-brand-card border border-white/10 shrink-0">Hollywood</button>
-                <button onclick="setCategory('south')" class="px-3 py-1 rounded-full bg-brand-card border border-white/10 shrink-0">South Indian</button>
+                <button onclick="setCategory('south')" class="px-3 py-1 rounded-full bg-brand-card border border-white/10 shrink-0">South</button>
                 <button onclick="setCategory('series')" class="px-3 py-1 rounded-full bg-brand-card border border-white/10 shrink-0">Web Series</button>
             </div>
         </header>
@@ -282,11 +292,11 @@
                     </div>
 
                     <h2 id="slideTitle" class="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight line-clamp-1">
-                        The Remarried Empress
+                        Title
                     </h2>
 
                     <p id="slideOverview" class="text-xs sm:text-sm text-brand-muted line-clamp-2 max-w-xl leading-relaxed">
-                        Navier Ellie Trovi was an empress of the Eastern Empire. When her husband demands a divorce, Navier remarries the Emperor of the Western Empire.
+                        Overview
                     </p>
 
                     <div class="pt-2 flex items-center gap-3">
@@ -343,6 +353,7 @@
                 CineVibe Authorized Media Ecosystem. Fast downloads powered by high-speed parallel session streamers. All trademarks and rights belong to their respective verified licensors.
             </p>
             <div class="flex items-center justify-center gap-6 pt-2">
+                <a href="javascript:void(0)" onclick="openAdminModal()" class="text-brand-gold font-bold hover:underline">👑 Admin Command Center</a>
                 <a href="javascript:void(0)" onclick="openModal('dmcaModal')" class="hover:text-brand-gold transition">DMCA & Copyright Policy</a>
                 <a href="javascript:void(0)" onclick="openModal('requestModal')" class="hover:text-brand-gold transition">Request a Title</a>
                 <a href="javascript:void(0)" onclick="openModal('settingsModal')" class="hover:text-brand-gold transition">Shield & Stream Settings</a>
@@ -444,7 +455,316 @@
 
 
     <!-- ========================================== -->
-    <!-- MODAL 2: CINEVIBE AI ASSISTANT (GEMINI API)-->
+    <!-- MODAL 2: ADMIN COMMAND CENTER (ADVANCED)  -->
+    <!-- ========================================== -->
+    <div id="adminModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/90 backdrop-blur-md overflow-y-auto">
+        <div class="relative w-full max-w-5xl glass-panel rounded-2xl overflow-hidden border border-brand-gold/40 shadow-2xl my-auto animate-fade-in flex flex-col max-h-[92vh] bg-brand-card">
+            
+            <!-- Admin Top Header -->
+            <div class="px-6 py-4 border-b border-white/10 flex items-center justify-between bg-black/60 shrink-0">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-goldDark to-brand-gold flex items-center justify-center shadow-lg shadow-brand-gold/20 text-black">
+                        <i class="fa-solid fa-crown text-base"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-bold text-white tracking-wide">CineVibe Admin Command Center</h3>
+                        <span class="text-[10px] text-brand-gold font-semibold uppercase tracking-wider">Full Inventory Control, Year Radar, Missing Content & Mirror Switcher</span>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button onclick="exportUpdatedCatalog()" class="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-brand-gold hover:text-black text-xs font-bold transition flex items-center gap-1.5" title="Export updated catalog.json">
+                        <i class="fa-solid fa-download text-[10px]"></i>
+                        <span>Export Catalog JSON</span>
+                    </button>
+                    <button onclick="closeModal('adminModal')" class="text-brand-muted hover:text-white text-base">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Admin Nav Tabs -->
+            <div class="px-6 py-2.5 border-b border-white/10 bg-brand-dark/50 flex items-center gap-3 overflow-x-auto no-scrollbar text-xs font-semibold shrink-0">
+                <button onclick="switchAdminTab('inventory')" id="admTabBtn-inventory" class="px-3 py-1.5 rounded-lg bg-brand-gold text-black font-bold">
+                    📅 Year-by-Year Inventory
+                </button>
+                <button onclick="switchAdminTab('missing')" id="admTabBtn-missing" class="px-3 py-1.5 rounded-lg text-brand-muted hover:text-white font-medium">
+                    ⚡ Missing Content Radar (<span id="missingCountBadge">7</span>)
+                </button>
+                <button onclick="switchAdminTab('manage')" id="admTabBtn-manage" class="px-3 py-1.5 rounded-lg text-brand-muted hover:text-white font-medium">
+                    ➕ Add & Manage Media
+                </button>
+                <button onclick="switchAdminTab('shield')" id="admTabBtn-shield" class="px-3 py-1.5 rounded-lg text-brand-muted hover:text-white font-medium">
+                    🛡️ Domain Shield & Mirror Control
+                </button>
+                <button onclick="switchAdminTab('system')" id="admTabBtn-system" class="px-3 py-1.5 rounded-lg text-brand-muted hover:text-white font-medium">
+                    ⚙️ Bot & Stream Telemetry
+                </button>
+            </div>
+
+            <!-- Admin Scrollable Body -->
+            <div class="p-6 overflow-y-auto space-y-6 flex-1 text-xs">
+                
+                <!-- KPI Analytics Summary Cards -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
+                    <div class="p-3.5 rounded-xl bg-brand-dark border border-white/5 space-y-1">
+                        <span class="text-brand-muted text-[10px] uppercase font-bold block">Total Titles</span>
+                        <span id="kpiTotal" class="text-xl font-extrabold text-white">17</span>
+                        <span class="text-[10px] text-emerald-400 block font-semibold">● 100% Verified</span>
+                    </div>
+                    <div class="p-3.5 rounded-xl bg-brand-dark border border-white/5 space-y-1">
+                        <span class="text-brand-muted text-[10px] uppercase font-bold block">Movies</span>
+                        <span id="kpiMovies" class="text-xl font-extrabold text-brand-gold">9</span>
+                        <span class="text-[10px] text-brand-muted block">Bolly, Holly, South</span>
+                    </div>
+                    <div class="p-3.5 rounded-xl bg-brand-dark border border-white/5 space-y-1">
+                        <span class="text-brand-muted text-[10px] uppercase font-bold block">Web Series</span>
+                        <span id="kpiSeries" class="text-xl font-extrabold text-amber-400">2</span>
+                        <span class="text-[10px] text-brand-muted block">Crime & Sci-Fi</span>
+                    </div>
+                    <div class="p-3.5 rounded-xl bg-brand-dark border border-white/5 space-y-1">
+                        <span class="text-brand-muted text-[10px] uppercase font-bold block">K-Dramas</span>
+                        <span id="kpiKdrama" class="text-xl font-extrabold text-pink-400">2</span>
+                        <span class="text-[10px] text-brand-muted block">Romance & Royal</span>
+                    </div>
+                    <div class="p-3.5 rounded-xl bg-brand-dark border border-white/5 space-y-1">
+                        <span class="text-brand-muted text-[10px] uppercase font-bold block">Anime Series</span>
+                        <span id="kpiAnime" class="text-xl font-extrabold text-purple-400">4</span>
+                        <span class="text-[10px] text-brand-muted block">Shonen & Fantasy</span>
+                    </div>
+                    <div class="p-3.5 rounded-xl bg-brand-dark border border-white/5 space-y-1">
+                        <span class="text-brand-muted text-[10px] uppercase font-bold block">Missing Radar</span>
+                        <span id="kpiMissing" class="text-xl font-extrabold text-rose-400">7</span>
+                        <span class="text-[10px] text-rose-300 block">Pending Requests</span>
+                    </div>
+                </div>
+
+                <!-- ============================================== -->
+                <!-- ADMIN TAB 1: YEAR-BY-YEAR INVENTORY MATRIX    -->
+                <!-- ("KONSE YEARS KI KON KON SI MOVIES APNE PASS") -->
+                <!-- ============================================== -->
+                <div id="admContent-inventory" class="space-y-4">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-brand-dark p-3.5 rounded-xl border border-white/5">
+                        <div>
+                            <h4 class="text-sm font-bold text-white">Year-by-Year Media Inventory ("Apne Pass Kya Hai")</h4>
+                            <p class="text-[11px] text-brand-muted">Filter and inspect all verified movies, webseries, kdrama and anime in our collection by release year.</p>
+                        </div>
+                        <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar">
+                            <button onclick="filterInventoryByYear('all')" id="yrBtn-all" class="px-2.5 py-1 rounded-lg bg-brand-gold text-black font-bold text-[11px]">All Years</button>
+                            <button onclick="filterInventoryByYear('2024')" id="yrBtn-2024" class="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/10 text-white text-[11px]">2024</button>
+                            <button onclick="filterInventoryByYear('2023')" id="yrBtn-2023" class="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/10 text-white text-[11px]">2023</button>
+                            <button onclick="filterInventoryByYear('2022')" id="yrBtn-2022" class="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/10 text-white text-[11px]">2022</button>
+                            <button onclick="filterInventoryByYear('2021')" id="yrBtn-2021" class="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/10 text-white text-[11px]">2021</button>
+                            <button onclick="filterInventoryByYear('2020')" id="yrBtn-2020" class="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/10 text-white text-[11px]">2020</button>
+                        </div>
+                    </div>
+
+                    <!-- Inventory Table -->
+                    <div class="overflow-x-auto rounded-xl border border-white/5 bg-brand-dark">
+                        <table class="w-full text-left">
+                            <thead>
+                                <tr class="border-b border-white/10 text-brand-gold text-[11px] bg-black/40">
+                                    <th class="p-3">Title & Media</th>
+                                    <th>Year</th>
+                                    <th>Category</th>
+                                    <th>Quality</th>
+                                    <th>Languages</th>
+                                    <th>File Size</th>
+                                    <th>Stream ID</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="inventoryTableBody" class="divide-y divide-white/5 text-[11px]">
+                                <!-- Rendered dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ============================================== -->
+                <!-- ADMIN TAB 2: MISSING CONTENT & WISHLIST RADAR -->
+                <!-- ("KON KON SI MOVIES/SERIES APNE PASS NAHI HAI")-->
+                <!-- ============================================== -->
+                <div id="admContent-missing" class="hidden space-y-4">
+                    <div class="bg-brand-dark p-4 rounded-xl border border-rose-500/20 space-y-1">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-rose-500 animate-pulse"></span>
+                            <h4 class="text-sm font-bold text-white">Missing Content & User Wishlist Radar ("Apne Pass Kya Nahi Hai")</h4>
+                        </div>
+                        <p class="text-[11px] text-brand-muted">
+                            Titles with high search volume or user requests that are NOT currently in our library. Click <b>"Fulfill & Add"</b> to quickly add the stream token and upload to the catalog!
+                        </p>
+                    </div>
+
+                    <div class="overflow-x-auto rounded-xl border border-white/5 bg-brand-dark">
+                        <table class="w-full text-left">
+                            <thead>
+                                <tr class="border-b border-white/10 text-rose-400 text-[11px] bg-black/40">
+                                    <th class="p-3">Requested Title</th>
+                                    <th>Year</th>
+                                    <th>Type</th>
+                                    <th>Demand Status</th>
+                                    <th>Expected Quality</th>
+                                    <th>Community Notes</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="missingTableBody" class="divide-y divide-white/5 text-[11px]">
+                                <!-- Rendered dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ============================================== -->
+                <!-- ADMIN TAB 3: ADD & MANAGE CONTENT             -->
+                <!-- ============================================== -->
+                <div id="admContent-manage" class="hidden space-y-6">
+                    <div class="bg-brand-dark p-4 rounded-xl border border-white/5 space-y-4">
+                        <h4 class="text-sm font-bold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-plus-circle text-brand-gold"></i>
+                            <span>Add New Movie / Web Series / K-Drama / Anime to Library</span>
+                        </h4>
+
+                        <form onsubmit="handleAddNewMedia(event)" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 text-xs">
+                            <div class="md:col-span-2">
+                                <label class="block text-brand-muted font-semibold mb-1">Title *</label>
+                                <input type="text" id="addTitle" required placeholder="e.g. Stree 2: Sarkate Ka Aatank" class="w-full bg-brand-card border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-brand-gold">
+                            </div>
+                            <div>
+                                <label class="block text-brand-muted font-semibold mb-1">Release Year *</label>
+                                <input type="number" id="addYear" required value="2024" class="w-full bg-brand-card border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-brand-gold">
+                            </div>
+                            <div>
+                                <label class="block text-brand-muted font-semibold mb-1">Media Type *</label>
+                                <select id="addType" class="w-full bg-brand-card border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-brand-gold">
+                                    <option value="movie">Movie</option>
+                                    <option value="series">Web Series</option>
+                                    <option value="kdrama">K-Drama</option>
+                                    <option value="anime">Anime</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-brand-muted font-semibold mb-1">Quality / Resolution *</label>
+                                <select id="addQuality" class="w-full bg-brand-card border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-brand-gold">
+                                    <option value="4K UHD 2160p">4K UHD 2160p</option>
+                                    <option value="1080p FHD">1080p FHD</option>
+                                    <option value="720p HD">720p HD</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-brand-muted font-semibold mb-1">Category *</label>
+                                <select id="addCategory" class="w-full bg-brand-card border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-brand-gold">
+                                    <option value="bollywood">Bollywood</option>
+                                    <option value="hollywood">Hollywood</option>
+                                    <option value="south">South Indian</option>
+                                    <option value="series">Web Series</option>
+                                    <option value="kdrama">K-Drama</option>
+                                    <option value="anime">Anime</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-brand-muted font-semibold mb-1">Audio Languages</label>
+                                <input type="text" id="addLanguages" value="Hindi, English" class="w-full bg-brand-card border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-brand-gold">
+                            </div>
+                            <div>
+                                <label class="block text-brand-muted font-semibold mb-1">File Size Human</label>
+                                <input type="text" id="addSize" value="2.50 GB" class="w-full bg-brand-card border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-brand-gold">
+                            </div>
+
+                            <div class="md:col-span-2">
+                                <label class="block text-brand-muted font-semibold mb-1">Poster Image URL (TMDB/Wiki) *</label>
+                                <input type="url" id="addPosterUrl" required placeholder="https://image.tmdb.org/t/p/w500/..." class="w-full bg-brand-card border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-brand-gold">
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="block text-brand-muted font-semibold mb-1">Backdrop Image URL (TMDB/Wiki) *</label>
+                                <input type="url" id="addBackdropUrl" required placeholder="https://image.tmdb.org/t/p/original/..." class="w-full bg-brand-card border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-brand-gold">
+                            </div>
+
+                            <div>
+                                <label class="block text-brand-muted font-semibold mb-1">Stream Message ID</label>
+                                <input type="number" id="addMsgId" value="150" class="w-full bg-brand-card border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-brand-gold">
+                            </div>
+                            <div>
+                                <label class="block text-brand-muted font-semibold mb-1">Stream Hash Token</label>
+                                <input type="text" id="addHash" value="AgAD56" class="w-full bg-brand-card border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-brand-gold">
+                            </div>
+                            <div class="md:col-span-2 flex items-end">
+                                <button type="submit" class="w-full py-2.5 rounded-xl bg-brand-gold text-brand-black font-extrabold tracking-wider uppercase hover:bg-yellow-400 transition shadow-lg">
+                                    Publish to Catalog ➔
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- ============================================== -->
+                <!-- ADMIN TAB 4: DOMAIN SHIELD & MIRROR SWITCHER  -->
+                <!-- ============================================== -->
+                <div id="admContent-shield" class="hidden space-y-4">
+                    <div class="bg-brand-dark p-4 rounded-xl border border-brand-gold/30 space-y-3">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-shield-halved text-brand-gold text-base"></i>
+                            <h4 class="text-sm font-bold text-white">HDHub4u-Style Domain Shield Control Panel</h4>
+                        </div>
+                        <p class="text-[11px] text-brand-muted leading-relaxed">
+                            Your permanent main domain <code class="text-brand-gold font-mono font-bold">https://cinevibe.surge.sh</code> is 100% clean and never hosts files. Visitors are forwarded automatically to the currently active worker mirror. If the active mirror gets blocked, switch it here in 1 second!
+                        </p>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+                            <div class="p-3 rounded-xl bg-brand-card border border-white/5 space-y-1">
+                                <span class="text-[10px] text-brand-muted block uppercase font-bold">Permanent Shield Gateway</span>
+                                <span class="text-xs font-mono font-bold text-white block">cinevibe.surge.sh</span>
+                                <span class="text-[10px] text-emerald-400 font-bold">🟢 Active & Protected</span>
+                            </div>
+                            <div class="p-3 rounded-xl bg-brand-card border border-white/5 space-y-1">
+                                <span class="text-[10px] text-brand-muted block uppercase font-bold">Current Active Mirror</span>
+                                <span id="admDisplayMirror" class="text-xs font-mono font-bold text-brand-gold block">cinevibe-cinema.surge.sh</span>
+                                <span class="text-[10px] text-emerald-400 font-bold">🟢 17 Titles Loaded</span>
+                            </div>
+                            <div class="p-3 rounded-xl bg-brand-card border border-white/5 space-y-1">
+                                <span class="text-[10px] text-brand-muted block uppercase font-bold">Quick Switch Mirrors</span>
+                                <div class="flex items-center gap-1.5 pt-1">
+                                    <button onclick="setQuickMirror('https://cinevibe-cinema.surge.sh')" class="px-2 py-1 rounded bg-brand-gold/20 text-brand-gold text-[10px] font-bold hover:bg-brand-gold hover:text-black">Node 1</button>
+                                    <button onclick="setQuickMirror('https://new16.hdhub4u.cl')" class="px-2 py-1 rounded bg-white/10 text-white text-[10px] font-bold hover:bg-white/20">new16</button>
+                                    <button onclick="setQuickMirror('https://new17.hdhub4u.cl')" class="px-2 py-1 rounded bg-white/10 text-white text-[10px] font-bold hover:bg-white/20">new17</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================== -->
+                <!-- ADMIN TAB 5: BOT & STREAM TELEMETRY           -->
+                <!-- ============================================== -->
+                <div id="admContent-system" class="hidden space-y-4">
+                    <div class="bg-brand-dark p-4 rounded-xl border border-white/5 space-y-3">
+                        <h4 class="text-sm font-bold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-server text-brand-gold"></i>
+                            <span>Telegram Bot & Multi-Socket Stream Diagnostics</span>
+                        </h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                            <div class="p-3 rounded-xl bg-brand-card border border-white/5 space-y-1">
+                                <span class="text-brand-muted text-[10px] uppercase font-bold block">Bot Server Host</span>
+                                <span class="font-mono text-white text-xs block" id="admBotHost">http://127.0.0.1:8080</span>
+                                <span class="text-[10px] text-emerald-400 font-bold">🟢 8 Concurrent DC Sockets Active</span>
+                            </div>
+                            <div class="p-3 rounded-xl bg-brand-card border border-white/5 space-y-1">
+                                <span class="text-brand-muted text-[10px] uppercase font-bold block">Gemini 3.1 AI API</span>
+                                <span class="font-mono text-white text-xs block">AIzaSyDiJIBMF2EYATRVzFo3kbckVvzNj0hozwY</span>
+                                <span class="text-[10px] text-emerald-400 font-bold">🟢 Connected to Google Generative Language</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ========================================== -->
+    <!-- MODAL 3: CINEVIBE AI ASSISTANT             -->
     <!-- ========================================== -->
     <div id="aiModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md">
         <div class="relative w-full max-w-2xl glass-panel rounded-2xl overflow-hidden border border-brand-gold/40 shadow-2xl p-6 space-y-5 animate-fade-in">
@@ -480,7 +800,7 @@
             <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 text-[11px]">
                 <button onclick="setAiPrompt('Best mind-bending Sci-Fi movies like Interstellar and Inception')" class="px-2.5 py-1 rounded-full bg-white/5 hover:bg-white/10 text-brand-muted hover:text-white shrink-0 transition">🌌 Mind-bending Sci-Fi</button>
                 <button onclick="setAiPrompt('Highest rated 4K UHD South Indian blockbusters')" class="px-2.5 py-1 rounded-full bg-white/5 hover:bg-white/10 text-brand-muted hover:text-white shrink-0 transition">🔥 Top South 4K</button>
-                <button onclick="setAiPrompt('Gripping crime web series with high IMDb rating')" class="px-2.5 py-1 rounded-full bg-white/5 hover:bg-white/10 text-brand-muted hover:text-white shrink-0 transition">📺 Crime Series</button>
+                <button onclick="setAiPrompt('Best popular Anime and K-Dramas with English/Hindi dubbing')" class="px-2.5 py-1 rounded-full bg-white/5 hover:bg-white/10 text-brand-muted hover:text-white shrink-0 transition">🌸 Anime & K-Drama</button>
             </div>
 
             <div id="aiResponseBox" class="min-h-[120px] max-h-[300px] overflow-y-auto space-y-3 text-xs text-brand-muted bg-brand-card/50 p-4 rounded-xl border border-white/5">
@@ -493,7 +813,7 @@
 
 
     <!-- ========================================== -->
-    <!-- MODAL 3: DOMAIN SHIELD & STREAM SETTINGS -->
+    <!-- MODAL 4: DOMAIN SHIELD & STREAM SETTINGS   -->
     <!-- ========================================== -->
     <div id="settingsModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md">
         <div class="relative w-full max-w-lg glass-panel rounded-2xl overflow-hidden border border-white/10 shadow-2xl p-6 space-y-5 animate-fade-in">
@@ -508,45 +828,22 @@
             </div>
 
             <div class="space-y-4 text-xs">
-                <!-- Domain Shield Info (HDHub4u Pattern) -->
-                <div class="p-3.5 rounded-xl bg-brand-dark border border-brand-gold/30 space-y-1.5">
-                    <span class="text-brand-gold font-bold block flex items-center gap-1.5">
-                        <i class="fa-solid fa-check-double text-xs"></i> HDHub4u-Style Domain Shield
-                    </span>
-                    <p class="text-[11px] text-brand-muted leading-relaxed">
-                        Your permanent main domain stays safe. All content is served via active disposable worker mirrors (e.g. <code>new16</code>). If a mirror ever receives a copyright complaint, simply update the Active Mirror Target below without changing your main domain!
-                    </p>
-                </div>
-
                 <div>
-                    <label class="block text-brand-muted font-semibold mb-1">Active Mirror Node / Sub-Domain</label>
-                    <input type="text" id="activeMirrorInput" value="https://new16.hdhub4u.cl/?utm=mn1" 
+                    <label class="block text-brand-muted font-semibold mb-1">Active Worker Mirror Target</label>
+                    <input type="text" id="activeMirrorInput" value="https://cinevibe-cinema.surge.sh/?utm=mn1" 
                            class="w-full bg-brand-card border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-brand-gold font-mono text-[11px]">
-                    <span class="text-[10px] text-brand-muted mt-1 block">The current disposable mirror where visitors are directed.</span>
                 </div>
 
                 <div>
                     <label class="block text-brand-muted font-semibold mb-1">Telegram Bot Streamer Base URL</label>
                     <input type="text" id="botBaseUrlInput" value="http://127.0.0.1:8080" 
-                           class="w-full bg-brand-card border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-brand-gold">
-                    <span class="text-[10px] text-brand-muted mt-1 block">Default local address: <code>http://127.0.0.1:8080</code> (or your public IP/domain)</span>
+                           class="w-full bg-brand-card border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-brand-gold font-mono">
                 </div>
 
                 <div>
                     <label class="block text-brand-muted font-semibold mb-1">Gemini API Key</label>
                     <input type="text" id="geminiApiKeyInput" value="AIzaSyDiJIBMF2EYATRVzFo3kbckVvzNj0hozwY" 
-                           class="w-full bg-brand-card border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-brand-gold">
-                    <span class="text-[10px] text-brand-muted mt-1 block">Google Generative Language API key for CineVibe AI.</span>
-                </div>
-
-                <div class="p-3 rounded-xl bg-brand-dark border border-white/5 flex items-center justify-between">
-                    <div>
-                        <span class="font-bold text-white block">Bot Connection Test</span>
-                        <span id="connTestStatus" class="text-[11px] text-brand-muted">Click test to check server status</span>
-                    </div>
-                    <button onclick="testBotConnection()" class="px-3 py-1.5 rounded-lg bg-white/10 text-white hover:bg-brand-gold hover:text-black font-bold text-[11px] transition">
-                        Test Connection
-                    </button>
+                           class="w-full bg-brand-card border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-brand-gold font-mono">
                 </div>
             </div>
 
@@ -559,14 +856,14 @@
 
 
     <!-- ========================================== -->
-    <!-- MODAL 4: REQUEST CONTENT -->
+    <!-- MODAL 5: REQUEST CONTENT                   -->
     <!-- ========================================== -->
     <div id="requestModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md">
         <div class="relative w-full max-w-md glass-panel rounded-2xl overflow-hidden border border-white/10 shadow-2xl p-6 space-y-4 animate-fade-in">
             <div class="flex items-center justify-between">
                 <h4 class="text-base font-bold text-white flex items-center gap-2">
                     <i class="fa-solid fa-paper-plane text-brand-gold text-xs"></i>
-                    <span>Request Movie or Series</span>
+                    <span>Request Movie, K-Drama or Anime</span>
                 </h4>
                 <button onclick="closeModal('requestModal')" class="text-brand-muted hover:text-white text-sm">
                     <i class="fa-solid fa-xmark"></i>
@@ -576,7 +873,7 @@
             <form onsubmit="submitContentRequest(event)" class="space-y-3 text-xs">
                 <div>
                     <label class="block text-brand-muted font-semibold mb-1">Title *</label>
-                    <input type="text" id="reqTitle" required placeholder="e.g. Stree 2" class="w-full bg-brand-card border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-brand-gold">
+                    <input type="text" id="reqTitle" required placeholder="e.g. Pushpa 2: The Rule" class="w-full bg-brand-card border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-brand-gold">
                 </div>
                 <div class="grid grid-cols-2 gap-3">
                     <div>
@@ -584,22 +881,27 @@
                         <input type="number" id="reqYear" placeholder="2024" class="w-full bg-brand-card border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-brand-gold">
                     </div>
                     <div>
-                        <label class="block text-brand-muted font-semibold mb-1">Preferred Language</label>
-                        <select id="reqLang" class="w-full bg-brand-card border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-brand-gold">
-                            <option>Hindi</option>
-                            <option>English</option>
-                            <option>Telugu</option>
-                            <option>Tamil</option>
-                            <option>Multi-Audio</option>
+                        <label class="block text-brand-muted font-semibold mb-1">Type</label>
+                        <select id="reqType" class="w-full bg-brand-card border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-brand-gold">
+                            <option>Movie</option>
+                            <option>Web Series</option>
+                            <option>K-Drama</option>
+                            <option>Anime</option>
                         </select>
                     </div>
                 </div>
                 <div>
-                    <label class="block text-brand-muted font-semibold mb-1">Quality / Notes</label>
-                    <textarea id="reqNotes" rows="2" placeholder="e.g. 4K UHD or 1080p if available" class="w-full bg-brand-card border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-brand-gold resize-none"></textarea>
+                    <label class="block text-brand-muted font-semibold mb-1">Preferred Language / Audio</label>
+                    <select id="reqLang" class="w-full bg-brand-card border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-brand-gold">
+                        <option>Hindi Dubbed</option>
+                        <option>English</option>
+                        <option>Japanese with ESub</option>
+                        <option>Korean with ESub</option>
+                        <option>Multi-Audio</option>
+                    </select>
                 </div>
                 <button type="submit" class="w-full py-2.5 rounded-xl bg-brand-gold text-brand-black font-extrabold tracking-wider uppercase hover:bg-yellow-400 transition mt-2">
-                    Submit Request
+                    Submit Request to Library Radar
                 </button>
             </form>
         </div>
@@ -607,7 +909,7 @@
 
 
     <!-- ========================================== -->
-    <!-- MODAL 5: DMCA & COPYRIGHT POLICY -->
+    <!-- MODAL 6: DMCA & COPYRIGHT POLICY          -->
     <!-- ========================================== -->
     <div id="dmcaModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md">
         <div class="relative w-full max-w-lg glass-panel rounded-2xl overflow-hidden border border-white/10 shadow-2xl p-6 space-y-4 animate-fade-in">
@@ -621,7 +923,7 @@
                 </button>
             </div>
             <p class="text-xs text-brand-muted leading-relaxed">
-                CineVibe respects intellectual property rights. If you believe your copyrighted material is displayed or linked without authorization, please submit a formal notice below.
+                CineVibe respects intellectual property rights. If you believe your copyrighted material is displayed without authorization, submit a notice below to queue it for immediate disablement.
             </p>
             <form onsubmit="submitDMCAClaim(event)" class="space-y-3 text-xs">
                 <div>
@@ -636,10 +938,6 @@
                     <label class="block text-brand-muted font-semibold mb-1">Copyrighted Work Title</label>
                     <input type="text" id="dmcaWork" required class="w-full bg-brand-card border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-brand-gold">
                 </div>
-                <div>
-                    <label class="block text-brand-muted font-semibold mb-1">Infringing Movie / File ID</label>
-                    <input type="text" id="dmcaTarget" required class="w-full bg-brand-card border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-brand-gold">
-                </div>
                 <button type="submit" class="w-full py-2.5 rounded-xl bg-rose-600 text-white font-extrabold tracking-wider uppercase hover:bg-rose-700 transition mt-2">
                     Submit Takedown Notice
                 </button>
@@ -649,11 +947,11 @@
 
 
     <!-- ========================================== -->
-    <!-- APPLICATION LOGIC SCRIPT -->
+    <!-- APPLICATION LOGIC SCRIPT                   -->
     <!-- ========================================== -->
     <script>
-        // Load verified catalog data
-        const MOVIES_CATALOG = [
+        // Load catalogs
+        let localCatalog = JSON.parse(localStorage.getItem('cinevibe_custom_catalog')) || [
   {
     "id": "unhealer-2020",
     "title": "The Unhealer",
@@ -662,6 +960,7 @@
     "runtime": "1h 32m",
     "quality": "720p BluRay",
     "category": "hollywood",
+    "type": "movie",
     "languages": [
       "English",
       "Hindi"
@@ -678,8 +977,8 @@
       "Elijah Nelson"
     ],
     "overview": "A bullied teenager gains supernatural powers from an indigenous medicine man's ritual, where any physical pain or harm inflicted upon him is instead reflected back onto his tormentors.",
-    "poster_url": "https://upload.wikimedia.org/wikipedia/commons/0/0e/The_Unhealer_Promo_Poster_thumb.jpg",
-    "backdrop_url": "https://image.tmdb.org/t/p/original/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
+    "poster_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/w500/jEuKhYfeS4dz0uQj1yTZ2Gl8yNH.jpg",
+    "backdrop_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/original/rzchR1ZQQlj5bCfEUdrTZsC5CF2.jpg",
     "file_name": "The Unhealer 2020 720p BluRay English AAC2 0 H 264 ESub Mkv",
     "file_size": 927514624,
     "file_size_human": "884.55 MB",
@@ -688,37 +987,73 @@
     "featured": true
   },
   {
-    "id": "remarried-empress-s01e07",
-    "title": "The Remarried Empress",
-    "year": 2024,
-    "rating": 8.6,
-    "runtime": "45m",
-    "quality": "1080p WEB-DL",
-    "category": "series",
+    "id": "oppenheimer-2023",
+    "title": "Oppenheimer",
+    "year": 2023,
+    "rating": 8.9,
+    "runtime": "3h 00m",
+    "quality": "4K UHD IMAX",
+    "category": "hollywood",
+    "type": "movie",
     "languages": [
-      "Korean",
       "English",
       "Hindi Dubbed"
     ],
     "genres": [
+      "Biography",
       "Drama",
-      "Romance",
-      "Fantasy"
+      "History"
     ],
-    "director": "Kim Jin-min",
+    "director": "Christopher Nolan",
     "cast": [
-      "Shin Min-a",
-      "Lee Jong-suk",
-      "Ju Ji-hoon"
+      "Cillian Murphy",
+      "Emily Blunt",
+      "Matt Damon",
+      "Robert Downey Jr."
     ],
-    "overview": "Navier Ellie Trovi was an empress of the Eastern Empire. When her husband demands a divorce to enthrone his mistress, Navier accepts on one condition: she is immediately remarried to the Emperor of the Western Empire.",
-    "poster_url": "https://upload.wikimedia.org/wikipedia/en/a/a7/The_Remarried_Empress.jpg",
-    "backdrop_url": "https://image.tmdb.org/t/p/original/keVfqCMKmJ55nHzmqR2Q5K7LwJt.jpg",
-    "file_name": "The Remarried Empress S01E07 1080p WEB h264 GRACE mkv",
-    "file_size": 1917726903,
-    "file_size_human": "1.78 GB",
-    "stream_msg_id": 219,
-    "stream_hash": "AgADNS",
+    "overview": "The dramatic story of American scientist J. Robert Oppenheimer and his role in the development of the atomic bomb during World War II.",
+    "poster_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
+    "backdrop_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/original/nb3xI8XI3w4pMVZ38VijbsyBqP4.jpg",
+    "file_name": "Oppenheimer 2023 2160p IMAX UHD HDR10 DTS-HD",
+    "file_size": 9663676416,
+    "file_size_human": "9.00 GB",
+    "stream_msg_id": 130,
+    "stream_hash": "AgADkl",
+    "featured": true
+  },
+  {
+    "id": "dune-part-two-2024",
+    "title": "Dune: Part Two",
+    "year": 2024,
+    "rating": 8.8,
+    "runtime": "2h 46m",
+    "quality": "4K UHD IMAX",
+    "category": "hollywood",
+    "type": "movie",
+    "languages": [
+      "English",
+      "Hindi Dubbed"
+    ],
+    "genres": [
+      "Sci-Fi",
+      "Adventure",
+      "Action"
+    ],
+    "director": "Denis Villeneuve",
+    "cast": [
+      "Timoth\u00e9e Chalamet",
+      "Zendaya",
+      "Rebecca Ferguson",
+      "Austin Butler"
+    ],
+    "overview": "Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family, facing a choice between love and the fate of the known universe.",
+    "poster_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/w500/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg",
+    "backdrop_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/original/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg",
+    "file_name": "Dune Part Two 2024 2160p IMAX 4K UHD Atmos x265",
+    "file_size": 7516192768,
+    "file_size_human": "7.00 GB",
+    "stream_msg_id": 132,
+    "stream_hash": "AgADmn",
     "featured": true
   },
   {
@@ -729,6 +1064,7 @@
     "runtime": "2h 10m",
     "quality": "4K UHD HEVC",
     "category": "bollywood",
+    "type": "movie",
     "languages": [
       "Hindi"
     ],
@@ -745,8 +1081,8 @@
       "Sahil Mehta"
     ],
     "overview": "An orphaned genius lands a scholarship to an elite boarding school and gets lured into a high-stakes cheating conspiracy orchestrated by the school's wealthy elite students.",
-    "poster_url": "https://image.tmdb.org/t/p/w500/4ihdqS2PvRcjN1i9ozQxtyoKvBX.jpg",
-    "backdrop_url": "https://image.tmdb.org/t/p/original/4ihdqS2PvRcjN1i9ozQxtyoKvBX.jpg",
+    "poster_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/w500/4ihdqS2PvRcjN1i9ozQxtyoKvBX.jpg",
+    "backdrop_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/original/4ihdqS2PvRcjN1i9ozQxtyoKvBX.jpg",
     "file_name": "Farrey 2023 2160p 4K UHD HEVC Hindi Atmos",
     "file_size": 4294967296,
     "file_size_human": "4.00 GB",
@@ -762,6 +1098,7 @@
     "runtime": "3h 21m",
     "quality": "4K UHD 2160p",
     "category": "bollywood",
+    "type": "movie",
     "languages": [
       "Hindi",
       "Telugu",
@@ -780,8 +1117,8 @@
       "Rashmika Mandanna"
     ],
     "overview": "A fiercely obsessive son undergoes a violent and ruthless transformation to protect his emotionally distant father and exact brutal vengeance against those who plotted against his family.",
-    "poster_url": "https://image.tmdb.org/t/p/w500/hr9rjR3J0xBBKmlJ4n3gHId9ccx.jpg",
-    "backdrop_url": "https://image.tmdb.org/t/p/original/hr9rjR3J0xBBKmlJ4n3gHId9ccx.jpg",
+    "poster_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/w500/hr9rjR3J0xBBKmlJ4n3gHId9ccx.jpg",
+    "backdrop_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/original/hr9rjR3J0xBBKmlJ4n3gHId9ccx.jpg",
     "file_name": "Animal 2023 2160p UHD HDR Atmos DD5.1 Hindi x265",
     "file_size": 7516192768,
     "file_size_human": "7.00 GB",
@@ -797,6 +1134,7 @@
     "runtime": "2h 27m",
     "quality": "1080p FHD",
     "category": "bollywood",
+    "type": "movie",
     "languages": [
       "Hindi",
       "Tamil",
@@ -814,8 +1152,8 @@
       "Anant Joshi"
     ],
     "overview": "Inspired by the true story of Manoj Kumar Sharma, who rose from poverty and repeated academic failures to crack India's toughest civil service exam (UPSC) and become an IPS officer.",
-    "poster_url": "https://image.tmdb.org/t/p/w500/eebUPRI4Z5e1Z7Hev4JZAwMIFkX.jpg",
-    "backdrop_url": "https://image.tmdb.org/t/p/original/eebUPRI4Z5e1Z7Hev4JZAwMIFkX.jpg",
+    "poster_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/w500/eebUPRI4Z5e1Z7Hev4JZAwMIFkX.jpg",
+    "backdrop_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/original/eebUPRI4Z5e1Z7Hev4JZAwMIFkX.jpg",
     "file_name": "12th Fail 2023 1080p WEB-DL Hindi DDP5.1 x264",
     "file_size": 2576980377,
     "file_size_human": "2.40 GB",
@@ -831,6 +1169,7 @@
     "runtime": "2h 46m",
     "quality": "4K UHD IMAX",
     "category": "bollywood",
+    "type": "movie",
     "languages": [
       "Hindi"
     ],
@@ -846,8 +1185,8 @@
       "Anil Kapoor"
     ],
     "overview": "Top Indian Air Force aviators come together to form 'Air Dragons' in the face of imminent danger and state-sponsored terror threats, taking to the skies in high-speed combat.",
-    "poster_url": "https://image.tmdb.org/t/p/w500/keVfqCMKmJ55nHzmqR2Q5K7LwJt.jpg",
-    "backdrop_url": "https://image.tmdb.org/t/p/original/keVfqCMKmJ55nHzmqR2Q5K7LwJt.jpg",
+    "poster_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/w500/keVfqCMKmJ55nHzmqR2Q5K7LwJt.jpg",
+    "backdrop_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/original/keVfqCMKmJ55nHzmqR2Q5K7LwJt.jpg",
     "file_name": "Fighter 2024 2160p 4K UHD IMAX Atmos Hindi",
     "file_size": 5368709120,
     "file_size_human": "5.00 GB",
@@ -863,6 +1202,7 @@
     "runtime": "2h 55m",
     "quality": "4K UHD HDR",
     "category": "south",
+    "type": "movie",
     "languages": [
       "Telugu",
       "Hindi Dubbed",
@@ -881,8 +1221,8 @@
       "Shruti Haasan"
     ],
     "overview": "A gang leader makes a promise to a dying friend and takes on other criminal gangs in the dystopian fortified city-state of Khansaar.",
-    "poster_url": "https://image.tmdb.org/t/p/w500/snYOXem8pUGOffnLbbGq4aB1pg4.jpg",
-    "backdrop_url": "https://image.tmdb.org/t/p/original/snYOXem8pUGOffnLbbGq4aB1pg4.jpg",
+    "poster_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/w500/snYOXem8pUGOffnLbbGq4aB1pg4.jpg",
+    "backdrop_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/original/snYOXem8pUGOffnLbbGq4aB1pg4.jpg",
     "file_name": "Salaar Part 1 Ceasefire 2023 2160p UHD HDR Multi-Audio",
     "file_size": 6442450944,
     "file_size_human": "6.00 GB",
@@ -898,6 +1238,7 @@
     "runtime": "3h 01m",
     "quality": "4K UHD 2160p",
     "category": "south",
+    "type": "movie",
     "languages": [
       "Telugu",
       "Hindi Dubbed",
@@ -916,8 +1257,8 @@
       "Deepika Padukone"
     ],
     "overview": "In a post-apocalyptic world in the year 2898 AD, a modern-day avatar of Vishnu descends to protect humanity from tyrannical forces led by the supreme complex dictator.",
-    "poster_url": "https://image.tmdb.org/t/p/w500/rstcAnBeCkxNQjNp3YXrF6IP1tW.jpg",
-    "backdrop_url": "https://image.tmdb.org/t/p/original/rstcAnBeCkxNQjNp3YXrF6IP1tW.jpg",
+    "poster_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/w500/rstcAnBeCkxNQjNp3YXrF6IP1tW.jpg",
+    "backdrop_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/original/rstcAnBeCkxNQjNp3YXrF6IP1tW.jpg",
     "file_name": "Kalki 2898 AD 2024 2160p UHD Dolby Vision Atmos",
     "file_size": 8589934592,
     "file_size_human": "8.00 GB",
@@ -926,71 +1267,213 @@
     "featured": true
   },
   {
-    "id": "oppenheimer-2023",
-    "title": "Oppenheimer",
-    "year": 2023,
-    "rating": 8.9,
-    "runtime": "3h 00m",
-    "quality": "4K UHD IMAX",
-    "category": "hollywood",
+    "id": "remarried-empress-s01e07",
+    "title": "The Remarried Empress",
+    "year": 2024,
+    "rating": 8.6,
+    "runtime": "45m",
+    "quality": "1080p WEB-DL",
+    "category": "kdrama",
+    "type": "kdrama",
     "languages": [
+      "Korean",
       "English",
       "Hindi Dubbed"
     ],
     "genres": [
-      "Biography",
       "Drama",
-      "History"
+      "Romance",
+      "Fantasy"
     ],
-    "director": "Christopher Nolan",
+    "director": "Kim Jin-min",
     "cast": [
-      "Cillian Murphy",
-      "Emily Blunt",
-      "Matt Damon",
-      "Robert Downey Jr."
+      "Shin Min-a",
+      "Lee Jong-suk",
+      "Ju Ji-hoon"
     ],
-    "overview": "The dramatic story of American scientist J. Robert Oppenheimer and his role in the development of the atomic bomb during World War II.",
-    "poster_url": "https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
-    "backdrop_url": "https://image.tmdb.org/t/p/original/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
-    "file_name": "Oppenheimer 2023 2160p IMAX UHD HDR10 DTS-HD",
-    "file_size": 9663676416,
-    "file_size_human": "9.00 GB",
-    "stream_msg_id": 130,
-    "stream_hash": "AgADkl",
+    "overview": "Navier Ellie Trovi was an empress of the Eastern Empire. When her husband demands a divorce to enthrone his mistress, Navier accepts on one condition: she is immediately remarried to the Emperor of the Western Empire.",
+    "poster_url": "https://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/en/a/a7/The_Remarried_Empress.jpg",
+    "backdrop_url": "https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=1600&q=80",
+    "file_name": "The Remarried Empress S01E07 1080p WEB h264 GRACE mkv",
+    "file_size": 1917726903,
+    "file_size_human": "1.78 GB",
+    "stream_msg_id": 219,
+    "stream_hash": "AgADNS",
     "featured": true
   },
   {
-    "id": "dune-part-two-2024",
-    "title": "Dune: Part Two",
+    "id": "queen-of-tears-2024",
+    "title": "Queen of Tears",
     "year": 2024,
     "rating": 8.8,
-    "runtime": "2h 46m",
-    "quality": "4K UHD IMAX",
-    "category": "hollywood",
+    "runtime": "1 Season",
+    "quality": "4K UHD Multi-Audio",
+    "category": "kdrama",
+    "type": "kdrama",
     "languages": [
+      "Korean",
+      "Hindi Dubbed",
+      "English"
+    ],
+    "genres": [
+      "Drama",
+      "Romance",
+      "Comedy"
+    ],
+    "director": "Jang Young-woo",
+    "cast": [
+      "Kim Soo-hyun",
+      "Kim Ji-won",
+      "Park Sung-hoon"
+    ],
+    "overview": "The queen of department stores and the prince of supermarkets weather a marital crisis until love miraculously begins to bloom again amidst high-stakes family succession battles.",
+    "poster_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/w500/30OTnJgOzmY4vEqr5H12TpPGPAD.jpg",
+    "backdrop_url": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1600&q=80",
+    "file_name": "Queen of Tears S01 2160p 4K HDR Multi-Audio NF",
+    "file_size": 12884901888,
+    "file_size_human": "12.00 GB",
+    "stream_msg_id": 140,
+    "stream_hash": "AgADuv",
+    "featured": true
+  },
+  {
+    "id": "attack-on-titan",
+    "title": "Attack on Titan (Shingeki no Kyojin)",
+    "year": 2023,
+    "rating": 9.1,
+    "runtime": "4 Seasons",
+    "quality": "1080p FHD Dual Audio",
+    "category": "anime",
+    "type": "anime",
+    "languages": [
+      "Japanese",
+      "Hindi Dubbed",
+      "English"
+    ],
+    "genres": [
+      "Anime",
+      "Action",
+      "Dark Fantasy"
+    ],
+    "director": "Yuichiro Hayashi",
+    "cast": [
+      "Yuki Kaji",
+      "Yui Ishikawa",
+      "Marina Inoue"
+    ],
+    "overview": "After his hometown is destroyed and his mother is killed, young Eren Jaeger vows to cleanse the earth of the giant humanoid Titans that have brought humanity to the brink of extinction.",
+    "poster_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/w500/hTP1DtLGFamjfu8WqjnuQdP1n4i.jpg",
+    "backdrop_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/original/hTP1DtLGFamjfu8WqjnuQdP1n4i.jpg",
+    "file_name": "Attack on Titan Final Season Complete 1080p Dual Audio",
+    "file_size": 16106127360,
+    "file_size_human": "15.00 GB",
+    "stream_msg_id": 142,
+    "stream_hash": "AgADwx",
+    "featured": true
+  },
+  {
+    "id": "demon-slayer-hashira",
+    "title": "Demon Slayer: Hashira Training Arc",
+    "year": 2024,
+    "rating": 8.9,
+    "runtime": "1 Season",
+    "quality": "4K UHD Multi-Audio",
+    "category": "anime",
+    "type": "anime",
+    "languages": [
+      "Japanese",
+      "Hindi Dubbed",
+      "English"
+    ],
+    "genres": [
+      "Anime",
+      "Action",
+      "Supernatural"
+    ],
+    "director": "Haruo Sotozaki",
+    "cast": [
+      "Natsuki Hanae",
+      "Akari Kito",
+      "Hiro Shimono"
+    ],
+    "overview": "Tanjiro visits the Stone Hashira, Himejima, to prepare for the forthcoming battle. The training to become a Hashira is rigorous and demanding, pushing the young Demon Slayers to their limits.",
+    "poster_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/w500/xUfRZu2mi8jH6SzQEJGP6tjBuYj.jpg",
+    "backdrop_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/original/xUfRZu2mi8jH6SzQEJGP6tjBuYj.jpg",
+    "file_name": "Demon Slayer Hashira Training Arc 2024 2160p Multi-Audio",
+    "file_size": 8589934592,
+    "file_size_human": "8.00 GB",
+    "stream_msg_id": 144,
+    "stream_hash": "AgADyz",
+    "featured": true
+  },
+  {
+    "id": "solo-leveling",
+    "title": "Solo Leveling (Ore dake Level Up na Ken)",
+    "year": 2024,
+    "rating": 8.7,
+    "runtime": "1 Season",
+    "quality": "4K UHD Multi-Audio",
+    "category": "anime",
+    "type": "anime",
+    "languages": [
+      "Japanese",
       "English",
       "Hindi Dubbed"
     ],
     "genres": [
-      "Sci-Fi",
-      "Adventure",
+      "Anime",
+      "Action",
+      "Fantasy"
+    ],
+    "director": "Shunsuke Nakashige",
+    "cast": [
+      "Taito Ban",
+      "Genta Nakamura",
+      "Reina Ueda"
+    ],
+    "overview": "Known as the weakest hunter of all mankind, Sung Jinwoo finds himself in a deadly double dungeon and awakens with the unique ability to level up indefinitely through a mysterious system.",
+    "poster_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/w500/geCRueV3ElhRTr0xtJuEWJt6dJ1.jpg",
+    "backdrop_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/original/geCRueV3ElhRTr0xtJuEWJt6dJ1.jpg",
+    "file_name": "Solo Leveling Season 1 2160p 4K UHD Multi-Audio",
+    "file_size": 9663676416,
+    "file_size_human": "9.00 GB",
+    "stream_msg_id": 146,
+    "stream_hash": "AgAD12",
+    "featured": true
+  },
+  {
+    "id": "jujutsu-kaisen",
+    "title": "Jujutsu Kaisen (Shibuya Incident)",
+    "year": 2023,
+    "rating": 8.8,
+    "runtime": "2 Seasons",
+    "quality": "1080p FHD Dual Audio",
+    "category": "anime",
+    "type": "anime",
+    "languages": [
+      "Japanese",
+      "English",
+      "Hindi Dubbed"
+    ],
+    "genres": [
+      "Anime",
+      "Supernatural",
       "Action"
     ],
-    "director": "Denis Villeneuve",
+    "director": "Sunghoo Park",
     "cast": [
-      "Timoth\u00e9e Chalamet",
-      "Zendaya",
-      "Rebecca Ferguson",
-      "Austin Butler"
+      "Junya Enoki",
+      "Yuma Uchida",
+      "Asami Seto"
     ],
-    "overview": "Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family, facing a choice between love and the fate of the known universe.",
-    "poster_url": "https://image.tmdb.org/t/p/w500/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg",
-    "backdrop_url": "https://image.tmdb.org/t/p/original/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg",
-    "file_name": "Dune Part Two 2024 2160p IMAX 4K UHD Atmos x265",
-    "file_size": 7516192768,
-    "file_size_human": "7.00 GB",
-    "stream_msg_id": 132,
-    "stream_hash": "AgADmn",
+    "overview": "A boy swallows a cursed talisman - the finger of a demon - and becomes cursed himself. He enters a shaman's school to be able to locate the demon's other body parts and exorcise himself.",
+    "poster_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/w500/6qQzMJG27XOJsyAEEIisoJB45j2.jpg",
+    "backdrop_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/original/6qQzMJG27XOJsyAEEIisoJB45j2.jpg",
+    "file_name": "Jujutsu Kaisen S01-S02 Complete 1080p Dual Audio",
+    "file_size": 17179869184,
+    "file_size_human": "16.00 GB",
+    "stream_msg_id": 148,
+    "stream_hash": "AgAD34",
     "featured": true
   },
   {
@@ -1001,6 +1484,7 @@
     "runtime": "5 Seasons",
     "quality": "1080p FHD",
     "category": "series",
+    "type": "series",
     "languages": [
       "Spanish",
       "English",
@@ -1018,8 +1502,8 @@
       "Pedro Alonso"
     ],
     "overview": "An unusual group of robbers attempt to carry out the most perfect robbery in Spanish history - stealing 2.4 billion euros from the Royal Mint of Spain.",
-    "poster_url": "https://image.tmdb.org/t/p/w500/reEMJA1uzscCbkpeRJeTT2bjqUp.jpg",
-    "backdrop_url": "https://image.tmdb.org/t/p/original/reEMJA1uzscCbkpeRJeTT2bjqUp.jpg",
+    "poster_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/w500/reEMJA1uzscCbkpeRJeTT2bjqUp.jpg",
+    "backdrop_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/original/reEMJA1uzscCbkpeRJeTT2bjqUp.jpg",
     "file_name": "Money Heist Complete S01-S05 1080p NF WEB-DL Dual",
     "file_size": 15032385536,
     "file_size_human": "14.00 GB",
@@ -1035,6 +1519,7 @@
     "runtime": "4 Seasons",
     "quality": "4K UHD Dolby Vision",
     "category": "series",
+    "type": "series",
     "languages": [
       "English",
       "Hindi Dubbed"
@@ -1052,8 +1537,8 @@
       "David Harbour"
     ],
     "overview": "When a young boy vanishes, a small town uncovers a mystery involving secret experiments, terrifying supernatural forces and one strange little girl.",
-    "poster_url": "https://image.tmdb.org/t/p/w500/49WJfeN0moxb9IPfGn8AIqMGskD.jpg",
-    "backdrop_url": "https://image.tmdb.org/t/p/original/49WJfeN0moxb9IPfGn8AIqMGskD.jpg",
+    "poster_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/w500/49WJfeN0moxb9IPfGn8AIqMGskD.jpg",
+    "backdrop_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/original/49WJfeN0moxb9IPfGn8AIqMGskD.jpg",
     "file_name": "Stranger Things S01-S04 2160p 4K HDR Atmos NF",
     "file_size": 21474836480,
     "file_size_human": "20.00 GB",
@@ -1062,31 +1547,100 @@
     "featured": true
   }
 ];
+        let missingCatalog = JSON.parse(localStorage.getItem('cinevibe_missing_catalog')) || [
+  {
+    "title": "Pushpa 2: The Rule",
+    "year": 2024,
+    "category": "south",
+    "type": "movie",
+    "demand": "\ud83d\udd25 98% High Demand",
+    "expected_quality": "4K UHD 2160p",
+    "notes": "Top user requested Indian blockbuster. Theatrical release scheduled."
+  },
+  {
+    "title": "Deadpool & Wolverine",
+    "year": 2024,
+    "category": "hollywood",
+    "type": "movie",
+    "demand": "\ud83d\udd25 95% High Demand",
+    "expected_quality": "4K UHD IMAX",
+    "notes": "Marvel blockbustier. High user search volume."
+  },
+  {
+    "title": "Stree 2: Sarkate Ka Aatank",
+    "year": 2024,
+    "category": "bollywood",
+    "type": "movie",
+    "demand": "\ud83d\udd25 96% High Demand",
+    "expected_quality": "4K UHD HDR",
+    "notes": "Highest grossing Hindi film of 2024. In queue for OTT rip upload."
+  },
+  {
+    "title": "Squid Game: Season 2",
+    "year": 2024,
+    "category": "kdrama",
+    "type": "kdrama",
+    "demand": "\u26a1 93% Trending Wishlist",
+    "expected_quality": "4K UHD Dolby Vision",
+    "notes": "Global anticipation. Awaiting Netflix release."
+  },
+  {
+    "title": "Chhava (The Great Maratha)",
+    "year": 2024,
+    "category": "bollywood",
+    "type": "movie",
+    "demand": "\u26a1 89% User Requested",
+    "expected_quality": "1080p FHD",
+    "notes": "Historical action drama requested by community."
+  },
+  {
+    "title": "Bleach: Thousand-Year Blood War Part 3",
+    "year": 2024,
+    "category": "anime",
+    "type": "anime",
+    "demand": "\ud83d\udc65 86% Anime Wishlist",
+    "expected_quality": "1080p FHD Dual Audio",
+    "notes": "Crucial anime arc requested by multiple anime fans."
+  },
+  {
+    "title": "Mirzapur (Season 3)",
+    "year": 2024,
+    "category": "series",
+    "type": "series",
+    "demand": "\u26a1 91% High Demand",
+    "expected_quality": "4K UHD HDR",
+    "notes": "Amazon Prime crime thriller. Queued for 4K packaging."
+  }
+];
 
         // State
         let currentSlideIdx = 0;
         let slideTimer = null;
         let selectedMovie = null;
         let activeCategory = '';
+        let currentYearFilter = 'all';
         let botBaseUrl = localStorage.getItem('cinevibe_bot_url') || 'http://127.0.0.1:8080';
         let geminiApiKey = localStorage.getItem('cinevibe_gemini_key') || 'AIzaSyDiJIBMF2EYATRVzFo3kbckVvzNj0hozwY';
-        let activeMirrorUrl = localStorage.getItem('cinevibe_active_mirror') || 'https://new16.hdhub4u.cl/?utm=mn1';
+        let activeMirrorUrl = localStorage.getItem('cinevibe_active_mirror') || 'https://cinevibe-cinema.surge.sh/?utm=mn1';
 
-        // Initialize App
         document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('botBaseUrlInput').value = botBaseUrl;
             document.getElementById('geminiApiKeyInput').value = geminiApiKey;
             document.getElementById('activeMirrorInput').value = activeMirrorUrl;
 
-            // Auto-check if we should auto-enter if visited from gateway or query
+            // Auto-enter if navigated with utm or hash
             const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.get('utm') || urlParams.get('explore') || window.location.hash) {
+            if (urlParams.get('utm') || urlParams.get('admin') || window.location.hash === '#admin') {
                 enterMainPlatform();
+                if (urlParams.get('admin') || window.location.hash === '#admin') {
+                    openAdminModal();
+                }
             }
 
-            // Register PWA service worker
+            updateKpis();
+
             if ('serviceWorker' in navigator) {
-                navigator.serviceWorker.register('/sw.js').catch(err => console.log('SW registration error:', err));
+                navigator.serviceWorker.register('/sw.js').catch(err => console.log('SW error:', err));
             }
         });
 
@@ -1109,10 +1663,9 @@
         // ==========================================
         // HERO TRENDING POSTER SLIDER
         // ==========================================
-        const trendingMovies = MOVIES_CATALOG.filter(m => m.featured || m.rating >= 8.0);
-
         function initCarousel() {
-            if (trendingMovies.length === 0) return;
+            const trending = localCatalog.filter(m => m.featured || m.rating >= 8.5);
+            if (trending.length === 0) return;
             renderSlide(0);
             if (slideTimer) clearInterval(slideTimer);
             slideTimer = setInterval(() => {
@@ -1121,12 +1674,13 @@
         }
 
         function renderSlide(idx) {
-            const m = trendingMovies[idx];
+            const trending = localCatalog.filter(m => m.featured || m.rating >= 8.5);
+            const m = trending[idx];
             if (!m) return;
             currentSlideIdx = idx;
 
             document.getElementById('sliderBackground').style.backgroundImage = `url('${m.backdrop_url || m.poster_url}')`;
-            document.getElementById('slideBadge').innerText = `Trending #${idx + 1}`;
+            document.getElementById('slideBadge').innerText = `Trending #${idx + 1} • ${m.category.toUpperCase()}`;
             document.getElementById('slideQuality').innerText = m.quality.includes('4K') ? '4K UHD' : m.quality;
             document.getElementById('slideRating').innerHTML = `<i class="fa-solid fa-star text-xs"></i> ${m.rating}`;
             document.getElementById('slideTitle').innerText = m.title;
@@ -1137,12 +1691,14 @@
         }
 
         function nextSlide() {
-            currentSlideIdx = (currentSlideIdx + 1) % trendingMovies.length;
+            const trending = localCatalog.filter(m => m.featured || m.rating >= 8.5);
+            currentSlideIdx = (currentSlideIdx + 1) % trending.length;
             renderSlide(currentSlideIdx);
         }
 
         function prevSlide() {
-            currentSlideIdx = (currentSlideIdx - 1 + trendingMovies.length) % trendingMovies.length;
+            const trending = localCatalog.filter(m => m.featured || m.rating >= 8.5);
+            currentSlideIdx = (currentSlideIdx - 1 + trending.length) % trending.length;
             renderSlide(currentSlideIdx);
         }
 
@@ -1153,29 +1709,29 @@
             const container = document.getElementById('sectionsContainer');
             
             const sections = {
-                "trending_now": { title: "🔥 Trending Now", filter: m => m.rating >= 8.0 },
-                "latest_releases": { title: "✨ Latest 2024–2025 Releases", filter: m => m.year >= 2023 },
-                "recently_added": { title: "⚡ Recently Added to CineVibe", filter: () => true },
-                "popular_movies": { title: "💎 Popular 4K Ultra HD Movies", filter: m => m.quality.includes('4K') },
-                "editors_picks": { title: "🎬 Editor's Cinema Picks", filter: m => m.featured },
-                "recommended_for_you": { title: "🌟 Recommended For You", filter: m => m.category === 'bollywood' || m.category === 'hollywood' },
-                "most_viewed": { title: "👀 Most Viewed Titles", filter: m => m.file_size > 2000000000 },
-                "featured_collections": { title: "🌴 South Cinema & Indian Blockbusters", filter: m => m.category === 'south' || m.category === 'bollywood' },
-                "popular_web_series": { title: "📺 Popular Binge Web Series", filter: m => m.category === 'series' },
-                "continue_exploring": { title: "🚀 Continue Exploring", filter: m => m.languages.includes('Hindi') || m.languages.includes('English') },
-                "upcoming_releases": { title: "🔮 Upcoming & Trending Cinema", filter: m => m.year >= 2024 }
+                "trending_now": { title: "🔥 Trending Now (Movies & Series)", filter: m => m.rating >= 8.5 },
+                "anime_hits": { title: "⚔️ Top Hit Anime Series", filter: m => m.category === 'anime' },
+                "kdrama_romance": { title: "🌸 Popular K-Dramas & Royal Romance", filter: m => m.category === 'kdrama' },
+                "latest_2024": { title: "✨ Latest 2024 Releases", filter: m => m.year === 2024 },
+                "popular_4k": { title: "💎 Popular 4K Ultra HD Cinema", filter: m => m.quality.includes('4K') },
+                "bollywood_hits": { title: "🎬 Bollywood Blockbusters", filter: m => m.category === 'bollywood' },
+                "south_blockbusters": { title: "🌴 South Cinema Powerhouses", filter: m => m.category === 'south' },
+                "hollywood_epics": { title: "🚀 Hollywood & Sci-Fi Epics", filter: m => m.category === 'hollywood' },
+                "binge_series": { title: "📺 Binge-Worthy Web Series", filter: m => m.category === 'series' },
+                "curated_picks": { title: "🌟 Editor's Top Rated Picks", filter: m => m.rating >= 8.8 },
+                "recently_added": { title: "⚡ Recently Added to CineVibe", filter: () => true }
             };
 
             let html = '';
             for (const [key, sec] of Object.entries(sections)) {
-                const list = MOVIES_CATALOG.filter(sec.filter);
+                const list = localCatalog.filter(sec.filter);
                 if (list.length === 0) continue;
 
                 html += `
                     <div class="space-y-4">
                         <div class="flex items-center justify-between">
                             <h3 class="text-lg sm:text-xl font-bold text-white tracking-wide">${sec.title}</h3>
-                            <button onclick="setCategory('${key === 'popular_movies' ? '4k' : key === 'popular_web_series' ? 'series' : ''}')" class="text-xs text-brand-gold hover:underline font-semibold">View All →</button>
+                            <button onclick="setCategory('${key === 'anime_hits' ? 'anime' : key === 'kdrama_romance' ? 'kdrama' : key === 'popular_4k' ? '4k' : ''}')" class="text-xs text-brand-gold hover:underline font-semibold">View All (${list.length}) →</button>
                         </div>
                         <div class="flex gap-4 overflow-x-auto no-scrollbar pb-3 pt-1">
                             ${list.map(m => createMovieCard(m)).join('')}
@@ -1187,7 +1743,6 @@
         }
 
         function handleImageError(img, title, year) {
-            // Clean SVG fallback with real movie title rather than a static duplicate poster
             img.onerror = null;
             const cleanTitle = title.replace(/"/g, '');
             img.src = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="450" viewBox="0 0 300 450"><rect width="300" height="450" fill="%23181818"/><rect x="10" y="10" width="280" height="430" fill="none" stroke="%23FFC928" stroke-width="2" opacity="0.4" rx="8"/><text x="150" y="210" font-family="sans-serif" font-weight="bold" font-size="20" fill="%23FFFFFF" text-anchor="middle">${encodeURIComponent(cleanTitle)}</text><text x="150" y="245" font-family="sans-serif" font-size="14" fill="%23FFC928" text-anchor="middle">${year || 'CineVibe'}</text></svg>`;
@@ -1231,11 +1786,11 @@
                 return;
             }
 
-            let filtered = MOVIES_CATALOG;
+            let filtered = localCatalog;
             if (cat === '4k') {
-                filtered = MOVIES_CATALOG.filter(m => m.quality.includes('4K'));
+                filtered = localCatalog.filter(m => m.quality.includes('4K'));
             } else {
-                filtered = MOVIES_CATALOG.filter(m => m.category === cat);
+                filtered = localCatalog.filter(m => m.category === cat || m.type === cat);
             }
 
             displaySearchResults(filtered, `Category: ${cat.toUpperCase()}`);
@@ -1252,7 +1807,7 @@
                     if (q.length === 0) closeSearchResults();
                     return;
                 }
-                const results = MOVIES_CATALOG.filter(m => 
+                const results = localCatalog.filter(m => 
                     m.title.toLowerCase().includes(q) ||
                     (m.cast && m.cast.some(c => c.toLowerCase().includes(q))) ||
                     (m.director && m.director.toLowerCase().includes(q)) ||
@@ -1296,7 +1851,7 @@
         // MOVIE DETAILS MODAL & BOT STREAM ACTIONS
         // ==========================================
         function openMovieDetails(id) {
-            const m = MOVIES_CATALOG.find(x => x.id === id);
+            const m = localCatalog.find(x => x.id === id);
             if (!m) return;
             selectedMovie = m;
 
@@ -1312,7 +1867,6 @@
             document.getElementById('modalDirector').innerText = m.director || 'Director';
             document.getElementById('modalLanguages').innerText = m.languages.join(', ');
 
-            // Formats list
             const formats = [
                 { label: "4K UHD 2160p HEVC HDR10", size: m.file_size_human, quality: "4K UHD" },
                 { label: "1080p FHD x264 Dolby 5.1", size: "2.40 GB", quality: "1080p" },
@@ -1330,12 +1884,10 @@
                 </div>
             `).join('');
 
-            // Cast list
             document.getElementById('modalCastList').innerHTML = (m.cast || []).map(c => `
                 <span class="px-2.5 py-1 rounded-lg bg-brand-dark border border-white/5 text-white">${c}</span>
             `).join('');
 
-            // Actions
             document.getElementById('modalStreamBtn').onclick = () => launchStream(m);
             document.getElementById('modalDownloadBtn').onclick = () => launchDownload(m);
 
@@ -1355,7 +1907,6 @@
             });
         }
 
-        // Stream and Download connected to Bot Server
         function getBotStreamUrl(m) {
             const msgId = m.stream_msg_id || 116;
             const hash = m.stream_hash || "AgADwB";
@@ -1389,6 +1940,209 @@
         }
 
         // ==========================================
+        // ADMIN COMMAND CENTER LOGIC
+        // ==========================================
+        function openAdminModal() {
+            renderInventoryTable();
+            renderMissingTable();
+            openModal('adminModal');
+        }
+
+        function switchAdminTab(tab) {
+            ['inventory', 'missing', 'manage', 'shield', 'system'].forEach(t => {
+                document.getElementById(`admContent-${t}`).classList.toggle('hidden', t !== tab);
+                const btn = document.getElementById(`admTabBtn-${t}`);
+                if (t === tab) {
+                    btn.className = "px-3 py-1.5 rounded-lg bg-brand-gold text-black font-bold";
+                } else {
+                    btn.className = "px-3 py-1.5 rounded-lg text-brand-muted hover:text-white font-medium";
+                }
+            });
+        }
+
+        function updateKpis() {
+            document.getElementById('kpiTotal').innerText = localCatalog.length;
+            document.getElementById('kpiMovies').innerText = localCatalog.filter(m => m.type === 'movie').length;
+            document.getElementById('kpiSeries').innerText = localCatalog.filter(m => m.type === 'series').length;
+            document.getElementById('kpiKdrama').innerText = localCatalog.filter(m => m.type === 'kdrama' || m.category === 'kdrama').length;
+            document.getElementById('kpiAnime').innerText = localCatalog.filter(m => m.type === 'anime' || m.category === 'anime').length;
+            document.getElementById('kpiMissing').innerText = missingCatalog.length;
+            document.getElementById('missingCountBadge').innerText = missingCatalog.length;
+        }
+
+        function filterInventoryByYear(yr) {
+            currentYearFilter = yr;
+            ['all', '2024', '2023', '2022', '2021', '2020'].forEach(y => {
+                const btn = document.getElementById(`yrBtn-${y}`);
+                if (btn) {
+                    if (y === yr) {
+                        btn.className = "px-2.5 py-1 rounded-lg bg-brand-gold text-black font-bold text-[11px]";
+                    } else {
+                        btn.className = "px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/10 text-white text-[11px]";
+                    }
+                }
+            });
+            renderInventoryTable();
+        }
+
+        function renderInventoryTable() {
+            const tbody = document.getElementById('inventoryTableBody');
+            let list = localCatalog;
+            if (currentYearFilter !== 'all') {
+                const yrNum = parseInt(currentYearFilter);
+                list = localCatalog.filter(m => m.year === yrNum);
+            }
+
+            if (list.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="8" class="p-6 text-center text-brand-muted">No media titles found for year ${currentYearFilter} in inventory. Check the Missing Radar!</td></tr>`;
+                return;
+            }
+
+            tbody.innerHTML = list.map(m => `
+                <tr class="hover:bg-white/5 transition">
+                    <td class="p-3 flex items-center gap-2.5">
+                        <img src="${m.poster_url}" referrerpolicy="no-referrer" class="w-8 h-11 object-cover rounded shadow border border-white/10">
+                        <div>
+                            <span class="font-bold text-white block">${m.title}</span>
+                            <span class="text-[10px] text-brand-muted">${m.genres ? m.genres.join(', ') : 'Cinema'}</span>
+                        </div>
+                    </td>
+                    <td class="font-mono font-bold text-white">${m.year}</td>
+                    <td>
+                        <span class="px-2 py-0.5 rounded text-[10px] font-bold ${m.type === 'anime' ? 'bg-purple-500/20 text-purple-300' : m.type === 'kdrama' ? 'bg-pink-500/20 text-pink-300' : m.type === 'series' ? 'bg-amber-500/20 text-amber-300' : 'bg-blue-500/20 text-blue-300'}">
+                            ${m.type ? m.type.toUpperCase() : m.category.toUpperCase()}
+                        </span>
+                    </td>
+                    <td class="font-semibold text-brand-gold">${m.quality}</td>
+                    <td class="text-brand-muted">${m.languages.slice(0, 2).join(', ')}</td>
+                    <td class="text-brand-muted font-mono">${m.file_size_human}</td>
+                    <td class="font-mono text-brand-gold">${m.stream_msg_id}</td>
+                    <td>
+                        <div class="flex items-center gap-1.5">
+                            <button onclick="launchStream(localCatalog.find(x => x.id === '${m.id}'))" class="px-2 py-1 rounded bg-white/10 hover:bg-brand-gold hover:text-black font-bold text-[10px]">Test</button>
+                            <button onclick="deleteCatalogItem('${m.id}')" class="px-2 py-1 rounded bg-rose-500/20 text-rose-300 hover:bg-rose-500 hover:text-white font-bold text-[10px]">Delete</button>
+                        </div>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function renderMissingTable() {
+            const tbody = document.getElementById('missingTableBody');
+            if (missingCatalog.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="7" class="p-6 text-center text-brand-muted">No missing titles recorded! Everything is fulfilled.</td></tr>`;
+                return;
+            }
+
+            tbody.innerHTML = missingCatalog.map((m, idx) => `
+                <tr class="hover:bg-white/5 transition">
+                    <td class="p-3 font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-clock text-rose-400 text-xs"></i>
+                        <span>${m.title}</span>
+                    </td>
+                    <td class="font-mono font-bold">${m.year}</td>
+                    <td>
+                        <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-white/10 text-white">
+                            ${m.type.toUpperCase()}
+                        </span>
+                    </td>
+                    <td class="font-bold text-amber-400">${m.demand}</td>
+                    <td class="text-brand-muted font-semibold">${m.expected_quality}</td>
+                    <td class="text-brand-muted text-[10px] max-w-xs truncate">${m.notes}</td>
+                    <td>
+                        <button onclick="fulfillMissingTitle(${idx})" class="px-2.5 py-1 rounded bg-brand-gold text-black font-extrabold text-[10px] hover:bg-yellow-400 transition">
+                            Fulfill & Add ➔
+                        </button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function fulfillMissingTitle(idx) {
+            const item = missingCatalog[idx];
+            if (!item) return;
+            switchAdminTab('manage');
+            document.getElementById('addTitle').value = item.title;
+            document.getElementById('addYear').value = item.year;
+            document.getElementById('addType').value = item.type;
+            document.getElementById('addCategory').value = item.category;
+            showToast(`Pre-filled "${item.title}". Enter poster & stream hash to publish!`);
+        }
+
+        function handleAddNewMedia(e) {
+            e.preventDefault();
+            const newItem = {
+                id: document.getElementById('addTitle').value.toLowerCase().replace(/[^a-z0-9]+/g, '-') + '-' + Date.now(),
+                title: document.getElementById('addTitle').value.trim(),
+                year: parseInt(document.getElementById('addYear').value),
+                rating: 8.5,
+                runtime: "2h",
+                quality: document.getElementById('addQuality').value,
+                category: document.getElementById('addCategory').value,
+                type: document.getElementById('addType').value,
+                languages: document.getElementById('addLanguages').value.split(',').map(s => s.trim()),
+                genres: [document.getElementById('addCategory').value.toUpperCase()],
+                director: "Admin Added",
+                cast: ["Cast Ensembled"],
+                overview: `Authorized CineVibe stream and high-speed distribution for ${document.getElementById('addTitle').value}.`,
+                poster_url: document.getElementById('addPosterUrl').value.trim(),
+                backdrop_url: document.getElementById('addBackdropUrl').value.trim(),
+                file_name: `${document.getElementById('addTitle').value} ${document.getElementById('addYear').value} ${document.getElementById('addQuality').value}`,
+                file_size: 4294967296,
+                file_size_human: document.getElementById('addSize').value.trim(),
+                stream_msg_id: parseInt(document.getElementById('addMsgId').value) || 150,
+                stream_hash: document.getElementById('addHash').value.trim() || 'AgAD56',
+                featured: true
+            };
+
+            localCatalog.unshift(newItem);
+            localStorage.setItem('cinevibe_custom_catalog', JSON.stringify(localCatalog));
+            
+            // Remove from missing catalog if exists
+            missingCatalog = missingCatalog.filter(x => x.title.toLowerCase() !== newItem.title.toLowerCase());
+            localStorage.setItem('cinevibe_missing_catalog', JSON.stringify(missingCatalog));
+
+            updateKpis();
+            renderInventoryTable();
+            renderMissingTable();
+            loadHomepageSections();
+            initCarousel();
+
+            showToast(`Published "${newItem.title}" to live catalog!`);
+            switchAdminTab('inventory');
+            e.target.reset();
+        }
+
+        function deleteCatalogItem(id) {
+            if (!confirm("Are you sure you want to remove this title from library?")) return;
+            localCatalog = localCatalog.filter(x => x.id !== id);
+            localStorage.setItem('cinevibe_custom_catalog', JSON.stringify(localCatalog));
+            updateKpis();
+            renderInventoryTable();
+            loadHomepageSections();
+            showToast("Title removed from active inventory.");
+        }
+
+        function setQuickMirror(url) {
+            activeMirrorUrl = url + '/?utm=mn1';
+            localStorage.setItem('cinevibe_active_mirror', activeMirrorUrl);
+            document.getElementById('admDisplayMirror').innerText = url.replace('https://', '');
+            document.getElementById('activeMirrorInput').value = activeMirrorUrl;
+            showToast(`Switched active mirror to: ${url}`);
+        }
+
+        function exportUpdatedCatalog() {
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(localCatalog, null, 2));
+            const downloadAnchor = document.createElement('a');
+            downloadAnchor.setAttribute("href", dataStr);
+            downloadAnchor.setAttribute("download", "catalog.json");
+            document.body.appendChild(downloadAnchor);
+            downloadAnchor.click();
+            downloadAnchor.remove();
+            showToast("catalog.json exported successfully!");
+        }
+
+        // ==========================================
         // CINEVIBE AI SEARCH (GEMINI API)
         // ==========================================
         function setAiPrompt(text) {
@@ -1402,12 +2156,11 @@
             const box = document.getElementById('aiResponseBox');
             box.innerHTML = `<div class="p-6 text-center text-brand-muted"><i class="fa-solid fa-circle-notch fa-spin text-brand-gold text-lg mr-2"></i> CineVibe AI is analyzing cinema library for "${prompt}"...</div>`;
 
-            // Call Gemini API directly with the user's key
             const geminiUrl = `https://generativelanguage.googleapis.com/v1/models/gemini-3.1-flash-lite:generateContent?key=${geminiApiKey}`;
             const payload = {
                 contents: [{
                     parts: [{
-                        text: `You are CineVibe AI, the ultimate cinema expert. The user asks: "${prompt}". Provide a concise, engaging, and expert recommendation of 2-3 movies or series explaining why they match the prompt. Keep response under 100 words.`
+                        text: `You are CineVibe AI cinema expert. The user asks: "${prompt}". Provide a concise, engaging recommendation of 2-3 movies, anime or k-dramas explaining why they match. Keep response under 100 words.`
                     }]
                 }]
             };
@@ -1426,12 +2179,11 @@
                     throw new Error("No candidate returned");
                 }
 
-                // Find matching titles in local catalog
                 const words = prompt.toLowerCase().split(/\s+/);
-                const matched = MOVIES_CATALOG.filter(m => {
+                const matched = localCatalog.filter(m => {
                     return words.some(w => w.length > 3 && (m.title.toLowerCase().includes(w) || (m.genres && m.genres.some(g => g.toLowerCase().includes(w)))));
                 }).slice(0, 3);
-                const displayMatched = matched.length > 0 ? matched : MOVIES_CATALOG.slice(0, 3);
+                const displayMatched = matched.length > 0 ? matched : localCatalog.slice(0, 3);
 
                 box.innerHTML = `
                     <div class="bg-brand-dark p-4 rounded-xl border border-brand-gold/30 space-y-2">
@@ -1449,13 +2201,11 @@
                     </div>
                 `;
             } catch (err) {
-                // Smart fallback if Gemini network has timeout
-                console.warn("Gemini direct error, using cinema heuristic:", err);
-                const fallbackMovie = MOVIES_CATALOG[Math.floor(Math.random() * MOVIES_CATALOG.length)];
+                const fallbackMovie = localCatalog[Math.floor(Math.random() * localCatalog.length)];
                 box.innerHTML = `
                     <div class="bg-brand-dark p-4 rounded-xl border border-brand-gold/30">
                         <span class="text-[10px] text-brand-gold font-bold uppercase tracking-wider block mb-1">CineVibe Recommendation</span>
-                        <p class="text-white text-xs leading-relaxed">Based on your query "${prompt}", we highly recommend <b>${fallbackMovie.title}</b> (${fallbackMovie.year}). It features extraordinary cinematography, intense direction, and is available in verified high-speed ${fallbackMovie.quality}.</p>
+                        <p class="text-white text-xs leading-relaxed">Based on your query "${prompt}", we highly recommend <b>${fallbackMovie.title}</b> (${fallbackMovie.year}). Features extraordinary cinematography and available in verified high-speed ${fallbackMovie.quality}.</p>
                     </div>
                     <div class="pt-2">
                         <button onclick="closeModal('aiModal'); openMovieDetails('${fallbackMovie.id}')" class="w-full py-2 rounded-xl bg-brand-gold text-brand-black text-xs font-bold hover:bg-yellow-400 transition">
@@ -1469,20 +2219,6 @@
         // ==========================================
         // SETTINGS & BOT CONNECTION
         // ==========================================
-        async function testBotConnection() {
-            const statusEl = document.getElementById('connTestStatus');
-            statusEl.innerHTML = `<i class="fa-solid fa-spinner fa-spin text-brand-gold"></i> Testing ${botBaseUrl}...`;
-
-            try {
-                const testUrl = `${botBaseUrl}/`;
-                const res = await fetch(testUrl, { method: 'HEAD', mode: 'no-cors' });
-                statusEl.innerHTML = `<span class="text-emerald-400 font-bold">🟢 Bot Streamer Online & Reachable!</span>`;
-                showToast("Bot server is online!");
-            } catch (err) {
-                statusEl.innerHTML = `<span class="text-amber-400 font-bold">⚠️ Server reached or local security check</span>`;
-            }
-        }
-
         function saveSettings() {
             botBaseUrl = document.getElementById('botBaseUrlInput').value.trim();
             geminiApiKey = document.getElementById('geminiApiKeyInput').value.trim();
@@ -1492,6 +2228,7 @@
             localStorage.setItem('cinevibe_gemini_key', geminiApiKey);
             localStorage.setItem('cinevibe_active_mirror', activeMirrorUrl);
 
+            document.getElementById('admBotHost').innerText = botBaseUrl;
             showToast("Domain shield and API settings saved!");
             closeModal('settingsModal');
         }
@@ -1502,7 +2239,23 @@
         function submitContentRequest(e) {
             e.preventDefault();
             const title = document.getElementById('reqTitle').value;
-            showToast(`Request for "${title}" logged into Telegram queue!`);
+            const year = parseInt(document.getElementById('reqYear').value) || 2024;
+            const type = document.getElementById('reqType').value.toLowerCase();
+
+            missingCatalog.unshift({
+                title: title,
+                year: year,
+                type: type,
+                category: type === 'anime' ? 'anime' : type === 'kdrama' ? 'kdrama' : 'bollywood',
+                demand: "👥 User Requested",
+                expected_quality: "4K UHD 2160p",
+                notes: `Requested by CineVibe community via website portal.`
+            });
+            localStorage.setItem('cinevibe_missing_catalog', JSON.stringify(missingCatalog));
+            updateKpis();
+            renderMissingTable();
+
+            showToast(`Request for "${title}" logged to Admin Missing Radar!`);
             closeModal('requestModal');
             e.target.reset();
         }

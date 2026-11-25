@@ -7,6 +7,7 @@
     "runtime": "1h 32m",
     "quality": "720p BluRay",
     "category": "hollywood",
+    "type": "movie",
     "languages": [
       "English",
       "Hindi"
@@ -23,8 +24,8 @@
       "Elijah Nelson"
     ],
     "overview": "A bullied teenager gains supernatural powers from an indigenous medicine man's ritual, where any physical pain or harm inflicted upon him is instead reflected back onto his tormentors.",
-    "poster_url": "https://upload.wikimedia.org/wikipedia/commons/0/0e/The_Unhealer_Promo_Poster_thumb.jpg",
-    "backdrop_url": "https://image.tmdb.org/t/p/original/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
+    "poster_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/w500/jEuKhYfeS4dz0uQj1yTZ2Gl8yNH.jpg",
+    "backdrop_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/original/rzchR1ZQQlj5bCfEUdrTZsC5CF2.jpg",
     "file_name": "The Unhealer 2020 720p BluRay English AAC2 0 H 264 ESub Mkv",
     "file_size": 927514624,
     "file_size_human": "884.55 MB",
@@ -33,37 +34,73 @@
     "featured": true
   },
   {
-    "id": "remarried-empress-s01e07",
-    "title": "The Remarried Empress",
-    "year": 2024,
-    "rating": 8.6,
-    "runtime": "45m",
-    "quality": "1080p WEB-DL",
-    "category": "series",
+    "id": "oppenheimer-2023",
+    "title": "Oppenheimer",
+    "year": 2023,
+    "rating": 8.9,
+    "runtime": "3h 00m",
+    "quality": "4K UHD IMAX",
+    "category": "hollywood",
+    "type": "movie",
     "languages": [
-      "Korean",
       "English",
       "Hindi Dubbed"
     ],
     "genres": [
+      "Biography",
       "Drama",
-      "Romance",
-      "Fantasy"
+      "History"
     ],
-    "director": "Kim Jin-min",
+    "director": "Christopher Nolan",
     "cast": [
-      "Shin Min-a",
-      "Lee Jong-suk",
-      "Ju Ji-hoon"
+      "Cillian Murphy",
+      "Emily Blunt",
+      "Matt Damon",
+      "Robert Downey Jr."
     ],
-    "overview": "Navier Ellie Trovi was an empress of the Eastern Empire. When her husband demands a divorce to enthrone his mistress, Navier accepts on one condition: she is immediately remarried to the Emperor of the Western Empire.",
-    "poster_url": "https://upload.wikimedia.org/wikipedia/en/a/a7/The_Remarried_Empress.jpg",
-    "backdrop_url": "https://image.tmdb.org/t/p/original/keVfqCMKmJ55nHzmqR2Q5K7LwJt.jpg",
-    "file_name": "The Remarried Empress S01E07 1080p WEB h264 GRACE mkv",
-    "file_size": 1917726903,
-    "file_size_human": "1.78 GB",
-    "stream_msg_id": 219,
-    "stream_hash": "AgADNS",
+    "overview": "The dramatic story of American scientist J. Robert Oppenheimer and his role in the development of the atomic bomb during World War II.",
+    "poster_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
+    "backdrop_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/original/nb3xI8XI3w4pMVZ38VijbsyBqP4.jpg",
+    "file_name": "Oppenheimer 2023 2160p IMAX UHD HDR10 DTS-HD",
+    "file_size": 9663676416,
+    "file_size_human": "9.00 GB",
+    "stream_msg_id": 130,
+    "stream_hash": "AgADkl",
+    "featured": true
+  },
+  {
+    "id": "dune-part-two-2024",
+    "title": "Dune: Part Two",
+    "year": 2024,
+    "rating": 8.8,
+    "runtime": "2h 46m",
+    "quality": "4K UHD IMAX",
+    "category": "hollywood",
+    "type": "movie",
+    "languages": [
+      "English",
+      "Hindi Dubbed"
+    ],
+    "genres": [
+      "Sci-Fi",
+      "Adventure",
+      "Action"
+    ],
+    "director": "Denis Villeneuve",
+    "cast": [
+      "Timoth\u00e9e Chalamet",
+      "Zendaya",
+      "Rebecca Ferguson",
+      "Austin Butler"
+    ],
+    "overview": "Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family, facing a choice between love and the fate of the known universe.",
+    "poster_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/w500/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg",
+    "backdrop_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/original/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg",
+    "file_name": "Dune Part Two 2024 2160p IMAX 4K UHD Atmos x265",
+    "file_size": 7516192768,
+    "file_size_human": "7.00 GB",
+    "stream_msg_id": 132,
+    "stream_hash": "AgADmn",
     "featured": true
   },
   {
@@ -74,6 +111,7 @@
     "runtime": "2h 10m",
     "quality": "4K UHD HEVC",
     "category": "bollywood",
+    "type": "movie",
     "languages": [
       "Hindi"
     ],
@@ -90,8 +128,8 @@
       "Sahil Mehta"
     ],
     "overview": "An orphaned genius lands a scholarship to an elite boarding school and gets lured into a high-stakes cheating conspiracy orchestrated by the school's wealthy elite students.",
-    "poster_url": "https://image.tmdb.org/t/p/w500/4ihdqS2PvRcjN1i9ozQxtyoKvBX.jpg",
-    "backdrop_url": "https://image.tmdb.org/t/p/original/4ihdqS2PvRcjN1i9ozQxtyoKvBX.jpg",
+    "poster_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/w500/4ihdqS2PvRcjN1i9ozQxtyoKvBX.jpg",
+    "backdrop_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/original/4ihdqS2PvRcjN1i9ozQxtyoKvBX.jpg",
     "file_name": "Farrey 2023 2160p 4K UHD HEVC Hindi Atmos",
     "file_size": 4294967296,
     "file_size_human": "4.00 GB",
@@ -107,6 +145,7 @@
     "runtime": "3h 21m",
     "quality": "4K UHD 2160p",
     "category": "bollywood",
+    "type": "movie",
     "languages": [
       "Hindi",
       "Telugu",
@@ -125,8 +164,8 @@
       "Rashmika Mandanna"
     ],
     "overview": "A fiercely obsessive son undergoes a violent and ruthless transformation to protect his emotionally distant father and exact brutal vengeance against those who plotted against his family.",
-    "poster_url": "https://image.tmdb.org/t/p/w500/hr9rjR3J0xBBKmlJ4n3gHId9ccx.jpg",
-    "backdrop_url": "https://image.tmdb.org/t/p/original/hr9rjR3J0xBBKmlJ4n3gHId9ccx.jpg",
+    "poster_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/w500/hr9rjR3J0xBBKmlJ4n3gHId9ccx.jpg",
+    "backdrop_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/original/hr9rjR3J0xBBKmlJ4n3gHId9ccx.jpg",
     "file_name": "Animal 2023 2160p UHD HDR Atmos DD5.1 Hindi x265",
     "file_size": 7516192768,
     "file_size_human": "7.00 GB",
@@ -142,6 +181,7 @@
     "runtime": "2h 27m",
     "quality": "1080p FHD",
     "category": "bollywood",
+    "type": "movie",
     "languages": [
       "Hindi",
       "Tamil",
@@ -159,8 +199,8 @@
       "Anant Joshi"
     ],
     "overview": "Inspired by the true story of Manoj Kumar Sharma, who rose from poverty and repeated academic failures to crack India's toughest civil service exam (UPSC) and become an IPS officer.",
-    "poster_url": "https://image.tmdb.org/t/p/w500/eebUPRI4Z5e1Z7Hev4JZAwMIFkX.jpg",
-    "backdrop_url": "https://image.tmdb.org/t/p/original/eebUPRI4Z5e1Z7Hev4JZAwMIFkX.jpg",
+    "poster_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/w500/eebUPRI4Z5e1Z7Hev4JZAwMIFkX.jpg",
+    "backdrop_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/original/eebUPRI4Z5e1Z7Hev4JZAwMIFkX.jpg",
     "file_name": "12th Fail 2023 1080p WEB-DL Hindi DDP5.1 x264",
     "file_size": 2576980377,
     "file_size_human": "2.40 GB",
@@ -176,6 +216,7 @@
     "runtime": "2h 46m",
     "quality": "4K UHD IMAX",
     "category": "bollywood",
+    "type": "movie",
     "languages": [
       "Hindi"
     ],
@@ -191,8 +232,8 @@
       "Anil Kapoor"
     ],
     "overview": "Top Indian Air Force aviators come together to form 'Air Dragons' in the face of imminent danger and state-sponsored terror threats, taking to the skies in high-speed combat.",
-    "poster_url": "https://image.tmdb.org/t/p/w500/keVfqCMKmJ55nHzmqR2Q5K7LwJt.jpg",
-    "backdrop_url": "https://image.tmdb.org/t/p/original/keVfqCMKmJ55nHzmqR2Q5K7LwJt.jpg",
+    "poster_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/w500/keVfqCMKmJ55nHzmqR2Q5K7LwJt.jpg",
+    "backdrop_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/original/keVfqCMKmJ55nHzmqR2Q5K7LwJt.jpg",
     "file_name": "Fighter 2024 2160p 4K UHD IMAX Atmos Hindi",
     "file_size": 5368709120,
     "file_size_human": "5.00 GB",
@@ -208,6 +249,7 @@
     "runtime": "2h 55m",
     "quality": "4K UHD HDR",
     "category": "south",
+    "type": "movie",
     "languages": [
       "Telugu",
       "Hindi Dubbed",
@@ -226,8 +268,8 @@
       "Shruti Haasan"
     ],
     "overview": "A gang leader makes a promise to a dying friend and takes on other criminal gangs in the dystopian fortified city-state of Khansaar.",
-    "poster_url": "https://image.tmdb.org/t/p/w500/snYOXem8pUGOffnLbbGq4aB1pg4.jpg",
-    "backdrop_url": "https://image.tmdb.org/t/p/original/snYOXem8pUGOffnLbbGq4aB1pg4.jpg",
+    "poster_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/w500/snYOXem8pUGOffnLbbGq4aB1pg4.jpg",
+    "backdrop_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/original/snYOXem8pUGOffnLbbGq4aB1pg4.jpg",
     "file_name": "Salaar Part 1 Ceasefire 2023 2160p UHD HDR Multi-Audio",
     "file_size": 6442450944,
     "file_size_human": "6.00 GB",
@@ -243,6 +285,7 @@
     "runtime": "3h 01m",
     "quality": "4K UHD 2160p",
     "category": "south",
+    "type": "movie",
     "languages": [
       "Telugu",
       "Hindi Dubbed",
@@ -261,8 +304,8 @@
       "Deepika Padukone"
     ],
     "overview": "In a post-apocalyptic world in the year 2898 AD, a modern-day avatar of Vishnu descends to protect humanity from tyrannical forces led by the supreme complex dictator.",
-    "poster_url": "https://image.tmdb.org/t/p/w500/rstcAnBeCkxNQjNp3YXrF6IP1tW.jpg",
-    "backdrop_url": "https://image.tmdb.org/t/p/original/rstcAnBeCkxNQjNp3YXrF6IP1tW.jpg",
+    "poster_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/w500/rstcAnBeCkxNQjNp3YXrF6IP1tW.jpg",
+    "backdrop_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/original/rstcAnBeCkxNQjNp3YXrF6IP1tW.jpg",
     "file_name": "Kalki 2898 AD 2024 2160p UHD Dolby Vision Atmos",
     "file_size": 8589934592,
     "file_size_human": "8.00 GB",
@@ -271,71 +314,213 @@
     "featured": true
   },
   {
-    "id": "oppenheimer-2023",
-    "title": "Oppenheimer",
-    "year": 2023,
-    "rating": 8.9,
-    "runtime": "3h 00m",
-    "quality": "4K UHD IMAX",
-    "category": "hollywood",
+    "id": "remarried-empress-s01e07",
+    "title": "The Remarried Empress",
+    "year": 2024,
+    "rating": 8.6,
+    "runtime": "45m",
+    "quality": "1080p WEB-DL",
+    "category": "kdrama",
+    "type": "kdrama",
     "languages": [
+      "Korean",
       "English",
       "Hindi Dubbed"
     ],
     "genres": [
-      "Biography",
       "Drama",
-      "History"
+      "Romance",
+      "Fantasy"
     ],
-    "director": "Christopher Nolan",
+    "director": "Kim Jin-min",
     "cast": [
-      "Cillian Murphy",
-      "Emily Blunt",
-      "Matt Damon",
-      "Robert Downey Jr."
+      "Shin Min-a",
+      "Lee Jong-suk",
+      "Ju Ji-hoon"
     ],
-    "overview": "The dramatic story of American scientist J. Robert Oppenheimer and his role in the development of the atomic bomb during World War II.",
-    "poster_url": "https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
-    "backdrop_url": "https://image.tmdb.org/t/p/original/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
-    "file_name": "Oppenheimer 2023 2160p IMAX UHD HDR10 DTS-HD",
-    "file_size": 9663676416,
-    "file_size_human": "9.00 GB",
-    "stream_msg_id": 130,
-    "stream_hash": "AgADkl",
+    "overview": "Navier Ellie Trovi was an empress of the Eastern Empire. When her husband demands a divorce to enthrone his mistress, Navier accepts on one condition: she is immediately remarried to the Emperor of the Western Empire.",
+    "poster_url": "https://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/en/a/a7/The_Remarried_Empress.jpg",
+    "backdrop_url": "https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=1600&q=80",
+    "file_name": "The Remarried Empress S01E07 1080p WEB h264 GRACE mkv",
+    "file_size": 1917726903,
+    "file_size_human": "1.78 GB",
+    "stream_msg_id": 219,
+    "stream_hash": "AgADNS",
     "featured": true
   },
   {
-    "id": "dune-part-two-2024",
-    "title": "Dune: Part Two",
+    "id": "queen-of-tears-2024",
+    "title": "Queen of Tears",
     "year": 2024,
     "rating": 8.8,
-    "runtime": "2h 46m",
-    "quality": "4K UHD IMAX",
-    "category": "hollywood",
+    "runtime": "1 Season",
+    "quality": "4K UHD Multi-Audio",
+    "category": "kdrama",
+    "type": "kdrama",
     "languages": [
+      "Korean",
+      "Hindi Dubbed",
+      "English"
+    ],
+    "genres": [
+      "Drama",
+      "Romance",
+      "Comedy"
+    ],
+    "director": "Jang Young-woo",
+    "cast": [
+      "Kim Soo-hyun",
+      "Kim Ji-won",
+      "Park Sung-hoon"
+    ],
+    "overview": "The queen of department stores and the prince of supermarkets weather a marital crisis until love miraculously begins to bloom again amidst high-stakes family succession battles.",
+    "poster_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/w500/30OTnJgOzmY4vEqr5H12TpPGPAD.jpg",
+    "backdrop_url": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1600&q=80",
+    "file_name": "Queen of Tears S01 2160p 4K HDR Multi-Audio NF",
+    "file_size": 12884901888,
+    "file_size_human": "12.00 GB",
+    "stream_msg_id": 140,
+    "stream_hash": "AgADuv",
+    "featured": true
+  },
+  {
+    "id": "attack-on-titan",
+    "title": "Attack on Titan (Shingeki no Kyojin)",
+    "year": 2023,
+    "rating": 9.1,
+    "runtime": "4 Seasons",
+    "quality": "1080p FHD Dual Audio",
+    "category": "anime",
+    "type": "anime",
+    "languages": [
+      "Japanese",
+      "Hindi Dubbed",
+      "English"
+    ],
+    "genres": [
+      "Anime",
+      "Action",
+      "Dark Fantasy"
+    ],
+    "director": "Yuichiro Hayashi",
+    "cast": [
+      "Yuki Kaji",
+      "Yui Ishikawa",
+      "Marina Inoue"
+    ],
+    "overview": "After his hometown is destroyed and his mother is killed, young Eren Jaeger vows to cleanse the earth of the giant humanoid Titans that have brought humanity to the brink of extinction.",
+    "poster_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/w500/hTP1DtLGFamjfu8WqjnuQdP1n4i.jpg",
+    "backdrop_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/original/hTP1DtLGFamjfu8WqjnuQdP1n4i.jpg",
+    "file_name": "Attack on Titan Final Season Complete 1080p Dual Audio",
+    "file_size": 16106127360,
+    "file_size_human": "15.00 GB",
+    "stream_msg_id": 142,
+    "stream_hash": "AgADwx",
+    "featured": true
+  },
+  {
+    "id": "demon-slayer-hashira",
+    "title": "Demon Slayer: Hashira Training Arc",
+    "year": 2024,
+    "rating": 8.9,
+    "runtime": "1 Season",
+    "quality": "4K UHD Multi-Audio",
+    "category": "anime",
+    "type": "anime",
+    "languages": [
+      "Japanese",
+      "Hindi Dubbed",
+      "English"
+    ],
+    "genres": [
+      "Anime",
+      "Action",
+      "Supernatural"
+    ],
+    "director": "Haruo Sotozaki",
+    "cast": [
+      "Natsuki Hanae",
+      "Akari Kito",
+      "Hiro Shimono"
+    ],
+    "overview": "Tanjiro visits the Stone Hashira, Himejima, to prepare for the forthcoming battle. The training to become a Hashira is rigorous and demanding, pushing the young Demon Slayers to their limits.",
+    "poster_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/w500/xUfRZu2mi8jH6SzQEJGP6tjBuYj.jpg",
+    "backdrop_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/original/xUfRZu2mi8jH6SzQEJGP6tjBuYj.jpg",
+    "file_name": "Demon Slayer Hashira Training Arc 2024 2160p Multi-Audio",
+    "file_size": 8589934592,
+    "file_size_human": "8.00 GB",
+    "stream_msg_id": 144,
+    "stream_hash": "AgADyz",
+    "featured": true
+  },
+  {
+    "id": "solo-leveling",
+    "title": "Solo Leveling (Ore dake Level Up na Ken)",
+    "year": 2024,
+    "rating": 8.7,
+    "runtime": "1 Season",
+    "quality": "4K UHD Multi-Audio",
+    "category": "anime",
+    "type": "anime",
+    "languages": [
+      "Japanese",
       "English",
       "Hindi Dubbed"
     ],
     "genres": [
-      "Sci-Fi",
-      "Adventure",
+      "Anime",
+      "Action",
+      "Fantasy"
+    ],
+    "director": "Shunsuke Nakashige",
+    "cast": [
+      "Taito Ban",
+      "Genta Nakamura",
+      "Reina Ueda"
+    ],
+    "overview": "Known as the weakest hunter of all mankind, Sung Jinwoo finds himself in a deadly double dungeon and awakens with the unique ability to level up indefinitely through a mysterious system.",
+    "poster_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/w500/geCRueV3ElhRTr0xtJuEWJt6dJ1.jpg",
+    "backdrop_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/original/geCRueV3ElhRTr0xtJuEWJt6dJ1.jpg",
+    "file_name": "Solo Leveling Season 1 2160p 4K UHD Multi-Audio",
+    "file_size": 9663676416,
+    "file_size_human": "9.00 GB",
+    "stream_msg_id": 146,
+    "stream_hash": "AgAD12",
+    "featured": true
+  },
+  {
+    "id": "jujutsu-kaisen",
+    "title": "Jujutsu Kaisen (Shibuya Incident)",
+    "year": 2023,
+    "rating": 8.8,
+    "runtime": "2 Seasons",
+    "quality": "1080p FHD Dual Audio",
+    "category": "anime",
+    "type": "anime",
+    "languages": [
+      "Japanese",
+      "English",
+      "Hindi Dubbed"
+    ],
+    "genres": [
+      "Anime",
+      "Supernatural",
       "Action"
     ],
-    "director": "Denis Villeneuve",
+    "director": "Sunghoo Park",
     "cast": [
-      "Timoth\u00e9e Chalamet",
-      "Zendaya",
-      "Rebecca Ferguson",
-      "Austin Butler"
+      "Junya Enoki",
+      "Yuma Uchida",
+      "Asami Seto"
     ],
-    "overview": "Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family, facing a choice between love and the fate of the known universe.",
-    "poster_url": "https://image.tmdb.org/t/p/w500/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg",
-    "backdrop_url": "https://image.tmdb.org/t/p/original/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg",
-    "file_name": "Dune Part Two 2024 2160p IMAX 4K UHD Atmos x265",
-    "file_size": 7516192768,
-    "file_size_human": "7.00 GB",
-    "stream_msg_id": 132,
-    "stream_hash": "AgADmn",
+    "overview": "A boy swallows a cursed talisman - the finger of a demon - and becomes cursed himself. He enters a shaman's school to be able to locate the demon's other body parts and exorcise himself.",
+    "poster_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/w500/6qQzMJG27XOJsyAEEIisoJB45j2.jpg",
+    "backdrop_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/original/6qQzMJG27XOJsyAEEIisoJB45j2.jpg",
+    "file_name": "Jujutsu Kaisen S01-S02 Complete 1080p Dual Audio",
+    "file_size": 17179869184,
+    "file_size_human": "16.00 GB",
+    "stream_msg_id": 148,
+    "stream_hash": "AgAD34",
     "featured": true
   },
   {
@@ -346,6 +531,7 @@
     "runtime": "5 Seasons",
     "quality": "1080p FHD",
     "category": "series",
+    "type": "series",
     "languages": [
       "Spanish",
       "English",
@@ -363,8 +549,8 @@
       "Pedro Alonso"
     ],
     "overview": "An unusual group of robbers attempt to carry out the most perfect robbery in Spanish history - stealing 2.4 billion euros from the Royal Mint of Spain.",
-    "poster_url": "https://image.tmdb.org/t/p/w500/reEMJA1uzscCbkpeRJeTT2bjqUp.jpg",
-    "backdrop_url": "https://image.tmdb.org/t/p/original/reEMJA1uzscCbkpeRJeTT2bjqUp.jpg",
+    "poster_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/w500/reEMJA1uzscCbkpeRJeTT2bjqUp.jpg",
+    "backdrop_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/original/reEMJA1uzscCbkpeRJeTT2bjqUp.jpg",
     "file_name": "Money Heist Complete S01-S05 1080p NF WEB-DL Dual",
     "file_size": 15032385536,
     "file_size_human": "14.00 GB",
@@ -380,6 +566,7 @@
     "runtime": "4 Seasons",
     "quality": "4K UHD Dolby Vision",
     "category": "series",
+    "type": "series",
     "languages": [
       "English",
       "Hindi Dubbed"
@@ -397,8 +584,8 @@
       "David Harbour"
     ],
     "overview": "When a young boy vanishes, a small town uncovers a mystery involving secret experiments, terrifying supernatural forces and one strange little girl.",
-    "poster_url": "https://image.tmdb.org/t/p/w500/49WJfeN0moxb9IPfGn8AIqMGskD.jpg",
-    "backdrop_url": "https://image.tmdb.org/t/p/original/49WJfeN0moxb9IPfGn8AIqMGskD.jpg",
+    "poster_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/w500/49WJfeN0moxb9IPfGn8AIqMGskD.jpg",
+    "backdrop_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/original/49WJfeN0moxb9IPfGn8AIqMGskD.jpg",
     "file_name": "Stranger Things S01-S04 2160p 4K HDR Atmos NF",
     "file_size": 21474836480,
     "file_size_human": "20.00 GB",

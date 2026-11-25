@@ -1,0 +1,65 @@
+[
+  {
+    "title": "Pushpa 2: The Rule",
+    "year": 2024,
+    "category": "south",
+    "type": "movie",
+    "demand": "\ud83d\udd25 98% High Demand",
+    "expected_quality": "4K UHD 2160p",
+    "notes": "Top user requested Indian blockbuster. Theatrical release scheduled."
+  },
+  {
+    "title": "Deadpool & Wolverine",
+    "year": 2024,
+    "category": "hollywood",
+    "type": "movie",
+    "demand": "\ud83d\udd25 95% High Demand",
+    "expected_quality": "4K UHD IMAX",
+    "notes": "Marvel blockbustier. High user search volume."
+  },
+  {
+    "title": "Stree 2: Sarkate Ka Aatank",
+    "year": 2024,
+    "category": "bollywood",
+    "type": "movie",
+    "demand": "\ud83d\udd25 96% High Demand",
+    "expected_quality": "4K UHD HDR",
+    "notes": "Highest grossing Hindi film of 2024. In queue for OTT rip upload."
+  },
+  {
+    "title": "Squid Game: Season 2",
+    "year": 2024,
+    "category": "kdrama",
+    "type": "kdrama",
+    "demand": "\u26a1 93% Trending Wishlist",
+    "expected_quality": "4K UHD Dolby Vision",
+    "notes": "Global anticipation. Awaiting Netflix release."
+  },
+  {
+    "title": "Chhava (The Great Maratha)",
+    "year": 2024,
+    "category": "bollywood",
+    "type": "movie",
+    "demand": "\u26a1 89% User Requested",
+    "expected_quality": "1080p FHD",
+    "notes": "Historical action drama requested by community."
+  },
+  {
+    "title": "Bleach: Thousand-Year Blood War Part 3",
+    "year": 2024,
+    "category": "anime",
+    "type": "anime",
+    "demand": "\ud83d\udc65 86% Anime Wishlist",
+    "expected_quality": "1080p FHD Dual Audio",
+    "notes": "Crucial anime arc requested by multiple anime fans."
+  },
+  {
+    "title": "Mirzapur (Season 3)",
+    "year": 2024,
+    "category": "series",
+    "type": "series",
+    "demand": "\u26a1 91% High Demand",
+    "expected_quality": "4K UHD HDR",
+    "notes": "Amazon Prime crime thriller. Queued for 4K packaging."
+  }
+]
