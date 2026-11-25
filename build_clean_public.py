@@ -466,6 +466,10 @@ html_content = f'''<!DOCTYPE html>
                         <i class="fa-solid fa-download"></i>
                         <span>FAST DOWNLOAD (8X SPEED)</span>
                     </button>
+                    <button onclick="openTelegramBot()" class="w-full sm:w-auto px-4 py-3.5 rounded-xl bg-[#229ED9]/20 hover:bg-[#229ED9]/30 text-[#229ED9] border border-[#229ED9]/30 font-extrabold text-xs transition flex items-center justify-center gap-2" title="Get Directly in Telegram App">
+                        <i class="fa-brands fa-telegram"></i>
+                        <span>TELEGRAM BOT</span>
+                    </button>
                     <button onclick="copyStreamLink()" class="p-3.5 rounded-xl bg-white/5 hover:bg-white/10 text-brand-muted hover:text-white transition" title="Copy Direct Stream Link">
                         <i class="fa-solid fa-link"></i>
                     </button>
@@ -885,7 +889,8 @@ html_content = f'''<!DOCTYPE html>
             document.getElementById('clearSearchBtn').classList.add('hidden');
         }}
 
-        // Instant Search
+        // Instant Search with Live 86K+ Telegram Database Support
+        let searchDebounceTimer = null;
         function handleSearch(q) {{
             const clearBtn = document.getElementById('clearSearchBtn');
             if (!q.trim()) {{
@@ -896,7 +901,7 @@ html_content = f'''<!DOCTYPE html>
             clearBtn.classList.remove('hidden');
 
             const query = q.toLowerCase();
-            const results = MOVIES_CATALOG.filter(m => 
+            const localResults = MOVIES_CATALOG.filter(m => 
                 m.title.toLowerCase().includes(query) ||
                 m.genres.some(g => g.toLowerCase().includes(query)) ||
                 m.director.toLowerCase().includes(query) ||
@@ -904,13 +909,64 @@ html_content = f'''<!DOCTYPE html>
                 m.year.toString().includes(query)
             );
 
-            displayCustomGrid(results, `Search Results for "${{q}}" (${{results.length}})`);
+            displayCustomGrid(localResults, `Search Results for "${{q}}" (${{localResults.length}})`);
+
+            // Query live Telegram DB (86,000+ files) via local bot API
+            if (q.trim().length >= 3) {{
+                clearTimeout(searchDebounceTimer);
+                searchDebounceTimer = setTimeout(async () => {{
+                    try {{
+                        const res = await fetch(`${{botBaseUrl}}/api/search?q=${{encodeURIComponent(q.trim())}}`, {{ signal: AbortSignal.timeout(3500) }});
+                        if (res.ok) {{
+                            const data = await res.json();
+                            if (data && data.results && data.results.length > 0) {{
+                                const mongoConverted = data.results.map((r, i) => ({{
+                                    id: `tg-${{r.file_id || i}}`,
+                                    title: r.title.replace(/\\.(mkv|mp4|avi)$/i, ''),
+                                    year: 2024,
+                                    rating: 8.0,
+                                    runtime: r.file_size_human,
+                                    quality: "1080p FHD",
+                                    category: "telegram",
+                                    type: "movie",
+                                    languages: ["Multi-Audio"],
+                                    genres: ["Telegram Bot Library"],
+                                    director: "Verified Bot Community",
+                                    cast: ["Telegram DB Archive"],
+                                    overview: `Available file in Telegram Bot: ${{r.file_name}} (${{r.file_size_human}})`,
+                                    poster_url: "https://images.weserv.nl/?url=image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
+                                    backdrop_url: "https://images.weserv.nl/?url=image.tmdb.org/t/p/original/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
+                                    file_name: r.file_name,
+                                    file_size: r.file_size,
+                                    file_size_human: r.file_size_human,
+                                    file_id: r.file_id,
+                                    stream_msg_id: 116,
+                                    stream_hash: "AgADwB",
+                                    featured: false
+                                }}));
+                                const combined = [...localResults, ...mongoConverted.filter(mc => !localResults.some(lr => lr.file_name === mc.file_name))];
+                                displayCustomGrid(combined, `Search Results for "${{q}}" (${{combined.length}} found in Catalog & 86K+ Library)`);
+                            }}
+                        }}
+                    }} catch(e) {{
+                        // Fallback gracefully to local catalog
+                    }}
+                }}, 350);
+            }}
         }}
 
         function clearSearch() {{
             document.getElementById('searchInput').value = '';
             document.getElementById('clearSearchBtn').classList.add('hidden');
             closeSearchResults();
+        }}
+
+        function openTelegramBot() {{
+            if (!selectedMovie) return;
+            const fileId = selectedMovie.file_id || '';
+            const tgUrl = fileId ? `https://t.me/movieDRV2bot?start=file_${{fileId}}` : `https://t.me/movieDRV2bot`;
+            showToast(`Opening ${{selectedMovie.title}} in Telegram Bot...`);
+            window.open(tgUrl, '_blank');
         }}
 
         // Movie Details Modal
