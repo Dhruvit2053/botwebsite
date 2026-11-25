@@ -1,5 +1,86 @@
 [
   {
+    "id": "pushpa-the-rise-2021",
+    "title": "Pushpa: The Rise",
+    "year": 2021,
+    "rating": 6.8,
+    "runtime": "2h 59m",
+    "quality": "1080p FHD",
+    "category": "south",
+    "type": "movie",
+    "languages": [
+      "Telugu",
+      "Hindi",
+      "Tamil",
+      "Malayalam"
+    ],
+    "genres": [
+      "Action",
+      "Crime",
+      "Drama"
+    ],
+    "director": "Sukumar",
+    "cast": [
+      "Allu Arjun",
+      "Rashmika Mandanna",
+      "Fahadh Faasil"
+    ],
+    "overview": "As Pushpa, a labourer, rises in the world of red sandalwood smuggling, he ends up making many enemies. However, violence ensues when the police try to topple his illegal business.",
+    "poster_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/w500/4DpNRjV7ITZ1GzCvrvCk86th0w.jpg",
+    "backdrop_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/original/jQIcn51nsvMrpB9NFwEOb9QHhFt.jpg",
+    "file_name": "Pushpa: The Rise Part 1 2021 UNCUT 720p HDRip x264 ESubs mkv",
+    "file_size": 1597063416,
+    "file_size_human": "1.49 GiB",
+    "file_id": "BAADBQADfxIAAgvqGFVq4fWt5pXE7hYE",
+    "stream_msg_id": 116,
+    "stream_hash": "AgADwB",
+    "featured": true,
+    "release_date": "2021-12-17",
+    "release_month": 12,
+    "release_month_name": "December"
+  },
+  {
+    "id": "pushpa-2-the-rule-2024",
+    "title": "Pushpa 2: The Rule",
+    "year": 2024,
+    "rating": 6.2,
+    "runtime": "3h 21m",
+    "quality": "1080p FHD",
+    "category": "south",
+    "type": "movie",
+    "languages": [
+      "Telugu",
+      "Hindi",
+      "Tamil",
+      "Malayalam",
+      "Kannada"
+    ],
+    "genres": [
+      "Action",
+      "Crime",
+      "Thriller"
+    ],
+    "director": "Sukumar",
+    "cast": [
+      "Allu Arjun",
+      "Rashmika Mandanna",
+      "Fahadh Faasil"
+    ],
+    "overview": "As his smuggling empire grows, a brazen Pushpa longs for power and respect on his vengeful journey, while facing old rivals and new.",
+    "poster_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/w500/1T21FblunT0y8fz7YaW8JMYgUKm.jpg",
+    "backdrop_url": "https://images.weserv.nl/?url=image.tmdb.org/t/p/original/7jGItf7idJsBm9QTNoTNTU3KiGe.jpg",
+    "file_name": "Pushpa 2 The Rule 2024 Hindi PreDVD 720p x264 AAC CineVo mkv",
+    "file_size": 1618978341,
+    "file_size_human": "1.51 GiB",
+    "file_id": "BAADBQADBxAAAhxokFZHL0GnIQV-XBYE",
+    "stream_msg_id": 116,
+    "stream_hash": "AgADwB",
+    "featured": true,
+    "release_date": "2024-12-05",
+    "release_month": 12,
+    "release_month_name": "December"
+  },
+  {
     "id": "unhealer-2020",
     "title": "The Unhealer",
     "year": 2020,

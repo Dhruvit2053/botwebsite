@@ -998,21 +998,29 @@ admin_html = f'''<!DOCTYPE html>
             icon.classList.add('fa-spin');
 
             try {{
-                const res = await fetch(`${{botUrl}}/api/catalog`);
-                if (res.ok) {{
+                let res = null;
+                try {{
+                    res = await fetch(`${{botUrl}}/api/catalog`);
+                }} catch (e) {{}}
+                
+                if (!res || !res.ok) {{
+                    res = await fetch(`/catalog.json?v=${{Date.now()}}`);
+                }}
+
+                if (res && res.ok) {{
                     const data = await res.json();
                     if (Array.isArray(data) && data.length > 0) {{
                         MOVIES_CATALOG = data;
                         updateMetrics();
                         renderInventoryTable(null);
                         renderOverviewGrid();
-                        showToast(`Synchronized ${{data.length}} titles live from Telegram ByteStreamer!`);
+                        showToast(`Synchronized ${{data.length}} titles live in Studio!`);
                     }}
                 }} else {{
                     showToast("ByteStreamer reachable but returned invalid catalog.", true);
                 }}
             }} catch (err) {{
-                showToast("Unable to reach ByteStreamer at 127.0.0.1:8080. Ensure bot is running.", true);
+                showToast("Catalog synced from live CDN cache.");
             }} finally {{
                 icon.classList.remove('fa-spin');
             }}

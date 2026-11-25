@@ -626,6 +626,16 @@ html_content = f'''<!DOCTYPE html>
             }} catch (err) {{}}
         }}
 
+        let FULL_DB_INDEX = [];
+        async function loadFullDatabaseIndex() {{
+            try {{
+                const res = await fetch('/db_index.json?v=' + Date.now());
+                if (res && res.ok) {{
+                    FULL_DB_INDEX = await res.json();
+                }}
+            }} catch (err) {{}}
+        }}
+
         // Initialize App
         document.addEventListener('DOMContentLoaded', () => {{
             document.getElementById('botBaseUrlInput').value = botBaseUrl;
@@ -645,6 +655,7 @@ html_content = f'''<!DOCTYPE html>
             initSlider();
             renderSections();
             autoSyncLiveCatalog();
+            loadFullDatabaseIndex();
         }});
 
         // Navigation Switching
@@ -889,8 +900,7 @@ html_content = f'''<!DOCTYPE html>
             document.getElementById('clearSearchBtn').classList.add('hidden');
         }}
 
-        // Instant Search with Live 86K+ Telegram Database Support
-        let searchDebounceTimer = null;
+        // Instant Search with Live 10,000+ Telegram Database Support
         function handleSearch(q) {{
             const clearBtn = document.getElementById('clearSearchBtn');
             if (!q.trim()) {{
@@ -900,59 +910,52 @@ html_content = f'''<!DOCTYPE html>
             }}
             clearBtn.classList.remove('hidden');
 
-            const query = q.toLowerCase();
+            const query = q.toLowerCase().trim();
             const localResults = MOVIES_CATALOG.filter(m => 
                 m.title.toLowerCase().includes(query) ||
+                m.file_name.toLowerCase().includes(query) ||
                 m.genres.some(g => g.toLowerCase().includes(query)) ||
                 m.director.toLowerCase().includes(query) ||
                 m.cast.some(c => c.toLowerCase().includes(query)) ||
                 m.year.toString().includes(query)
             );
 
-            displayCustomGrid(localResults, `Search Results for "${{q}}" (${{localResults.length}})`);
+            // Search full 10,000+ MongoDB library index (Pushpa, etc.)
+            let indexResults = [];
+            if (FULL_DB_INDEX && FULL_DB_INDEX.length > 0) {{
+                const matchedEntries = FULL_DB_INDEX.filter(item => 
+                    item.t.toLowerCase().includes(query) ||
+                    (item.fn && item.fn.toLowerCase().includes(query))
+                ).slice(0, 50);
 
-            // Query live Telegram DB (86,000+ files) via local bot API
-            if (q.trim().length >= 3) {{
-                clearTimeout(searchDebounceTimer);
-                searchDebounceTimer = setTimeout(async () => {{
-                    try {{
-                        const res = await fetch(`${{botBaseUrl}}/api/search?q=${{encodeURIComponent(q.trim())}}`, {{ signal: AbortSignal.timeout(3500) }});
-                        if (res.ok) {{
-                            const data = await res.json();
-                            if (data && data.results && data.results.length > 0) {{
-                                const mongoConverted = data.results.map((r, i) => ({{
-                                    id: `tg-${{r.file_id || i}}`,
-                                    title: r.title.replace(/\\.(mkv|mp4|avi)$/i, ''),
-                                    year: 2024,
-                                    rating: 8.0,
-                                    runtime: r.file_size_human,
-                                    quality: "1080p FHD",
-                                    category: "telegram",
-                                    type: "movie",
-                                    languages: ["Multi-Audio"],
-                                    genres: ["Telegram Bot Library"],
-                                    director: "Verified Bot Community",
-                                    cast: ["Telegram DB Archive"],
-                                    overview: `Available file in Telegram Bot: ${{r.file_name}} (${{r.file_size_human}})`,
-                                    poster_url: "https://images.weserv.nl/?url=image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
-                                    backdrop_url: "https://images.weserv.nl/?url=image.tmdb.org/t/p/original/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
-                                    file_name: r.file_name,
-                                    file_size: r.file_size,
-                                    file_size_human: r.file_size_human,
-                                    file_id: r.file_id,
-                                    stream_msg_id: 116,
-                                    stream_hash: "AgADwB",
-                                    featured: false
-                                }}));
-                                const combined = [...localResults, ...mongoConverted.filter(mc => !localResults.some(lr => lr.file_name === mc.file_name))];
-                                displayCustomGrid(combined, `Search Results for "${{q}}" (${{combined.length}} found in Catalog & 86K+ Library)`);
-                            }}
-                        }}
-                    }} catch(e) {{
-                        // Fallback gracefully to local catalog
-                    }}
-                }}, 350);
+                indexResults = matchedEntries.map((item, idx) => ({{
+                    id: `tg-${{item.id || idx}}`,
+                    title: item.t,
+                    year: item.y,
+                    rating: 8.2,
+                    runtime: item.s,
+                    quality: item.q || "1080p FHD",
+                    category: item.tv ? "series" : "telegram",
+                    type: item.tv ? "series" : "movie",
+                    languages: ["Multi-Audio"],
+                    genres: ["Telegram Bot Library"],
+                    director: "Verified Community Upload",
+                    cast: ["Telegram DB Archive"],
+                    overview: `Available file in Telegram Bot: ${{item.fn}} (${{item.s}})`,
+                    poster_url: "https://images.weserv.nl/?url=image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
+                    backdrop_url: "https://images.weserv.nl/?url=image.tmdb.org/t/p/original/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
+                    file_name: item.fn,
+                    file_size: 0,
+                    file_size_human: item.s,
+                    file_id: item.id,
+                    stream_msg_id: 116,
+                    stream_hash: "AgADwB",
+                    featured: false
+                }}));
             }}
+
+            const combined = [...localResults, ...indexResults.filter(ir => !localResults.some(lr => lr.title.toLowerCase() === ir.title.toLowerCase()))];
+            displayCustomGrid(combined, `Search Results for "${{q}}" (${{combined.length}} found in Catalog & 10K+ Library)`);
         }}
 
         function clearSearch() {{
@@ -971,7 +974,36 @@ html_content = f'''<!DOCTYPE html>
 
         // Movie Details Modal
         function openMovieDetails(id) {{
-            const m = MOVIES_CATALOG.find(x => x.id === id);
+            let m = MOVIES_CATALOG.find(x => x.id === id);
+            if (!m && FULL_DB_INDEX) {{
+                const item = FULL_DB_INDEX.find(x => `tg-${{x.id}}` === id);
+                if (item) {{
+                    m = {{
+                        id: `tg-${{item.id}}`,
+                        title: item.t,
+                        year: item.y,
+                        rating: 8.2,
+                        runtime: item.s,
+                        quality: item.q || "1080p FHD",
+                        category: item.tv ? "series" : "telegram",
+                        type: item.tv ? "series" : "movie",
+                        languages: ["Multi-Audio"],
+                        genres: ["Telegram Bot Library"],
+                        director: "Verified Community Upload",
+                        cast: ["Telegram DB Archive"],
+                        overview: `Available file in Telegram Bot: ${{item.fn}} (${{item.s}})`,
+                        poster_url: "https://images.weserv.nl/?url=image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
+                        backdrop_url: "https://images.weserv.nl/?url=image.tmdb.org/t/p/original/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
+                        file_name: item.fn,
+                        file_size: 0,
+                        file_size_human: item.s,
+                        file_id: item.id,
+                        stream_msg_id: 116,
+                        stream_hash: "AgADwB",
+                        featured: false
+                    }};
+                }}
+            }}
             if (!m) return;
             selectedMovie = m;
 
@@ -994,8 +1026,11 @@ html_content = f'''<!DOCTYPE html>
         function triggerStream(mode) {{
             if (!selectedMovie) return;
             
+            const fileId = selectedMovie.file_id || '';
             const sanitizedName = encodeURIComponent(selectedMovie.file_name.replace(/\\s+/g, '+') + '.mkv');
-            const streamUrl = `${{botBaseUrl}}/${{selectedMovie.stream_msg_id}}/${{sanitizedName}}?hash=${{selectedMovie.stream_hash}}`;
+            const streamUrl = fileId 
+                ? `${{botBaseUrl}}/${{mode === 'download' ? 'file' : 'watch_file'}}/${{fileId}}`
+                : `${{botBaseUrl}}/${{selectedMovie.stream_msg_id}}/${{sanitizedName}}?hash=${{selectedMovie.stream_hash}}`;
 
             if (mode === 'download') {{
                 showToast(`Starting high-speed download for ${{selectedMovie.title}}...`);
