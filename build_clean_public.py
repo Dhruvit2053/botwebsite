@@ -627,11 +627,17 @@ html_content = f'''<!DOCTYPE html>
         }}
 
         let FULL_DB_INDEX = [];
+        let isDbIndexLoaded = false;
         async function loadFullDatabaseIndex() {{
             try {{
                 const res = await fetch('/db_index.json?v=' + Date.now());
                 if (res && res.ok) {{
                     FULL_DB_INDEX = await res.json();
+                    isDbIndexLoaded = true;
+                    const curQ = document.getElementById('searchInput')?.value?.trim();
+                    if (curQ) {{
+                        handleSearch(curQ);
+                    }}
                 }}
             }} catch (err) {{}}
         }}
@@ -928,30 +934,42 @@ html_content = f'''<!DOCTYPE html>
                     (item.fn && item.fn.toLowerCase().includes(query))
                 ).slice(0, 50);
 
-                indexResults = matchedEntries.map((item, idx) => ({{
-                    id: `tg-${{item.id || idx}}`,
-                    title: item.t,
-                    year: item.y,
-                    rating: 8.2,
-                    runtime: item.s,
-                    quality: item.q || "1080p FHD",
-                    category: item.tv ? "series" : "telegram",
-                    type: item.tv ? "series" : "movie",
-                    languages: ["Multi-Audio"],
-                    genres: ["Telegram Bot Library"],
-                    director: "Verified Community Upload",
-                    cast: ["Telegram DB Archive"],
-                    overview: `Available file in Telegram Bot: ${{item.fn}} (${{item.s}})`,
-                    poster_url: "https://images.weserv.nl/?url=image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
-                    backdrop_url: "https://images.weserv.nl/?url=image.tmdb.org/t/p/original/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
-                    file_name: item.fn,
-                    file_size: 0,
-                    file_size_human: item.s,
-                    file_id: item.id,
-                    stream_msg_id: 116,
-                    stream_hash: "AgADwB",
-                    featured: false
-                }}));
+                indexResults = matchedEntries.map((item, idx) => {{
+                    const catalogMatch = MOVIES_CATALOG.find(m => m.title.toLowerCase() === item.t.toLowerCase());
+                    let pUrl = "";
+                    if (item.p) {{
+                        pUrl = `https://images.weserv.nl/?url=image.tmdb.org/t/p/w500${{item.p}}`;
+                    }} else if (catalogMatch && catalogMatch.poster_url) {{
+                        pUrl = catalogMatch.poster_url;
+                    }} else {{
+                        const cleanT = encodeURIComponent(item.t.length > 22 ? item.t.substring(0, 20) + '...' : item.t);
+                        pUrl = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="450" viewBox="0 0 300 450"><defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="%231a1a1a"/><stop offset="100%" stop-color="%230c0c0c"/></linearGradient></defs><rect width="300" height="450" fill="url(%23g)"/><rect x="12" y="12" width="276" height="426" fill="none" stroke="%23FFC928" stroke-width="1.5" opacity="0.3" rx="12"/><circle cx="150" cy="160" r="40" fill="%23FFC928" opacity="0.15"/><path d="M142 145 L164 160 L142 175 Z" fill="%23FFC928"/><text x="150" y="240" font-family="sans-serif" font-weight="800" font-size="18" fill="%23FFFFFF" text-anchor="middle">${{cleanT}}</text><text x="150" y="270" font-family="sans-serif" font-weight="600" font-size="13" fill="%23FFC928" text-anchor="middle">${{item.y || '2024'}} • ${{item.q || '1080p'}}</text><text x="150" y="380" font-family="sans-serif" font-weight="500" font-size="11" fill="%23888888" text-anchor="middle">CINEVIBE CINEMA</text></svg>`;
+                    }}
+                    return {{
+                        id: `tg-${{item.id || idx}}`,
+                        title: item.t,
+                        year: item.y,
+                        rating: catalogMatch ? catalogMatch.rating : 8.2,
+                        runtime: item.s,
+                        quality: item.q || "1080p FHD",
+                        category: item.tv ? "series" : "telegram",
+                        type: item.tv ? "series" : "movie",
+                        languages: catalogMatch ? catalogMatch.languages : ["Multi-Audio"],
+                        genres: catalogMatch ? catalogMatch.genres : ["Telegram Bot Library"],
+                        director: catalogMatch ? catalogMatch.director : "Verified Community Upload",
+                        cast: catalogMatch ? catalogMatch.cast : ["Telegram DB Archive"],
+                        overview: catalogMatch ? catalogMatch.overview : `Available file in Telegram Bot: ${{item.fn}} (${{item.s}})`,
+                        poster_url: pUrl,
+                        backdrop_url: pUrl,
+                        file_name: item.fn,
+                        file_size: 0,
+                        file_size_human: item.s,
+                        file_id: item.id,
+                        stream_msg_id: 116,
+                        stream_hash: "AgADwB",
+                        featured: false
+                    }};
+                }});
             }}
 
             const combined = [...localResults, ...indexResults.filter(ir => !localResults.some(lr => lr.title.toLowerCase() === ir.title.toLowerCase()))];
@@ -967,7 +985,9 @@ html_content = f'''<!DOCTYPE html>
         function openTelegramBot() {{
             if (!selectedMovie) return;
             const fileId = selectedMovie.file_id || '';
-            const tgUrl = fileId ? `https://t.me/movieDRV2bot?start=file_${{fileId}}` : `https://t.me/movieDRV2bot`;
+            const tgUrl = fileId 
+                ? `https://t.me/movieDRV2bot?start=file_${{fileId}}` 
+                : `https://t.me/movieDRV2bot?start=${{encodeURIComponent(selectedMovie.title)}}`;
             showToast(`Opening ${{selectedMovie.title}} in Telegram Bot...`);
             window.open(tgUrl, '_blank');
         }}
@@ -978,22 +998,33 @@ html_content = f'''<!DOCTYPE html>
             if (!m && FULL_DB_INDEX) {{
                 const item = FULL_DB_INDEX.find(x => `tg-${{x.id}}` === id);
                 if (item) {{
+                    const catalogMatch = MOVIES_CATALOG.find(x => x.title.toLowerCase() === item.t.toLowerCase());
+                    let pUrl = "";
+                    if (item.p) {{
+                        pUrl = `https://images.weserv.nl/?url=image.tmdb.org/t/p/w500${{item.p}}`;
+                    }} else if (catalogMatch && catalogMatch.poster_url) {{
+                        pUrl = catalogMatch.poster_url;
+                    }} else {{
+                        const cleanT = encodeURIComponent(item.t.length > 22 ? item.t.substring(0, 20) + '...' : item.t);
+                        pUrl = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="450" viewBox="0 0 300 450"><defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="%231a1a1a"/><stop offset="100%" stop-color="%230c0c0c"/></linearGradient></defs><rect width="300" height="450" fill="url(%23g)"/><rect x="12" y="12" width="276" height="426" fill="none" stroke="%23FFC928" stroke-width="1.5" opacity="0.3" rx="12"/><circle cx="150" cy="160" r="40" fill="%23FFC928" opacity="0.15"/><path d="M142 145 L164 160 L142 175 Z" fill="%23FFC928"/><text x="150" y="240" font-family="sans-serif" font-weight="800" font-size="18" fill="%23FFFFFF" text-anchor="middle">${{cleanT}}</text><text x="150" y="270" font-family="sans-serif" font-weight="600" font-size="13" fill="%23FFC928" text-anchor="middle">${{item.y || '2024'}} • ${{item.q || '1080p'}}</text><text x="150" y="380" font-family="sans-serif" font-weight="500" font-size="11" fill="%23888888" text-anchor="middle">CINEVIBE CINEMA</text></svg>`;
+                    }}
+                    let bUrl = (catalogMatch && catalogMatch.backdrop_url) ? catalogMatch.backdrop_url : pUrl;
                     m = {{
                         id: `tg-${{item.id}}`,
                         title: item.t,
                         year: item.y,
-                        rating: 8.2,
+                        rating: catalogMatch ? catalogMatch.rating : 8.2,
                         runtime: item.s,
                         quality: item.q || "1080p FHD",
                         category: item.tv ? "series" : "telegram",
                         type: item.tv ? "series" : "movie",
-                        languages: ["Multi-Audio"],
-                        genres: ["Telegram Bot Library"],
-                        director: "Verified Community Upload",
-                        cast: ["Telegram DB Archive"],
-                        overview: `Available file in Telegram Bot: ${{item.fn}} (${{item.s}})`,
-                        poster_url: "https://images.weserv.nl/?url=image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
-                        backdrop_url: "https://images.weserv.nl/?url=image.tmdb.org/t/p/original/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
+                        languages: catalogMatch ? catalogMatch.languages : ["Multi-Audio"],
+                        genres: catalogMatch ? catalogMatch.genres : ["Telegram Bot Library"],
+                        director: catalogMatch ? catalogMatch.director : "Verified Community Upload",
+                        cast: catalogMatch ? catalogMatch.cast : ["Telegram DB Archive"],
+                        overview: catalogMatch ? catalogMatch.overview : `Available file in Telegram Bot: ${{item.fn}} (${{item.s}})`,
+                        poster_url: pUrl,
+                        backdrop_url: bUrl,
                         file_name: item.fn,
                         file_size: 0,
                         file_size_human: item.s,
@@ -1007,6 +1038,7 @@ html_content = f'''<!DOCTYPE html>
             if (!m) return;
             selectedMovie = m;
 
+            document.getElementById('modalBackdrop').style.backgroundImage = 'none';
             document.getElementById('modalBackdrop').style.backgroundImage = `url('${{m.backdrop_url || m.poster_url}}')`;
             document.getElementById('modalPoster').src = m.poster_url;
             document.getElementById('modalQuality').innerText = m.quality;
