@@ -1652,3 +1652,4 @@ with open(os.path.join(OUTPUT_DIR, "index.html"), "w", encoding="utf-8") as f:
 shutil.copyfile(os.path.join(OUTPUT_DIR, "index.html"), os.path.join(OUTPUT_DIR, "200.html"))
 
 print("index.html and 200.html generated successfully with Admin Command Center!")
+

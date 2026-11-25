@@ -495,3 +495,4 @@ with open(os.path.join(OUTPUT_DIR, "missing_catalog.json"), "w", encoding="utf-8
     json.dump(MISSING_TITLES, f, indent=2)
 
 print(f"Catalog updated: {len(CATALOG)} active titles & {len(MISSING_TITLES)} missing radar titles saved.")
+

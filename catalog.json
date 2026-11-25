@@ -31,7 +31,10 @@
     "file_size_human": "884.55 MB",
     "stream_msg_id": 116,
     "stream_hash": "AgADwB",
-    "featured": true
+    "featured": true,
+    "release_date": "2020-10-16",
+    "release_month": 10,
+    "release_month_name": "October"
   },
   {
     "id": "oppenheimer-2023",
@@ -66,7 +69,10 @@
     "file_size_human": "9.00 GB",
     "stream_msg_id": 130,
     "stream_hash": "AgADkl",
-    "featured": true
+    "featured": true,
+    "release_date": "2023-07-21",
+    "release_month": 7,
+    "release_month_name": "July"
   },
   {
     "id": "dune-part-two-2024",
@@ -101,7 +107,10 @@
     "file_size_human": "7.00 GB",
     "stream_msg_id": 132,
     "stream_hash": "AgADmn",
-    "featured": true
+    "featured": true,
+    "release_date": "2024-03-01",
+    "release_month": 3,
+    "release_month_name": "March"
   },
   {
     "id": "farrey-2023",
@@ -135,7 +144,10 @@
     "file_size_human": "4.00 GB",
     "stream_msg_id": 118,
     "stream_hash": "AgADxZ",
-    "featured": true
+    "featured": true,
+    "release_date": "2023-11-24",
+    "release_month": 11,
+    "release_month_name": "November"
   },
   {
     "id": "animal-2023",
@@ -171,7 +183,10 @@
     "file_size_human": "7.00 GB",
     "stream_msg_id": 120,
     "stream_hash": "AgADab",
-    "featured": true
+    "featured": true,
+    "release_date": "2023-12-01",
+    "release_month": 12,
+    "release_month_name": "December"
   },
   {
     "id": "12th-fail-2023",
@@ -206,7 +221,10 @@
     "file_size_human": "2.40 GB",
     "stream_msg_id": 122,
     "stream_hash": "AgADcd",
-    "featured": true
+    "featured": true,
+    "release_date": "2023-10-27",
+    "release_month": 10,
+    "release_month_name": "October"
   },
   {
     "id": "fighter-2024",
@@ -239,7 +257,10 @@
     "file_size_human": "5.00 GB",
     "stream_msg_id": 124,
     "stream_hash": "AgADef",
-    "featured": true
+    "featured": true,
+    "release_date": "2024-01-25",
+    "release_month": 1,
+    "release_month_name": "January"
   },
   {
     "id": "salaar-2023",
@@ -275,7 +296,10 @@
     "file_size_human": "6.00 GB",
     "stream_msg_id": 126,
     "stream_hash": "AgADgh",
-    "featured": true
+    "featured": true,
+    "release_date": "2023-12-22",
+    "release_month": 12,
+    "release_month_name": "December"
   },
   {
     "id": "kalki-2898-ad",
@@ -311,7 +335,10 @@
     "file_size_human": "8.00 GB",
     "stream_msg_id": 128,
     "stream_hash": "AgADij",
-    "featured": true
+    "featured": true,
+    "release_date": "2024-06-27",
+    "release_month": 6,
+    "release_month_name": "June"
   },
   {
     "id": "remarried-empress-s01e07",
@@ -346,7 +373,10 @@
     "file_size_human": "1.78 GB",
     "stream_msg_id": 219,
     "stream_hash": "AgADNS",
-    "featured": true
+    "featured": true,
+    "release_date": "2024-04-15",
+    "release_month": 4,
+    "release_month_name": "April"
   },
   {
     "id": "queen-of-tears-2024",
@@ -381,7 +411,10 @@
     "file_size_human": "12.00 GB",
     "stream_msg_id": 140,
     "stream_hash": "AgADuv",
-    "featured": true
+    "featured": true,
+    "release_date": "2024-03-09",
+    "release_month": 3,
+    "release_month_name": "March"
   },
   {
     "id": "attack-on-titan",
@@ -416,7 +449,10 @@
     "file_size_human": "15.00 GB",
     "stream_msg_id": 142,
     "stream_hash": "AgADwx",
-    "featured": true
+    "featured": true,
+    "release_date": "2023-11-05",
+    "release_month": 11,
+    "release_month_name": "November"
   },
   {
     "id": "demon-slayer-hashira",
@@ -451,7 +487,10 @@
     "file_size_human": "8.00 GB",
     "stream_msg_id": 144,
     "stream_hash": "AgADyz",
-    "featured": true
+    "featured": true,
+    "release_date": "2024-05-12",
+    "release_month": 5,
+    "release_month_name": "May"
   },
   {
     "id": "solo-leveling",
@@ -486,7 +525,10 @@
     "file_size_human": "9.00 GB",
     "stream_msg_id": 146,
     "stream_hash": "AgAD12",
-    "featured": true
+    "featured": true,
+    "release_date": "2024-01-07",
+    "release_month": 1,
+    "release_month_name": "January"
   },
   {
     "id": "jujutsu-kaisen",
@@ -521,7 +563,10 @@
     "file_size_human": "16.00 GB",
     "stream_msg_id": 148,
     "stream_hash": "AgAD34",
-    "featured": true
+    "featured": true,
+    "release_date": "2023-08-31",
+    "release_month": 8,
+    "release_month_name": "August"
   },
   {
     "id": "money-heist",
@@ -556,7 +601,10 @@
     "file_size_human": "14.00 GB",
     "stream_msg_id": 134,
     "stream_hash": "AgADop",
-    "featured": true
+    "featured": true,
+    "release_date": "2021-12-03",
+    "release_month": 12,
+    "release_month_name": "December"
   },
   {
     "id": "stranger-things",
@@ -591,6 +639,9 @@
     "file_size_human": "20.00 GB",
     "stream_msg_id": 136,
     "stream_hash": "AgADqr",
-    "featured": true
+    "featured": true,
+    "release_date": "2022-07-01",
+    "release_month": 7,
+    "release_month_name": "July"
   }
 ]
