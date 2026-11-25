@@ -21,3 +21,4 @@ npx surge . cinevibe-cinema.surge.sh
 In the top right header, click the **Settings** icon to configure:
 1. **Bot Streamer Base URL**: Set your local or remote Telegram bot streamer (default: `http://127.0.0.1:8080`).
 2. **Gemini API Key**: Set your Google Gemini API key.
+

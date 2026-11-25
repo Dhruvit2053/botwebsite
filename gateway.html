@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineVibe — Redirecting to Safe Active Mirror</title>
+    <!-- Automatic instant redirect with fallbacks -->
+    <meta name="theme-color" content="#FFC928">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Cinzel:wght@700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body { background: #080808; color: #FFFFFF; font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+    <script>
+        // CONFIGURATION: Set the current active worker mirror
+        // If 'new16' gets banned, simply change this to 'new17' on your main domain!
+        const ACTIVE_MIRRORS = [
+            "https://cinevibe-cinema.surge.sh/?utm=mn1",
+            "https://new16.hdhub4u.cl/?utm=mn1",
+            "https://new17.hdhub4u.cl/?utm=mn1"
+        ];
+
+        function getTargetUrl() {
+            const primary = ACTIVE_MIRRORS[0];
+            const currentPath = window.location.pathname;
+            const currentSearch = window.location.search;
+            const currentHash = window.location.hash;
+
+            // Combine mirror base with visitor's requested path and query
+            const urlObj = new URL(primary);
+            if (currentPath && currentPath !== '/') {
+                urlObj.pathname = currentPath;
+            }
+            if (currentSearch) {
+                // Append original search params
+                const extraParams = new URLSearchParams(currentSearch);
+                for (const [k, v] of extraParams.entries()) {
+                    urlObj.searchParams.set(k, v);
+                }
+            }
+            if (currentHash) {
+                urlObj.hash = currentHash;
+            }
+            return urlObj.toString();
+        }
+
+        // Fast redirect
+        const target = getTargetUrl();
+        window.location.replace(target);
+    </script>
+</head>
+<body class="min-h-screen flex items-center justify-center p-6 text-center">
+    <div class="max-w-md w-full bg-[#121212] border border-[#262626] rounded-2xl p-8 space-y-6 shadow-2xl">
+        <div class="w-14 h-14 mx-auto rounded-2xl bg-gradient-to-tr from-amber-600 to-[#FFC928] flex items-center justify-center shadow-lg shadow-amber-500/20">
+            <i class="fa-solid fa-shield-halved text-black text-2xl"></i>
+        </div>
+
+        <div class="space-y-2">
+            <h1 class="text-2xl font-bold font-['Cinzel'] tracking-wider text-white">CINE<span class="text-[#FFC928]">VIBE</span></h1>
+            <p class="text-xs text-gray-400">Connecting you securely to our active fast cinema mirror...</p>
+        </div>
+
+        <div class="flex items-center justify-center gap-2 text-xs text-[#FFC928]">
+            <i class="fa-solid fa-circle-notch fa-spin"></i>
+            <span>Redirecting to active mirror...</span>
+        </div>
+
+        <div class="pt-2">
+            <a id="manualLink" href="https://cinevibe-cinema.surge.sh/?utm=mn1" class="inline-block px-6 py-3 rounded-xl bg-[#FFC928] text-black font-extrabold text-xs uppercase tracking-wider hover:bg-yellow-400 transition">
+                Click here if not redirected
+            </a>
+        </div>
+
+        <div class="border-t border-white/5 pt-4 text-[10px] text-gray-500">
+            &copy; 2026 CineVibe Safe Gateway Network. Bookmark this permanent URL.
+        </div>
+    </div>
+    <script>
+        document.getElementById('manualLink').href = target;
+    </script>
+</body>
+</html>

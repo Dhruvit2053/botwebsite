@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
     <title>CineVibe — Your World of Cinema | AI Movie Discovery & Authorized Downloads</title>
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#FFC928">
@@ -95,19 +96,25 @@
         <span id="toastMsg" class="text-sm font-medium text-white">Action successful</span>
     </div>
 
+    <!-- DOMAIN SHIELD ACTIVE BADGE (HDHUB4U-STYLE DOMAIN PROTECTION) -->
+    <div id="shieldNotification" class="bg-gradient-to-r from-amber-950/70 via-black to-amber-950/70 border-b border-brand-gold/20 px-4 py-1.5 text-center text-[11px] text-brand-gold font-medium flex items-center justify-center gap-2">
+        <i class="fa-solid fa-shield-halved text-xs"></i>
+        <span><b>Protected by Domain Shield:</b> Active Mirror <code class="text-white px-1.5 py-0.5 rounded bg-white/10 font-mono">new16.cinevibe</code> — Always bookmark our permanent main domain!</span>
+        <button onclick="openModal('settingsModal')" class="underline hover:text-white ml-2 text-[10px] font-bold">Shield Settings</button>
+    </div>
+
     <!-- ========================================== -->
     <!-- SECTION 1: CINEVIBE CINEMATIC LANDING PAGE -->
     <!-- ========================================== -->
     <div id="landingPage" class="relative min-h-screen flex flex-col justify-between overflow-hidden bg-brand-black transition-opacity duration-700">
-        <!-- Ambient Background Artwork with Overlay -->
         <div class="absolute inset-0 bg-cover bg-center opacity-30 scale-105 transition-transform duration-10000 ease-out" 
-             style="background-image: url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=2000&q=80');">
+             style="background-image: url('https://image.tmdb.org/t/p/original/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg');">
         </div>
         <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/80 to-transparent"></div>
         <div class="absolute inset-0 bg-radial from-brand-gold/10 via-transparent to-transparent"></div>
 
         <!-- Landing Navigation -->
-        <header class="relative z-10 max-w-7xl mx-auto w-full px-6 py-8 flex items-center justify-between">
+        <header class="relative z-10 max-w-7xl mx-auto w-full px-6 py-6 flex items-center justify-between">
             <div class="flex items-center gap-3">
                 <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-goldDark to-brand-gold flex items-center justify-center shadow-lg shadow-brand-gold/20">
                     <i class="fa-solid fa-film text-brand-black text-lg"></i>
@@ -153,7 +160,7 @@
             </div>
 
             <!-- Features Highlights -->
-            <div class="pt-10 grid grid-cols-2 md:grid-cols-4 gap-4 text-left">
+            <div class="pt-8 grid grid-cols-2 md:grid-cols-4 gap-4 text-left">
                 <div class="p-4 rounded-xl glass-panel border border-white/5">
                     <i class="fa-solid fa-bolt text-brand-gold text-base mb-2"></i>
                     <h4 class="text-xs font-bold text-white">Multi-Socket Turbo</h4>
@@ -165,14 +172,14 @@
                     <p class="text-[11px] text-brand-muted mt-1">Natural language smart recommendations.</p>
                 </div>
                 <div class="p-4 rounded-xl glass-panel border border-white/5">
+                    <i class="fa-solid fa-shield-halved text-brand-gold text-base mb-2"></i>
+                    <h4 class="text-xs font-bold text-white">Domain Shield</h4>
+                    <p class="text-[11px] text-brand-muted mt-1">HDHub4u-style safe gateway & mirror rotation.</p>
+                </div>
+                <div class="p-4 rounded-xl glass-panel border border-white/5">
                     <i class="fa-solid fa-tv text-brand-gold text-base mb-2"></i>
                     <h4 class="text-xs font-bold text-white">True 4K UHD</h4>
                     <p class="text-[11px] text-brand-muted mt-1">HDR10, Dolby Atmos, and pristine multi-audio.</p>
-                </div>
-                <div class="p-4 rounded-xl glass-panel border border-white/5">
-                    <i class="fa-solid fa-shield-check text-brand-gold text-base mb-2"></i>
-                    <h4 class="text-xs font-bold text-white">Verified Rights</h4>
-                    <p class="text-[11px] text-brand-muted mt-1">Authorized distribution & full DMCA compliance.</p>
                 </div>
             </div>
         </main>
@@ -233,7 +240,7 @@
                         <i class="fa-solid fa-wand-magic-sparkles text-xs"></i>
                         <span class="hidden sm:inline">CineVibe AI</span>
                     </button>
-                    <button onclick="openModal('settingsModal')" class="p-2.5 rounded-full glass-panel text-brand-muted hover:text-white transition" title="Bot Stream Server Settings">
+                    <button onclick="openModal('settingsModal')" class="p-2.5 rounded-full glass-panel text-brand-muted hover:text-white transition" title="Shield & Stream Settings">
                         <i class="fa-solid fa-gear text-xs"></i>
                     </button>
                     <button onclick="openModal('requestModal')" class="hidden md:flex items-center gap-1.5 px-3 py-2 rounded-full glass-panel text-white text-xs font-medium hover:border-brand-gold/40 transition">
@@ -338,7 +345,7 @@
             <div class="flex items-center justify-center gap-6 pt-2">
                 <a href="javascript:void(0)" onclick="openModal('dmcaModal')" class="hover:text-brand-gold transition">DMCA & Copyright Policy</a>
                 <a href="javascript:void(0)" onclick="openModal('requestModal')" class="hover:text-brand-gold transition">Request a Title</a>
-                <a href="javascript:void(0)" onclick="openModal('settingsModal')" class="hover:text-brand-gold transition">Stream Server Settings</a>
+                <a href="javascript:void(0)" onclick="openModal('settingsModal')" class="hover:text-brand-gold transition">Shield & Stream Settings</a>
             </div>
         </footer>
     </div>
@@ -361,7 +368,7 @@
             <!-- Modal Content Body -->
             <div class="p-6 -mt-16 sm:-mt-20 relative z-10 space-y-6 bg-brand-card">
                 <div class="flex gap-4 sm:gap-6 items-end">
-                    <img id="modalPoster" src="" class="w-24 sm:w-28 h-36 sm:h-40 object-cover rounded-xl shadow-2xl border border-white/20 shrink-0">
+                    <img id="modalPoster" referrerpolicy="no-referrer" src="" class="w-24 sm:w-28 h-36 sm:h-40 object-cover rounded-xl shadow-2xl border border-white/20 shrink-0">
                     <div class="space-y-1.5 flex-1">
                         <div class="flex items-center gap-2 flex-wrap">
                             <span id="modalQuality" class="px-2 py-0.5 rounded bg-brand-gold text-black text-[10px] font-extrabold uppercase">4K UHD</span>
@@ -486,27 +493,40 @@
 
 
     <!-- ========================================== -->
-    <!-- MODAL 3: BOT STREAM SERVER SETTINGS -->
+    <!-- MODAL 3: DOMAIN SHIELD & STREAM SETTINGS -->
     <!-- ========================================== -->
     <div id="settingsModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md">
         <div class="relative w-full max-w-lg glass-panel rounded-2xl overflow-hidden border border-white/10 shadow-2xl p-6 space-y-5 animate-fade-in">
             <div class="flex items-center justify-between">
                 <div class="flex items-center gap-2.5">
-                    <i class="fa-solid fa-server text-brand-gold text-base"></i>
-                    <h4 class="text-base font-bold text-white">Stream Server Settings</h4>
+                    <i class="fa-solid fa-shield-halved text-brand-gold text-base"></i>
+                    <h4 class="text-base font-bold text-white">Domain Shield & Streamer Settings</h4>
                 </div>
                 <button onclick="closeModal('settingsModal')" class="text-brand-muted hover:text-white text-sm">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
 
-            <p class="text-xs text-brand-muted leading-relaxed">
-                Configure your Telegram Bot's stream server address. All "Watch Online" and "Fast Download" buttons route through this endpoint.
-            </p>
-
             <div class="space-y-4 text-xs">
+                <!-- Domain Shield Info (HDHub4u Pattern) -->
+                <div class="p-3.5 rounded-xl bg-brand-dark border border-brand-gold/30 space-y-1.5">
+                    <span class="text-brand-gold font-bold block flex items-center gap-1.5">
+                        <i class="fa-solid fa-check-double text-xs"></i> HDHub4u-Style Domain Shield
+                    </span>
+                    <p class="text-[11px] text-brand-muted leading-relaxed">
+                        Your permanent main domain stays safe. All content is served via active disposable worker mirrors (e.g. <code>new16</code>). If a mirror ever receives a copyright complaint, simply update the Active Mirror Target below without changing your main domain!
+                    </p>
+                </div>
+
                 <div>
-                    <label class="block text-brand-muted font-semibold mb-1">Bot Streamer Base URL</label>
+                    <label class="block text-brand-muted font-semibold mb-1">Active Mirror Node / Sub-Domain</label>
+                    <input type="text" id="activeMirrorInput" value="https://new16.hdhub4u.cl/?utm=mn1" 
+                           class="w-full bg-brand-card border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-brand-gold font-mono text-[11px]">
+                    <span class="text-[10px] text-brand-muted mt-1 block">The current disposable mirror where visitors are directed.</span>
+                </div>
+
+                <div>
+                    <label class="block text-brand-muted font-semibold mb-1">Telegram Bot Streamer Base URL</label>
                     <input type="text" id="botBaseUrlInput" value="http://127.0.0.1:8080" 
                            class="w-full bg-brand-card border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-brand-gold">
                     <span class="text-[10px] text-brand-muted mt-1 block">Default local address: <code>http://127.0.0.1:8080</code> (or your public IP/domain)</span>
@@ -521,7 +541,7 @@
 
                 <div class="p-3 rounded-xl bg-brand-dark border border-white/5 flex items-center justify-between">
                     <div>
-                        <span class="font-bold text-white block">Connection Test</span>
+                        <span class="font-bold text-white block">Bot Connection Test</span>
                         <span id="connTestStatus" class="text-[11px] text-brand-muted">Click test to check server status</span>
                     </div>
                     <button onclick="testBotConnection()" class="px-3 py-1.5 rounded-lg bg-white/10 text-white hover:bg-brand-gold hover:text-black font-bold text-[11px] transition">
@@ -632,7 +652,7 @@
     <!-- APPLICATION LOGIC SCRIPT -->
     <!-- ========================================== -->
     <script>
-        // Load embedded catalog data
+        // Load verified catalog data
         const MOVIES_CATALOG = [
   {
     "id": "unhealer-2020",
@@ -659,7 +679,7 @@
     ],
     "overview": "A bullied teenager gains supernatural powers from an indigenous medicine man's ritual, where any physical pain or harm inflicted upon him is instead reflected back onto his tormentors.",
     "poster_url": "https://upload.wikimedia.org/wikipedia/commons/0/0e/The_Unhealer_Promo_Poster_thumb.jpg",
-    "backdrop_url": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1600&q=80",
+    "backdrop_url": "https://image.tmdb.org/t/p/original/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
     "file_name": "The Unhealer 2020 720p BluRay English AAC2 0 H 264 ESub Mkv",
     "file_size": 927514624,
     "file_size_human": "884.55 MB",
@@ -687,13 +707,13 @@
     ],
     "director": "Kim Jin-min",
     "cast": [
-      "Park Min-young",
-      "Lee Soo-hyuk",
-      "Song Kang"
+      "Shin Min-a",
+      "Lee Jong-suk",
+      "Ju Ji-hoon"
     ],
     "overview": "Navier Ellie Trovi was an empress of the Eastern Empire. When her husband demands a divorce to enthrone his mistress, Navier accepts on one condition: she is immediately remarried to the Emperor of the Western Empire.",
-    "poster_url": "https://m.media-amazon.com/images/M/MV5BNmU4M2E3YTYtNGU0ZS00OGJjLWJmOTUtNWVlMGJlMDdlNDEzXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-    "backdrop_url": "https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=1600&q=80",
+    "poster_url": "https://upload.wikimedia.org/wikipedia/en/a/a7/The_Remarried_Empress.jpg",
+    "backdrop_url": "https://image.tmdb.org/t/p/original/keVfqCMKmJ55nHzmqR2Q5K7LwJt.jpg",
     "file_name": "The Remarried Empress S01E07 1080p WEB h264 GRACE mkv",
     "file_size": 1917726903,
     "file_size_human": "1.78 GB",
@@ -725,8 +745,8 @@
       "Sahil Mehta"
     ],
     "overview": "An orphaned genius lands a scholarship to an elite boarding school and gets lured into a high-stakes cheating conspiracy orchestrated by the school's wealthy elite students.",
-    "poster_url": "https://m.media-amazon.com/images/M/MV5BMjA1YjM4ZTAtZTE0YS00ZTMwLThlZjUtYjI3NWQ3ZWY5ZWVmXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-    "backdrop_url": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1600&q=80",
+    "poster_url": "https://image.tmdb.org/t/p/w500/4ihdqS2PvRcjN1i9ozQxtyoKvBX.jpg",
+    "backdrop_url": "https://image.tmdb.org/t/p/original/4ihdqS2PvRcjN1i9ozQxtyoKvBX.jpg",
     "file_name": "Farrey 2023 2160p 4K UHD HEVC Hindi Atmos",
     "file_size": 4294967296,
     "file_size_human": "4.00 GB",
@@ -760,8 +780,8 @@
       "Rashmika Mandanna"
     ],
     "overview": "A fiercely obsessive son undergoes a violent and ruthless transformation to protect his emotionally distant father and exact brutal vengeance against those who plotted against his family.",
-    "poster_url": "https://m.media-amazon.com/images/M/MV5BNGViM2M4NmUtMmNkNy00MTU5LWI2ZjgtNmIxODc5OGYxNWFiXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-    "backdrop_url": "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=1600&q=80",
+    "poster_url": "https://image.tmdb.org/t/p/w500/hr9rjR3J0xBBKmlJ4n3gHId9ccx.jpg",
+    "backdrop_url": "https://image.tmdb.org/t/p/original/hr9rjR3J0xBBKmlJ4n3gHId9ccx.jpg",
     "file_name": "Animal 2023 2160p UHD HDR Atmos DD5.1 Hindi x265",
     "file_size": 7516192768,
     "file_size_human": "7.00 GB",
@@ -794,8 +814,8 @@
       "Anant Joshi"
     ],
     "overview": "Inspired by the true story of Manoj Kumar Sharma, who rose from poverty and repeated academic failures to crack India's toughest civil service exam (UPSC) and become an IPS officer.",
-    "poster_url": "https://m.media-amazon.com/images/M/MV5BNzg3Y2MyNjgtMzk4ZS00OTU3LWEwZmMtN2Y0NTdlZmNhZmQ0XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-    "backdrop_url": "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1600&q=80",
+    "poster_url": "https://image.tmdb.org/t/p/w500/eebUPRI4Z5e1Z7Hev4JZAwMIFkX.jpg",
+    "backdrop_url": "https://image.tmdb.org/t/p/original/eebUPRI4Z5e1Z7Hev4JZAwMIFkX.jpg",
     "file_name": "12th Fail 2023 1080p WEB-DL Hindi DDP5.1 x264",
     "file_size": 2576980377,
     "file_size_human": "2.40 GB",
@@ -826,8 +846,8 @@
       "Anil Kapoor"
     ],
     "overview": "Top Indian Air Force aviators come together to form 'Air Dragons' in the face of imminent danger and state-sponsored terror threats, taking to the skies in high-speed combat.",
-    "poster_url": "https://m.media-amazon.com/images/M/MV5BOGQyMmU1OWQtYmE0ZC00ZmY3LWE5NWEtOGVlNGFmZmE5Nzg0XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-    "backdrop_url": "https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=1600&q=80",
+    "poster_url": "https://image.tmdb.org/t/p/w500/keVfqCMKmJ55nHzmqR2Q5K7LwJt.jpg",
+    "backdrop_url": "https://image.tmdb.org/t/p/original/keVfqCMKmJ55nHzmqR2Q5K7LwJt.jpg",
     "file_name": "Fighter 2024 2160p 4K UHD IMAX Atmos Hindi",
     "file_size": 5368709120,
     "file_size_human": "5.00 GB",
@@ -861,8 +881,8 @@
       "Shruti Haasan"
     ],
     "overview": "A gang leader makes a promise to a dying friend and takes on other criminal gangs in the dystopian fortified city-state of Khansaar.",
-    "poster_url": "https://m.media-amazon.com/images/M/MV5BMmU5ZWQ2YTctYzUwOC00MTYxLTgwMmEtYjg1NmRhOGFjOWRiXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-    "backdrop_url": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1600&q=80",
+    "poster_url": "https://image.tmdb.org/t/p/w500/snYOXem8pUGOffnLbbGq4aB1pg4.jpg",
+    "backdrop_url": "https://image.tmdb.org/t/p/original/snYOXem8pUGOffnLbbGq4aB1pg4.jpg",
     "file_name": "Salaar Part 1 Ceasefire 2023 2160p UHD HDR Multi-Audio",
     "file_size": 6442450944,
     "file_size_human": "6.00 GB",
@@ -896,8 +916,8 @@
       "Deepika Padukone"
     ],
     "overview": "In a post-apocalyptic world in the year 2898 AD, a modern-day avatar of Vishnu descends to protect humanity from tyrannical forces led by the supreme complex dictator.",
-    "poster_url": "https://m.media-amazon.com/images/M/MV5BYWRkMmRlODMtODk2Yi00MWFkLWE0MWItNWRkYjQ5ODc1MDNjXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-    "backdrop_url": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=80",
+    "poster_url": "https://image.tmdb.org/t/p/w500/rstcAnBeCkxNQjNp3YXrF6IP1tW.jpg",
+    "backdrop_url": "https://image.tmdb.org/t/p/original/rstcAnBeCkxNQjNp3YXrF6IP1tW.jpg",
     "file_name": "Kalki 2898 AD 2024 2160p UHD Dolby Vision Atmos",
     "file_size": 8589934592,
     "file_size_human": "8.00 GB",
@@ -930,8 +950,8 @@
       "Robert Downey Jr."
     ],
     "overview": "The dramatic story of American scientist J. Robert Oppenheimer and his role in the development of the atomic bomb during World War II.",
-    "poster_url": "https://m.media-amazon.com/images/M/MV5BMDBmYTZjNjMtNjc5Ni00M2L5LWEzNGQtN2ZiNTQ2YzZhMDFiXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-    "backdrop_url": "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1600&q=80",
+    "poster_url": "https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
+    "backdrop_url": "https://image.tmdb.org/t/p/original/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
     "file_name": "Oppenheimer 2023 2160p IMAX UHD HDR10 DTS-HD",
     "file_size": 9663676416,
     "file_size_human": "9.00 GB",
@@ -964,8 +984,8 @@
       "Austin Butler"
     ],
     "overview": "Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family, facing a choice between love and the fate of the known universe.",
-    "poster_url": "https://m.media-amazon.com/images/M/MV5BN2QyZGUgkItMTE1NC00NTJhLWE5MmEtODhlMGFlNmEwMGVkXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-    "backdrop_url": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1600&q=80",
+    "poster_url": "https://image.tmdb.org/t/p/w500/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg",
+    "backdrop_url": "https://image.tmdb.org/t/p/original/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg",
     "file_name": "Dune Part Two 2024 2160p IMAX 4K UHD Atmos x265",
     "file_size": 7516192768,
     "file_size_human": "7.00 GB",
@@ -998,8 +1018,8 @@
       "Pedro Alonso"
     ],
     "overview": "An unusual group of robbers attempt to carry out the most perfect robbery in Spanish history - stealing 2.4 billion euros from the Royal Mint of Spain.",
-    "poster_url": "https://m.media-amazon.com/images/M/MV5BODI0ZTlhY2MtSLQ5MS00ODFiLWI1NWUtODg1ZTViN2Q4MWFhXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-    "backdrop_url": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1600&q=80",
+    "poster_url": "https://image.tmdb.org/t/p/w500/reEMJA1uzscCbkpeRJeTT2bjqUp.jpg",
+    "backdrop_url": "https://image.tmdb.org/t/p/original/reEMJA1uzscCbkpeRJeTT2bjqUp.jpg",
     "file_name": "Money Heist Complete S01-S05 1080p NF WEB-DL Dual",
     "file_size": 15032385536,
     "file_size_human": "14.00 GB",
@@ -1032,8 +1052,8 @@
       "David Harbour"
     ],
     "overview": "When a young boy vanishes, a small town uncovers a mystery involving secret experiments, terrifying supernatural forces and one strange little girl.",
-    "poster_url": "https://m.media-amazon.com/images/M/MV5BMDZkYmVhNjMtNWU4MC00MDQxLWE3YTgtZDAzOWZkYzg3NTBhXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-    "backdrop_url": "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=1600&q=80",
+    "poster_url": "https://image.tmdb.org/t/p/w500/49WJfeN0moxb9IPfGn8AIqMGskD.jpg",
+    "backdrop_url": "https://image.tmdb.org/t/p/original/49WJfeN0moxb9IPfGn8AIqMGskD.jpg",
     "file_name": "Stranger Things S01-S04 2160p 4K HDR Atmos NF",
     "file_size": 21474836480,
     "file_size_human": "20.00 GB",
@@ -1050,11 +1070,19 @@
         let activeCategory = '';
         let botBaseUrl = localStorage.getItem('cinevibe_bot_url') || 'http://127.0.0.1:8080';
         let geminiApiKey = localStorage.getItem('cinevibe_gemini_key') || 'AIzaSyDiJIBMF2EYATRVzFo3kbckVvzNj0hozwY';
+        let activeMirrorUrl = localStorage.getItem('cinevibe_active_mirror') || 'https://new16.hdhub4u.cl/?utm=mn1';
 
         // Initialize App
         document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('botBaseUrlInput').value = botBaseUrl;
             document.getElementById('geminiApiKeyInput').value = geminiApiKey;
+            document.getElementById('activeMirrorInput').value = activeMirrorUrl;
+
+            // Auto-check if we should auto-enter if visited from gateway or query
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('utm') || urlParams.get('explore') || window.location.hash) {
+                enterMainPlatform();
+            }
 
             // Register PWA service worker
             if ('serviceWorker' in navigator) {
@@ -1158,11 +1186,20 @@
             container.innerHTML = html;
         }
 
+        function handleImageError(img, title, year) {
+            // Clean SVG fallback with real movie title rather than a static duplicate poster
+            img.onerror = null;
+            const cleanTitle = title.replace(/"/g, '');
+            img.src = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="450" viewBox="0 0 300 450"><rect width="300" height="450" fill="%23181818"/><rect x="10" y="10" width="280" height="430" fill="none" stroke="%23FFC928" stroke-width="2" opacity="0.4" rx="8"/><text x="150" y="210" font-family="sans-serif" font-weight="bold" font-size="20" fill="%23FFFFFF" text-anchor="middle">${encodeURIComponent(cleanTitle)}</text><text x="150" y="245" font-family="sans-serif" font-size="14" fill="%23FFC928" text-anchor="middle">${year || 'CineVibe'}</text></svg>`;
+        }
+
         function createMovieCard(m) {
             return `
                 <div class="movie-card shrink-0 w-36 sm:w-44 glass-panel rounded-xl overflow-hidden border border-white/5 cursor-pointer flex flex-col" onclick="openMovieDetails('${m.id}')">
                     <div class="relative h-52 sm:h-64 w-full bg-brand-dark overflow-hidden">
-                        <img src="${m.poster_url}" alt="${m.title}" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/0/0e/The_Unhealer_Promo_Poster_thumb.jpg'" class="w-full h-full object-cover transition duration-300">
+                        <img src="${m.poster_url}" referrerpolicy="no-referrer" alt="${m.title}" 
+                             onerror="handleImageError(this, '${m.title.replace(/'/g, "\'")}', '${m.year}')" 
+                             class="w-full h-full object-cover transition duration-300">
                         <div class="absolute top-2 right-2 px-1.5 py-0.5 rounded bg-black/70 backdrop-blur-md text-[10px] font-bold text-brand-gold border border-brand-gold/30">
                             ${m.quality.includes('4K') ? '4K UHD' : m.quality.includes('1080p') ? '1080p' : '720p'}
                         </div>
@@ -1404,7 +1441,7 @@
                     <div class="grid grid-cols-3 gap-2.5 pt-2">
                         ${displayMatched.map(m => `
                             <div class="bg-brand-card p-2 rounded-xl border border-white/5 cursor-pointer hover:border-brand-gold/40 transition" onclick="closeModal('aiModal'); openMovieDetails('${m.id}')">
-                                <img src="${m.poster_url}" class="w-full h-28 object-cover rounded-lg mb-1.5">
+                                <img src="${m.poster_url}" referrerpolicy="no-referrer" class="w-full h-28 object-cover rounded-lg mb-1.5" onerror="handleImageError(this, '${m.title.replace(/'/g, "\'")}', '${m.year}')">
                                 <h5 class="text-[11px] font-bold text-white line-clamp-1">${m.title}</h5>
                                 <span class="text-[10px] text-brand-gold font-bold">⭐ ${m.rating}</span>
                             </div>
@@ -1449,11 +1486,13 @@
         function saveSettings() {
             botBaseUrl = document.getElementById('botBaseUrlInput').value.trim();
             geminiApiKey = document.getElementById('geminiApiKeyInput').value.trim();
+            activeMirrorUrl = document.getElementById('activeMirrorInput').value.trim();
 
             localStorage.setItem('cinevibe_bot_url', botBaseUrl);
             localStorage.setItem('cinevibe_gemini_key', geminiApiKey);
+            localStorage.setItem('cinevibe_active_mirror', activeMirrorUrl);
 
-            showToast("Stream server and API settings saved!");
+            showToast("Domain shield and API settings saved!");
             closeModal('settingsModal');
         }
 
