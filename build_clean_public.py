@@ -534,7 +534,7 @@ html_content = f'''<!DOCTYPE html>
                 <div>
                     <label class="block text-brand-muted mb-1 text-[11px]">Cloud Bot Streamer Address:</label>
                     <input type="text" id="botBaseUrlInput" class="w-full p-2.5 rounded-xl bg-brand-dark border border-white/10 text-white font-mono text-xs focus:outline-none focus:border-brand-gold">
-                    <span class="text-[10px] text-brand-muted">Default: <code>https://telegram-filter-bot.onrender.com</code> (Cloud Python ByteStreamer)</span>
+                    <span class="text-[10px] text-brand-muted">Default: <code>https://telegram-filter-bot-aq9k.onrender.com</code> (Cloud Python ByteStreamer)</span>
                 </div>
                 <div>
                     <label class="block text-brand-muted mb-1 text-[11px]">Gemini API Key (Optional for AI Search):</label>
@@ -602,9 +602,9 @@ html_content = f'''<!DOCTYPE html>
         let activeCategory = '';
         let selectedYear = null;
         let selectedMonth = null;
-        const DEFAULT_BOT_URL = 'https://telegram-filter-bot.onrender.com';
+        const DEFAULT_BOT_URL = 'https://telegram-filter-bot-aq9k.onrender.com';
         let savedBotUrl = (localStorage.getItem('cinevibe_bot_url') || '').trim().replace(/\/+$/, '');
-        if (!savedBotUrl || savedBotUrl.includes('127.0.0.1') || savedBotUrl.includes('localhost')) {{
+        if (!savedBotUrl || savedBotUrl.includes('127.0.0.1') || savedBotUrl.includes('localhost') || savedBotUrl === 'https://telegram-filter-bot.onrender.com') {{
             savedBotUrl = DEFAULT_BOT_URL;
             localStorage.setItem('cinevibe_bot_url', savedBotUrl);
         }}

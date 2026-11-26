@@ -5914,9 +5914,9 @@
         let tmdbKey = localStorage.getItem('cinevibe_tmdb_key') || TMDB_DEFAULT_KEY;
         let tmdbToken = localStorage.getItem('cinevibe_tmdb_token') || TMDB_DEFAULT_TOKEN;
         let geminiKey = localStorage.getItem('cinevibe_gemini_key') || '';
-        const DEFAULT_BOT_URL = 'https://telegram-filter-bot.onrender.com';
+        const DEFAULT_BOT_URL = 'https://telegram-filter-bot-aq9k.onrender.com';
         let savedBotUrl = (localStorage.getItem('cinevibe_bot_url') || '').trim().replace(/\/+$/, '');
-        if (!savedBotUrl || savedBotUrl.includes('127.0.0.1') || savedBotUrl.includes('localhost')) {
+        if (!savedBotUrl || savedBotUrl.includes('127.0.0.1') || savedBotUrl.includes('localhost') || savedBotUrl === 'https://telegram-filter-bot.onrender.com') {
             savedBotUrl = DEFAULT_BOT_URL;
             localStorage.setItem('cinevibe_bot_url', savedBotUrl);
         }
