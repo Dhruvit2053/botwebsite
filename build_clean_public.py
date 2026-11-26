@@ -381,7 +381,7 @@ html_content = f'''<!DOCTYPE html>
                 </div>
                 <div>
                     <h5 class="text-white font-bold mb-2.5 text-xs uppercase tracking-wider">Streaming Engine</h5>
-                    <p class="text-[11px] leading-relaxed mb-2">Connected to CineVibe Local Multi-Socket Streamer (127.0.0.1:8080).</p>
+                    <p class="text-[11px] leading-relaxed mb-2">Connected to CineVibe Cloud Multi-Socket Streamer (24/7 Online).</p>
                     <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-bold">
                         <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                         <span>8 Socket Multi-Session Online</span>
@@ -456,7 +456,7 @@ html_content = f'''<!DOCTYPE html>
                     </div>
                 </div>
 
-                <!-- STREAM / DOWNLOAD ACTION BUTTONS (CONNECTED TO BOT 127.0.0.1:8080) -->
+                <!-- STREAM / DOWNLOAD ACTION BUTTONS (CONNECTED TO CLOUD BOT STREAMER) -->
                 <div class="pt-2 flex flex-col sm:flex-row items-center gap-3">
                     <button onclick="triggerStream('stream')" class="w-full sm:flex-1 py-3.5 rounded-xl bg-brand-gold text-brand-black font-extrabold text-xs hover:bg-brand-goldDark transition flex items-center justify-center gap-2 gold-glow">
                         <i class="fa-solid fa-play"></i>
@@ -532,9 +532,9 @@ html_content = f'''<!DOCTYPE html>
 
             <div class="space-y-3 text-xs">
                 <div>
-                    <label class="block text-brand-muted mb-1 text-[11px]">Local Bot Streamer Address:</label>
+                    <label class="block text-brand-muted mb-1 text-[11px]">Cloud Bot Streamer Address:</label>
                     <input type="text" id="botBaseUrlInput" class="w-full p-2.5 rounded-xl bg-brand-dark border border-white/10 text-white font-mono text-xs focus:outline-none focus:border-brand-gold">
-                    <span class="text-[10px] text-brand-muted">Default: <code>http://127.0.0.1:8080</code> (Local Python ByteStreamer)</span>
+                    <span class="text-[10px] text-brand-muted">Default: <code>https://telegram-filter-bot.onrender.com</code> (Cloud Python ByteStreamer)</span>
                 </div>
                 <div>
                     <label class="block text-brand-muted mb-1 text-[11px]">Gemini API Key (Optional for AI Search):</label>
@@ -602,7 +602,13 @@ html_content = f'''<!DOCTYPE html>
         let activeCategory = '';
         let selectedYear = null;
         let selectedMonth = null;
-        let botBaseUrl = localStorage.getItem('cinevibe_bot_url') || 'http://127.0.0.1:8080';
+        const DEFAULT_BOT_URL = 'https://telegram-filter-bot.onrender.com';
+        let savedBotUrl = (localStorage.getItem('cinevibe_bot_url') || '').trim().replace(/\/+$/, '');
+        if (!savedBotUrl || savedBotUrl.includes('127.0.0.1') || savedBotUrl.includes('localhost')) {{
+            savedBotUrl = DEFAULT_BOT_URL;
+            localStorage.setItem('cinevibe_bot_url', savedBotUrl);
+        }}
+        let botBaseUrl = savedBotUrl;
         let geminiApiKey = localStorage.getItem('cinevibe_gemini_key') || '';
 
         // Auto-Sync Dynamic Catalog from Bot API or updated JSON
@@ -610,7 +616,7 @@ html_content = f'''<!DOCTYPE html>
             try {{
                 let res = null;
                 try {{
-                    res = await fetch('http://127.0.0.1:8080/api/catalog');
+                    res = await fetch(`${{botBaseUrl}}/api/catalog`);
                 }} catch (e) {{}}
                 if (!res || !res.ok) {{
                     res = await fetch('/catalog.json?v=' + Date.now());
@@ -1075,8 +1081,11 @@ html_content = f'''<!DOCTYPE html>
 
         function copyStreamLink() {{
             if (!selectedMovie) return;
+            const fileId = selectedMovie.file_id || '';
             const sanitizedName = encodeURIComponent(selectedMovie.file_name.replace(/\\s+/g, '+') + '.mkv');
-            const streamUrl = `${{botBaseUrl}}/${{selectedMovie.stream_msg_id}}/${{sanitizedName}}?hash=${{selectedMovie.stream_hash}}`;
+            const streamUrl = fileId
+                ? `${{botBaseUrl}}/watch_file/${{fileId}}`
+                : `${{botBaseUrl}}/${{selectedMovie.stream_msg_id}}/${{sanitizedName}}?hash=${{selectedMovie.stream_hash}}`;
             navigator.clipboard.writeText(streamUrl).then(() => {{
                 showToast("Stream link copied to clipboard!");
             }});

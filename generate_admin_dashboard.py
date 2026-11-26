@@ -797,7 +797,7 @@ admin_html = f'''<!DOCTYPE html>
                         </div>
 
                         <div>
-                            <label class="block text-studio-muted mb-1 text-[11px] font-semibold">Local Bot Streamer Address:</label>
+                            <label class="block text-studio-muted mb-1 text-[11px] font-semibold">Cloud Bot Streamer Address:</label>
                             <input type="text" id="cfgBotUrl" class="w-full p-2.5 rounded-xl bg-studio-card border border-studio-border text-white font-mono text-xs focus:outline-none focus:border-studio-gold">
                         </div>
 
@@ -825,7 +825,13 @@ admin_html = f'''<!DOCTYPE html>
         let tmdbKey = localStorage.getItem('cinevibe_tmdb_key') || TMDB_DEFAULT_KEY;
         let tmdbToken = localStorage.getItem('cinevibe_tmdb_token') || TMDB_DEFAULT_TOKEN;
         let geminiKey = localStorage.getItem('cinevibe_gemini_key') || '';
-        let botUrl = localStorage.getItem('cinevibe_bot_url') || 'http://127.0.0.1:8080';
+        const DEFAULT_BOT_URL = 'https://telegram-filter-bot.onrender.com';
+        let savedBotUrl = (localStorage.getItem('cinevibe_bot_url') || '').trim().replace(/\/+$/, '');
+        if (!savedBotUrl || savedBotUrl.includes('127.0.0.1') || savedBotUrl.includes('localhost')) {{
+            savedBotUrl = DEFAULT_BOT_URL;
+            localStorage.setItem('cinevibe_bot_url', savedBotUrl);
+        }}
+        let botUrl = savedBotUrl;
         let currentMirror = localStorage.getItem('cinevibe_active_mirror') || 'https://cinevibe-cinema.surge.sh';
 
         // Security Vault State
@@ -1250,8 +1256,11 @@ admin_html = f'''<!DOCTYPE html>
         function testStream(id) {{
             const m = MOVIES_CATALOG.find(x => x.id === id);
             if (!m) return;
+            const fileId = m.file_id || '';
             const sanitizedName = encodeURIComponent(m.file_name.replace(/\\s+/g, '+') + '.mkv');
-            const streamUrl = `${{botUrl}}/${{m.stream_msg_id}}/${{sanitizedName}}?hash=${{m.stream_hash}}`;
+            const streamUrl = fileId
+                ? `${{botUrl}}/watch_file/${{fileId}}`
+                : `${{botUrl}}/${{m.stream_msg_id}}/${{sanitizedName}}?hash=${{m.stream_hash}}`;
             showToast(`Opening stream test: ${{streamUrl}}`);
             window.open(streamUrl, '_blank');
         }}
@@ -1481,12 +1490,12 @@ admin_html = f'''<!DOCTYPE html>
             try {{
                 const res = await fetch(`${{botUrl}}/`, {{ method: 'GET', mode: 'no-cors' }});
                 icon.className = 'fa-solid fa-check text-studio-emerald';
-                txt.innerText = '8080 Online';
-                showToast("Telegram Bot ByteStreamer is running online on port 8080!");
+                txt.innerText = 'Bot Online';
+                showToast("Telegram Bot ByteStreamer is running online!");
             }} catch (e) {{
                 icon.className = 'fa-solid fa-triangle-exclamation text-rose-500';
-                txt.innerText = '8080 Offline';
-                showToast("ByteStreamer offline or unreachable on 127.0.0.1:8080", true);
+                txt.innerText = 'Bot Offline';
+                showToast(`ByteStreamer offline or unreachable at ${{botUrl}}`, true);
             }}
         }}
 
